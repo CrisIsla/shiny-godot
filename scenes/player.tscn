@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://3ahfed8bxgqy"]
+[gd_scene load_steps=23 format=3 uid="uid://3ahfed8bxgqy"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_3fe32"]
 [ext_resource type="Texture2D" uid="uid://d3wxmvb7675ac" path="res://assets/player/Owlet_Monster_Idle_4.png" id="1_3jku0"]
@@ -12,57 +12,6 @@
 radius = 8.0
 height = 26.0
 
-[sub_resource type="Animation" id="Animation_vvrtw"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [ExtResource("1_3jku0")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:vframes")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite2D:hframes")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [4]
-}
-
 [sub_resource type="Animation" id="Animation_85ado"]
 resource_name = "attack_1"
 length = 0.4
@@ -70,49 +19,49 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("Pivot/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
+"update": 1,
 "values": [0, 1, 2, 3]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/path = NodePath("Pivot/Sprite2D:texture")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
+"update": 1,
 "values": [ExtResource("4_jvrpg")]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:vframes")
+tracks/2/path = NodePath("Pivot/Sprite2D:vframes")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
+"update": 1,
 "values": [1]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite2D:hframes")
+tracks/3/path = NodePath("Pivot/Sprite2D:hframes")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
+"update": 1,
 "values": [4]
 }
 
@@ -123,49 +72,49 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("Pivot/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.8),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 0,
+"update": 1,
 "values": [0, 1, 2, 3, 4, 5, 0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/path = NodePath("Pivot/Sprite2D:texture")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0.8),
 "transitions": PackedFloat32Array(1),
-"update": 0,
+"update": 1,
 "values": [ExtResource("5_3ux35")]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:vframes")
+tracks/2/path = NodePath("Pivot/Sprite2D:vframes")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0.8),
 "transitions": PackedFloat32Array(1),
-"update": 0,
+"update": 1,
 "values": [1]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite2D:hframes")
+tracks/3/path = NodePath("Pivot/Sprite2D:hframes")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0.8),
 "transitions": PackedFloat32Array(1),
-"update": 0,
+"update": 1,
 "values": [6]
 }
 
@@ -176,7 +125,7 @@ step = 0.15
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/path = NodePath("Pivot/Sprite2D:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -188,7 +137,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/path = NodePath("Pivot/Sprite2D:hframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -200,7 +149,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:vframes")
+tracks/2/path = NodePath("Pivot/Sprite2D:vframes")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -212,7 +161,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite2D:frame")
+tracks/3/path = NodePath("Pivot/Sprite2D:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -230,49 +179,49 @@ step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/path = NodePath("Pivot/Sprite2D:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
+"update": 1,
 "values": [ExtResource("1_3jku0")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/path = NodePath("Pivot/Sprite2D:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.15, 0.3, 0.45),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
+"update": 1,
 "values": [0, 1, 2, 3]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:vframes")
+tracks/2/path = NodePath("Pivot/Sprite2D:vframes")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
+"update": 1,
 "values": [1]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite2D:hframes")
+tracks/3/path = NodePath("Pivot/Sprite2D:hframes")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
+"update": 1,
 "values": [4]
 }
 
@@ -284,49 +233,49 @@ step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("Pivot/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 0,
+"update": 1,
 "values": [0, 1, 2, 3, 4, 5]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/path = NodePath("Pivot/Sprite2D:texture")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
+"update": 1,
 "values": [ExtResource("3_1b8c2")]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:vframes")
+tracks/2/path = NodePath("Pivot/Sprite2D:vframes")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
+"update": 1,
 "values": [1]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite2D:hframes")
+tracks/3/path = NodePath("Pivot/Sprite2D:hframes")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
+"update": 1,
 "values": [6]
 }
 
@@ -338,55 +287,54 @@ step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("Pivot/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.15, 0.3, 0.45, 0.6, 0.75),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 0,
+"update": 1,
 "values": [0, 1, 2, 3, 4, 5]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/path = NodePath("Pivot/Sprite2D:texture")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
+"update": 1,
 "values": [ExtResource("2_mjhra")]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:vframes")
+tracks/2/path = NodePath("Pivot/Sprite2D:vframes")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
+"update": 1,
 "values": [1]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite2D:hframes")
+tracks/3/path = NodePath("Pivot/Sprite2D:hframes")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
+"update": 1,
 "values": [6]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xe7dn"]
 _data = {
-"RESET": SubResource("Animation_vvrtw"),
 "attack_1": SubResource("Animation_85ado"),
 "attack_2": SubResource("Animation_t0ag8"),
 "hurt": SubResource("Animation_vdqe2"),
@@ -395,13 +343,39 @@ _data = {
 "walk": SubResource("Animation_cir7r")
 }
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_g8nwu"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_i1jo6"]
+animation = &"run"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_p4q7f"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_dho6d"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_27453"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_ayclc"]
+states/Start/position = Vector2(174, 70)
+states/idle/node = SubResource("AnimationNodeAnimation_g8nwu")
+states/idle/position = Vector2(316, 70)
+states/run/node = SubResource("AnimationNodeAnimation_i1jo6")
+states/run/position = Vector2(430, 70)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_p4q7f"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_dho6d"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_27453")]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_03kxt"]
+
 [node name="player" type="CharacterBody2D"]
 script = ExtResource("1_3fe32")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Pivot" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Pivot"]
 position = Vector2(0, -16)
 texture = ExtResource("1_3jku0")
 hframes = 4
+frame = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, -13)
@@ -411,3 +385,9 @@ shape = SubResource("CapsuleShape2D_xmfro")
 libraries = {
 "": SubResource("AnimationLibrary_xe7dn")
 }
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_ayclc")
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource("AnimationNodeStateMachinePlayback_03kxt")
