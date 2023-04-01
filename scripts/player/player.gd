@@ -12,6 +12,8 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var animation_tree = $AnimationTree
 @onready var playback = animation_tree.get("parameters/playback")
 
+func _ready():
+	animation_tree.active = true
 
 func _physics_process(delta):
 	var direction = get_movement()
@@ -34,6 +36,9 @@ func _physics_process(delta):
 	
 	if not velocity.x:
 		playback.travel("idle")
+	
+	if velocity.y < 0:
+		playback.travel("jump")
 	
 	move_and_slide()
 
