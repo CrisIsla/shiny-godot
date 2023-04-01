@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://f5038l1sxct4" path="res://assets/player/Owlet_Monster_Attack1_4.png" id="4_jvrpg"]
 [ext_resource type="Texture2D" uid="uid://4edwchxuxnn0" path="res://assets/player/Owlet_Monster_Attack2_6.png" id="5_3ux35"]
 [ext_resource type="Texture2D" uid="uid://p0owwxqe06q7" path="res://assets/player/Owlet_Monster_Hurt_4.png" id="6_pc3jk"]
+[ext_resource type="Texture2D" uid="uid://dyoovh7t7e6n" path="res://assets/player/Owlet_Monster_Jump_8.png" id="8_btovt"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xmfro"]
 radius = 8.0
@@ -333,12 +334,65 @@ tracks/3/keys = {
 "values": [6]
 }
 
+[sub_resource type="Animation" id="Animation_woy7a"]
+resource_name = "jump"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("8_btovt")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xe7dn"]
 _data = {
 "attack_1": SubResource("Animation_85ado"),
 "attack_2": SubResource("Animation_t0ag8"),
 "hurt": SubResource("Animation_vdqe2"),
 "idle": SubResource("Animation_ic6at"),
+"jump": SubResource("Animation_woy7a"),
 "run": SubResource("Animation_hwr4v"),
 "walk": SubResource("Animation_cir7r")
 }
