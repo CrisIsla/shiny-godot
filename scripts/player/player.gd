@@ -6,6 +6,7 @@ const JUMP_VELOCITY = -400.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var is_falling = false
 
 @onready var pivot = $Pivot
 @onready var animationPlayer = $AnimationPlayer
@@ -23,6 +24,7 @@ func _physics_process(delta):
 
 	# Handle Jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
+		playback.travel("jump_prep")
 		jump()
 		
 	if Input.is_action_just_pressed("attack"):
@@ -39,6 +41,14 @@ func _physics_process(delta):
 	
 	if velocity.y < 0:
 		playback.travel("jump")
+	
+	if velocity.y > 0:
+		playback.travel("fall")
+		is_falling = true
+	
+	if is_falling and is_on_floor():
+		playback.travel("landing")
+		is_falling = false
 	
 	move_and_slide()
 
