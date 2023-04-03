@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-const SPEED = 300.0
+@export var speed = 300.0
 const JUMP_VELOCITY = -400.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -18,13 +18,11 @@ func _ready():
 
 func _physics_process(delta):
 	var direction = get_movement()
-	# Add the gravity.
+
 	if not is_on_floor():
 		apply_gravity(delta)
 
-	# Handle Jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-		playback.travel("jump_prep")
 		jump()
 		
 	if Input.is_action_just_pressed("attack"):
@@ -32,7 +30,29 @@ func _physics_process(delta):
 	
 	# handle anmimations
 	handle_sprite_direction(direction)
+	handle_movement_animations()
 	
+	move_and_slide()
+
+func apply_gravity(delta):
+	velocity.y += gravity * delta
+
+func jump():
+	velocity.y = JUMP_VELOCITY
+	
+func get_movement():
+	var direction = Input.get_axis("move_left", "move_right")
+	if direction:
+		velocity.x = direction * speed
+	else:
+		velocity.x = move_toward(velocity.x, 0, speed)
+	
+	return direction
+	
+func attack():
+	pass
+
+func handle_movement_animations():
 	if abs(velocity.x) > 0:
 		playback.travel("run")
 	
@@ -49,26 +69,6 @@ func _physics_process(delta):
 	if is_falling and is_on_floor():
 		playback.travel("landing")
 		is_falling = false
-	
-	move_and_slide()
-
-func apply_gravity(delta):
-	velocity.y += gravity * delta
-	
-func jump():
-	velocity.y = JUMP_VELOCITY
-	
-func get_movement():
-	var direction = Input.get_axis("move_left", "move_right")
-	if direction:
-		velocity.x = direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-	
-	return direction
-	
-func attack():
-	pass
 
 func handle_sprite_direction(direction):
 	if direction:
