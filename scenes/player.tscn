@@ -647,9 +647,8 @@ script = ExtResource("1_3fe32")
 
 [node name="Sprite2D" type="Sprite2D" parent="Pivot"]
 position = Vector2(0, -16)
-texture = ExtResource("8_btovt")
-hframes = 8
-frame = 4
+texture = ExtResource("4_jvrpg")
+hframes = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, -13)
