@@ -54,7 +54,7 @@ func attack():
 	pass
 
 func handle_movement_animations():
-	if abs(velocity.x) > 0:
+	if abs(velocity.x):
 		playback.travel("run")
 	
 	if not velocity.x:
