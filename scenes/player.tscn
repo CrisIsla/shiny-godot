@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://3ahfed8bxgqy"]
+[gd_scene load_steps=48 format=3 uid="uid://3ahfed8bxgqy"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_3fe32"]
 [ext_resource type="Texture2D" uid="uid://d3wxmvb7675ac" path="res://assets/player/Owlet_Monster_Idle_4.png" id="1_3jku0"]
@@ -792,6 +792,9 @@ animation = &"landing"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_i1jo6"]
 animation = &"run"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_no7yl"]
+animation = &"run_turn"
+
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_p4q7f"]
 advance_mode = 2
 
@@ -819,6 +822,16 @@ switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tmuwx"]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_b4urn"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fi2aw"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ui24w"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4sueg"]
+switch_mode = 2
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_ayclc"]
 states/Start/position = Vector2(-121, 27)
 states/fall/node = SubResource("AnimationNodeAnimation_m0202")
@@ -833,8 +846,10 @@ states/landing/node = SubResource("AnimationNodeAnimation_lnqkf")
 states/landing/position = Vector2(732, -105)
 states/run/node = SubResource("AnimationNodeAnimation_i1jo6")
 states/run/position = Vector2(508, 115)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_p4q7f"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_dho6d"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_27453"), "jump_prep", "jump", SubResource("AnimationNodeStateMachineTransition_d2lu3"), "jump", "fall", SubResource("AnimationNodeStateMachineTransition_ex1hv"), "idle", "jump_prep", SubResource("AnimationNodeStateMachineTransition_1377r"), "run", "jump_prep", SubResource("AnimationNodeStateMachineTransition_48112"), "fall", "landing", SubResource("AnimationNodeStateMachineTransition_0o3rs"), "landing", "run", SubResource("AnimationNodeStateMachineTransition_yioqn"), "landing", "idle", SubResource("AnimationNodeStateMachineTransition_jck8a"), "run", "fall", SubResource("AnimationNodeStateMachineTransition_lasll"), "idle", "fall", SubResource("AnimationNodeStateMachineTransition_tmuwx")]
-graph_offset = Vector2(-176, -133)
+states/run_turn/node = SubResource("AnimationNodeAnimation_no7yl")
+states/run_turn/position = Vector2(291.521, 236.942)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_p4q7f"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_dho6d"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_27453"), "jump_prep", "jump", SubResource("AnimationNodeStateMachineTransition_d2lu3"), "jump", "fall", SubResource("AnimationNodeStateMachineTransition_ex1hv"), "idle", "jump_prep", SubResource("AnimationNodeStateMachineTransition_1377r"), "run", "jump_prep", SubResource("AnimationNodeStateMachineTransition_48112"), "fall", "landing", SubResource("AnimationNodeStateMachineTransition_0o3rs"), "landing", "run", SubResource("AnimationNodeStateMachineTransition_yioqn"), "landing", "idle", SubResource("AnimationNodeStateMachineTransition_jck8a"), "run", "fall", SubResource("AnimationNodeStateMachineTransition_lasll"), "idle", "fall", SubResource("AnimationNodeStateMachineTransition_tmuwx"), "idle", "run_turn", SubResource("AnimationNodeStateMachineTransition_b4urn"), "run", "run_turn", SubResource("AnimationNodeStateMachineTransition_fi2aw"), "run_turn", "idle", SubResource("AnimationNodeStateMachineTransition_ui24w"), "run_turn", "run", SubResource("AnimationNodeStateMachineTransition_4sueg")]
+graph_offset = Vector2(-243.479, -24.7252)
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_03kxt"]
 
