@@ -9,6 +9,7 @@ const ACCELERATION = 25.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var is_falling = false
 var direction
+var is_turning = false
 
 @onready var pivot = $Pivot
 @onready var animationPlayer = $AnimationPlayer
@@ -31,7 +32,7 @@ func _physics_process(delta):
 		attack()
 	
 	
-	handle_sprite_direction()
+	#handle_sprite_direction()
 	handle_movement_animations()
 	
 	get_movement()
@@ -44,7 +45,11 @@ func jump():
 	velocity.y = JUMP_VELOCITY
 	
 func get_direction():
-	return Input.get_axis("move_left", "move_right")
+	var direction_input = Input.get_axis("move_left", "move_right")
+	
+	
+		
+	return direction_input
 	
 func get_movement():
 	if direction:
@@ -56,10 +61,10 @@ func attack():
 	pass
 
 func handle_movement_animations():
-	if direction:
+	if abs(velocity.x) > 0:
 		playback.travel("run")
 	
-	if not velocity.x:
+	if velocity.x == 0:
 		playback.travel("idle")
 	
 	if velocity.y < 0:
@@ -72,8 +77,17 @@ func handle_movement_animations():
 	if is_falling and is_on_floor():
 		playback.travel("landing")
 		is_falling = false
+	
+	print()
+	if velocity.x and direction and sign(velocity.x) != sign(direction):
+		print('HERE')
+		print(velocity.x)
+		print()
+		playback.travel("run_turn")
 		
-
 func handle_sprite_direction():
 	if direction:
 		pivot.scale.x = sign(direction)
+		
+
+
