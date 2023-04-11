@@ -3,12 +3,13 @@ extends CharacterBody2D
 
 @export var speed = 300.0
 const JUMP_VELOCITY = -400.0
-const ACCELERATION = 25.0
+const ACCELERATION = 15
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var is_falling = false
 var direction
+var last_direction
 
 @onready var pivot = $Pivot
 @onready var animationPlayer = $AnimationPlayer
@@ -20,6 +21,7 @@ func _ready():
 
 func _physics_process(delta):
 	direction = get_direction()
+	set_last_direction()
 
 	if not is_on_floor():
 		apply_gravity(delta)
@@ -30,8 +32,7 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("attack"):
 		attack()
 	
-	
-	handle_sprite_direction()
+
 	handle_movement_animations()
 	
 	get_movement()
@@ -57,7 +58,12 @@ func attack():
 
 func handle_movement_animations():
 	if direction:
-		playback.travel("run")
+		var sprite_direction = pivot.scale.x
+		if sprite_direction != direction:
+			playback.travel("run_turn")
+			
+		else:
+			playback.travel("run")
 	
 	if not velocity.x:
 		playback.travel("idle")
@@ -72,8 +78,10 @@ func handle_movement_animations():
 	if is_falling and is_on_floor():
 		playback.travel("landing")
 		is_falling = false
-		
-
+	
 func handle_sprite_direction():
+	pivot.scale.x = last_direction
+
+func set_last_direction():
 	if direction:
-		pivot.scale.x = sign(direction)
+		last_direction = direction
