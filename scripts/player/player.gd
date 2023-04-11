@@ -9,7 +9,7 @@ const ACCELERATION = 15
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var is_falling = false
 var direction
-var last_direction
+var last_direction = 1
 
 @onready var pivot = $Pivot
 @onready var animationPlayer = $AnimationPlayer
@@ -57,8 +57,8 @@ func attack():
 	pass
 
 func handle_movement_animations():
+	var sprite_direction = pivot.scale.x
 	if direction:
-		var sprite_direction = pivot.scale.x
 		if sprite_direction != direction:
 			playback.travel("run_turn")
 			
@@ -74,10 +74,13 @@ func handle_movement_animations():
 	if velocity.y > 0:
 		playback.travel("fall")
 		is_falling = true
-	
+		
 	if is_falling and is_on_floor():
 		playback.travel("landing")
 		is_falling = false
+	
+#	if is_falling and direction and sprite_direction != direction:
+#		playback.travel("jump_turn")
 	
 func handle_sprite_direction():
 	pivot.scale.x = last_direction
