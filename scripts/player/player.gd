@@ -15,9 +15,11 @@ var last_direction = 1
 @onready var animationPlayer = $AnimationPlayer
 @onready var animation_tree = $AnimationTree
 @onready var playback = animation_tree.get("parameters/playback")
+@onready var hitbox = $Pivot/Area2D/hitbox
 
 func _ready():
 	animation_tree.active = true
+	hitbox.disabled = true
 
 func _physics_process(delta):
 	direction = get_direction()
@@ -82,6 +84,9 @@ func handle_movement_animations():
 #	if is_falling and direction and sprite_direction != direction:
 #		playback.travel("jump_turn")
 	
+	if not velocity.x and Input.is_action_just_pressed("attack"):
+		playback.travel("attack_1")
+
 func handle_sprite_direction():
 	pivot.scale.x = last_direction
 
