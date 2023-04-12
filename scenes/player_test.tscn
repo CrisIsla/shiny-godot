@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bssvrihxyenlq" path="res://icon.svg" id="1_82bpa"]
 [ext_resource type="PackedScene" uid="uid://3ahfed8bxgqy" path="res://scenes/player.tscn" id="2_ik7fc"]
-[ext_resource type="PackedScene" uid="uid://m0okvq174s1o" path="res://scenes/enemy.tscn" id="3_mk283"]
+[ext_resource type="PackedScene" uid="uid://b1av8buoob2po" path="res://scenes/enemy.tscn" id="3_mk283"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bc4e8"]
 size = Vector2(286.303, 20)
