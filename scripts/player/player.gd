@@ -90,6 +90,9 @@ func handle_movement_animations():
 	
 	if direction and sprite_direction != direction and !is_on_floor():
 		playback.travel("jump_turn")
+	
+	if Input.is_action_just_pressed("attack"):
+		playback.travel("attack_1")
 
 func handle_sprite_direction():
 	pivot.scale.x = last_direction
