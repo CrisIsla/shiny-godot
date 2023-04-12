@@ -14,11 +14,11 @@ var direction
 @onready var animationPlayer = $AnimationPlayer
 @onready var animation_tree = $AnimationTree
 @onready var playback = animation_tree.get("parameters/playback")
-@onready var hurtbox = $Pivot/Area2D/hurtbox
+@onready var hitbox = $Pivot/Area2D/hitbox
 
 func _ready():
 	animation_tree.active = true
-	hurtbox.disabled = true
+	hitbox.disabled = true
 
 func _physics_process(delta):
 	direction = get_direction()
