@@ -1,11 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://b1av8buoob2po"]
+[gd_scene load_steps=9 format=3 uid="uid://b1av8buoob2po"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_wphco"]
 [ext_resource type="Texture2D" uid="uid://dthmbvm7j8mdm" path="res://assets/enemy/Bringer-of-Death/Bringer-of-Death-SpritSheet.png" id="2_wwbpn"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gww7s"]
-radius = 18.0
-height = 52.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rmsng"]
+size = Vector2(27, 5)
 
 [sub_resource type="Animation" id="Animation_0s4p2"]
 length = 0.001
@@ -90,7 +89,6 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_uph56"]
 resource_name = "idle_turn"
 length = 1.2
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -148,8 +146,34 @@ tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.3, 0.9),
 "transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
+"update": 1,
 "values": [Vector2(1, 1), Vector2(-1, 1), Vector2(1, 1)]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("..")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"values": [{
+"args": [false],
+"method": &"set_is_killable"
+}, {
+"args": [true],
+"method": &"set_is_killable"
+}, {
+"args": [false],
+"method": &"set_is_killable"
+}, {
+"args": [true],
+"method": &"set_is_killable"
+}, {
+"args": [false],
+"method": &"set_is_killable"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_s1l57"]
@@ -159,18 +183,8 @@ _data = {
 "idle_turn": SubResource("Animation_uph56")
 }
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tcvyl"]
-animation = &"idle"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mtwk2"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_7bsfe"]
-states/idle/node = SubResource("AnimationNodeAnimation_tcvyl")
-states/idle/position = Vector2(342, 100)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_mtwk2")]
-
-[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_nawgf"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_yntbm"]
+radius = 24.0
 
 [node name="Enemy" type="CharacterBody2D"]
 script = ExtResource("1_wphco")
@@ -189,8 +203,8 @@ hframes = 8
 vframes = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -26)
-shape = SubResource("CapsuleShape2D_gww7s")
+position = Vector2(-0.5, -2.5)
+shape = SubResource("RectangleShape2D_rmsng")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../CollisionShape2D")
@@ -198,7 +212,11 @@ libraries = {
 "": SubResource("AnimationLibrary_s1l57")
 }
 
-[node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource("AnimationNodeStateMachine_7bsfe")
-anim_player = NodePath("../AnimationPlayer")
-parameters/playback = SubResource("AnimationNodeStateMachinePlayback_nawgf")
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -29)
+shape = SubResource("CircleShape2D_yntbm")
+debug_color = Color(0.780392, 0.403922, 0.443137, 0.419608)
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
