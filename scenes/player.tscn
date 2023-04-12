@@ -105,7 +105,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("Pivot/Area2D/hurtbox:disabled")
+tracks/7/path = NodePath("Pivot/Area2D/hitbox:disabled")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -169,7 +169,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Pivot/Area2D/hurtbox:disabled")
+tracks/4/path = NodePath("Pivot/Area2D/hitbox:disabled")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -901,12 +901,12 @@ script = ExtResource("1_3fe32")
 
 [node name="Sprite2D" type="Sprite2D" parent="Pivot"]
 position = Vector2(0, -16)
-texture = ExtResource("4_jvrpg")
+texture = ExtResource("1_3jku0")
 hframes = 4
 
 [node name="Area2D" type="Area2D" parent="Pivot"]
 
-[node name="hurtbox" type="CollisionShape2D" parent="Pivot/Area2D"]
+[node name="hitbox" type="CollisionShape2D" parent="Pivot/Area2D"]
 position = Vector2(11, -13)
 shape = SubResource("RectangleShape2D_q46ix")
 
