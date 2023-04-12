@@ -21,6 +21,13 @@ func _ready():
 	animation_tree.active = true
 	hitbox.disabled = true
 
+func _input(event):
+	if event.is_action_pressed("reset"):
+		get_tree().reload_current_scene()
+		
+	if event.is_action_pressed("exit"):
+		get_tree().quit()
+
 func _physics_process(delta):
 	direction = get_direction()
 	set_last_direction()
@@ -81,11 +88,8 @@ func handle_movement_animations():
 		playback.travel("landing")
 		is_falling = false
 	
-#	if is_falling and direction and sprite_direction != direction:
-#		playback.travel("jump_turn")
-	
-	if not velocity.x and Input.is_action_just_pressed("attack"):
-		playback.travel("attack_1")
+	if direction and sprite_direction != direction and !is_on_floor():
+		playback.travel("jump_turn")
 
 func handle_sprite_direction():
 	pivot.scale.x = last_direction
