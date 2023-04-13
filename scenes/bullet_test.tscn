@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://c04p5iymmhdgs"]
+
+[ext_resource type="Script" path="res://scripts/bullet_test.gd" id="1_nnca2"]
+[ext_resource type="Texture2D" uid="uid://7oe45wnefcto" path="res://assets/Projectiles/bolt/bolt1.png" id="1_odds1"]
+[ext_resource type="Texture2D" uid="uid://b4oqn7i4255gc" path="res://assets/Projectiles/bolt/bolt2.png" id="2_3bikd"]
+[ext_resource type="Texture2D" uid="uid://h6iet86e3lu2" path="res://assets/Projectiles/bolt/bolt3.png" id="3_1vmfh"]
+[ext_resource type="Texture2D" uid="uid://c7osliboqs328" path="res://assets/Projectiles/bolt/bolt4.png" id="4_ahvt4"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lcmyi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_odds1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_3bikd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_1vmfh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ahvt4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rwjqk"]
+radius = 3.0
+height = 18.0
+
+[node name="bullet_test" type="Node2D"]
+script = ExtResource("1_nnca2")
+SPEED = 200
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_lcmyi")
+frame_progress = 0.359843
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-18, 0)
+shape = SubResource("CapsuleShape2D_rwjqk")
+debug_color = Color(0.992157, 0, 0.278431, 0.419608)
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
