@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://c04p5iymmhdgs"]
 
 [ext_resource type="Script" path="res://scripts/bullet_test.gd" id="1_nnca2"]
-[ext_resource type="Texture2D" uid="uid://7oe45wnefcto" path="res://assets/Projectiles/bolt/bolt1.png" id="1_odds1"]
-[ext_resource type="Texture2D" uid="uid://b4oqn7i4255gc" path="res://assets/Projectiles/bolt/bolt2.png" id="2_3bikd"]
-[ext_resource type="Texture2D" uid="uid://h6iet86e3lu2" path="res://assets/Projectiles/bolt/bolt3.png" id="3_1vmfh"]
-[ext_resource type="Texture2D" uid="uid://c7osliboqs328" path="res://assets/Projectiles/bolt/bolt4.png" id="4_ahvt4"]
+[ext_resource type="Texture2D" uid="uid://5clq3ohat1r5" path="res://assets/Projectiles/bolt/bolt1.png" id="1_odds1"]
+[ext_resource type="Texture2D" uid="uid://ctpxbwueh7el6" path="res://assets/Projectiles/bolt/bolt2.png" id="2_3bikd"]
+[ext_resource type="Texture2D" uid="uid://d0bxnd4gpe3h1" path="res://assets/Projectiles/bolt/bolt3.png" id="3_1vmfh"]
+[ext_resource type="Texture2D" uid="uid://bb2s3d48p65yq" path="res://assets/Projectiles/bolt/bolt4.png" id="4_ahvt4"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_lcmyi"]
 animations = [{
