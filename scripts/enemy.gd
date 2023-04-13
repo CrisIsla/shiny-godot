@@ -9,15 +9,12 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var is_killable = false
 
 @onready var animationPlayer = $AnimationPlayer
-#@onready var animation_tree = $AnimationTree
-#@onready var playback = animation_tree.get("parameters/playback")
 
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
 		
-
 	move_and_slide()
 
 func set_is_killable(argument: bool):
