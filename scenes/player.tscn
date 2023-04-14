@@ -681,7 +681,7 @@ tracks/11/path = NodePath("CollisionShape2D:disabled")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
-"times": PackedFloat32Array(0, 0.09, 0.17),
+"times": PackedFloat32Array(0, 0.06, 0.2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
@@ -940,7 +940,7 @@ tracks/11/path = NodePath("Area2D/hurtbox:disabled")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
-"times": PackedFloat32Array(-0.01, 0.03, 0.05, 0.22),
+"times": PackedFloat32Array(-0.01, 0.03, 0.09, 0.17),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [false, false, true, false]
@@ -1149,7 +1149,7 @@ states/landing/position = Vector2(732, -105)
 states/run/node = SubResource("AnimationNodeAnimation_i1jo6")
 states/run/position = Vector2(508, 115)
 states/run_turn/node = SubResource("AnimationNodeAnimation_no7yl")
-states/run_turn/position = Vector2(291.521, 236.942)
+states/run_turn/position = Vector2(290.521, 255.942)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_p4q7f"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_dho6d"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_27453"), "jump_prep", "jump", SubResource("AnimationNodeStateMachineTransition_d2lu3"), "jump", "fall", SubResource("AnimationNodeStateMachineTransition_ex1hv"), "idle", "jump_prep", SubResource("AnimationNodeStateMachineTransition_1377r"), "run", "jump_prep", SubResource("AnimationNodeStateMachineTransition_48112"), "fall", "landing", SubResource("AnimationNodeStateMachineTransition_0o3rs"), "landing", "run", SubResource("AnimationNodeStateMachineTransition_yioqn"), "landing", "idle", SubResource("AnimationNodeStateMachineTransition_jck8a"), "run", "fall", SubResource("AnimationNodeStateMachineTransition_lasll"), "idle", "fall", SubResource("AnimationNodeStateMachineTransition_tmuwx"), "idle", "run_turn", SubResource("AnimationNodeStateMachineTransition_b4urn"), "run", "run_turn", SubResource("AnimationNodeStateMachineTransition_fi2aw"), "run_turn", "idle", SubResource("AnimationNodeStateMachineTransition_ui24w"), "run_turn", "run", SubResource("AnimationNodeStateMachineTransition_4sueg"), "idle", "attack_1", SubResource("AnimationNodeStateMachineTransition_aiysg"), "attack_1", "idle", SubResource("AnimationNodeStateMachineTransition_ypql5"), "jump", "jump_turn", SubResource("AnimationNodeStateMachineTransition_vyhfe"), "fall", "jump_turn", SubResource("AnimationNodeStateMachineTransition_bm313"), "jump_turn", "fall", SubResource("AnimationNodeStateMachineTransition_okj2p"), "jump_prep", "jump_turn", SubResource("AnimationNodeStateMachineTransition_jkaxl"), "run", "attack_1", SubResource("AnimationNodeStateMachineTransition_88iwy"), "attack_1", "run", SubResource("AnimationNodeStateMachineTransition_p3bww"), "jump", "attack_1", SubResource("AnimationNodeStateMachineTransition_edag2"), "jump_prep", "attack_1", SubResource("AnimationNodeStateMachineTransition_opf5m"), "fall", "attack_1", SubResource("AnimationNodeStateMachineTransition_oj3wk")]
 graph_offset = Vector2(-368.479, -265.811)
 
