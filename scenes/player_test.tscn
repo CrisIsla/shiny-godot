@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://3ahfed8bxgqy" path="res://scenes/player.tscn" id="2_ik7fc"]
 [ext_resource type="PackedScene" uid="uid://b1av8buoob2po" path="res://scenes/enemy.tscn" id="3_mk283"]
 [ext_resource type="PackedScene" uid="uid://cel8njhqnclsq" path="res://tileset/tileset.tscn" id="3_sp0yv"]
-[ext_resource type="PackedScene" uid="uid://cpstgcmaq8i3" path="res://scenes/tree.tscn" id="6_q00ln"]
+[ext_resource type="PackedScene" path="res://scenes/tree.tscn" id="6_q00ln"]
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(550, 330)
