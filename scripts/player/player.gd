@@ -24,9 +24,6 @@ func _ready():
 func _input(event):
 	if event.is_action_pressed("reset"):
 		get_tree().reload_current_scene()
-		
-	if event.is_action_pressed("exit"):
-		get_tree().quit()
 
 func _physics_process(delta):
 	direction = get_direction()
