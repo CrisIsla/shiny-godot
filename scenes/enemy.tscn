@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dthmbvm7j8mdm" path="res://assets/enemy/Bringer-of-Death/Bringer-of-Death-SpritSheet.png" id="2_wwbpn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rmsng"]
-size = Vector2(27, 5)
+size = Vector2(27, 53)
 
 [sub_resource type="Animation" id="Animation_0s4p2"]
 length = 0.001
@@ -204,7 +204,7 @@ hframes = 8
 vframes = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, -2.5)
+position = Vector2(-0.5, -26.5)
 shape = SubResource("RectangleShape2D_rmsng")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
