@@ -63,7 +63,7 @@ func get_movement():
 		velocity.x = move_toward(velocity.x, 0, ACCELERATION)
 	
 func attack():
-	pass
+	playback.call_deferred("travel", "attack_1")
 
 func handle_movement_animations():
 	var sprite_direction = pivot.scale.x
@@ -90,9 +90,6 @@ func handle_movement_animations():
 	
 	if direction and sprite_direction != direction and !is_on_floor():
 		playback.travel("jump_turn")
-	
-	if Input.is_action_just_pressed("attack"):
-		playback.travel("attack_1")
 
 func handle_sprite_direction():
 	pivot.scale.x = last_direction
