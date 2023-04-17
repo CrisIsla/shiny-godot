@@ -941,7 +941,7 @@ tracks/11/path = NodePath("Area2D/hurtbox:disabled")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
-"times": PackedFloat32Array(-0.01, 0.03, 0.09, 0.17),
+"times": PackedFloat32Array(0, 0.03, 0.09, 0.17),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [false, false, true, false]
@@ -1173,6 +1173,7 @@ texture = ExtResource("3_1b8c2")
 hframes = 6
 
 [node name="Area2D" type="Area2D" parent="Pivot"]
+visible = false
 collision_layer = 8
 collision_mask = 0
 
@@ -1199,6 +1200,7 @@ position = Vector2(0, -48)
 zoom = Vector2(4, 4)
 
 [node name="Area2D" type="Area2D" parent="."]
+visible = false
 
 [node name="hurtbox" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-1, -13)
@@ -1206,5 +1208,6 @@ shape = SubResource("CapsuleShape2D_igw2c")
 debug_color = Color(0.937255, 0.223529, 0.309804, 0.419608)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="PanelContainer" parent="CanvasLayer" instance=ExtResource("9_bxw18")]
