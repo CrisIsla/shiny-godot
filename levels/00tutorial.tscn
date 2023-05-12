@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://cel8njhqnclsq" path="res://tileset/tileset.tscn" id="1_2hvix"]
 [ext_resource type="PackedScene" uid="uid://3ahfed8bxgqy" path="res://scenes/player.tscn" id="2_qcyhj"]
-[ext_resource type="Texture2D" uid="uid://2s82pmjnfnd3" path="res://assets/player/Owlet_Monster.png" id="3_so2id"]
 [ext_resource type="PackedScene" uid="uid://cpstgcmaq8i3" path="res://scenes/tree.tscn" id="4_lxmf2"]
+[ext_resource type="PackedScene" uid="uid://cuni6u8jaxa6h" path="res://scenes/TutorialNPC.tscn" id="4_quq7d"]
 
 [node name="Tutorial" type="Node2D"]
 
@@ -16,6 +16,5 @@ layer_0/tile_data = PackedInt32Array(65534, 65536, 6, 65535, 65536, 6, 0, 65536,
 [node name="player" parent="." instance=ExtResource("2_qcyhj")]
 position = Vector2(-110, -2)
 
-[node name="OwletMonster" type="Sprite2D" parent="."]
-position = Vector2(105, -20)
-texture = ExtResource("3_so2id")
+[node name="TutorialNPC" parent="." instance=ExtResource("4_quq7d")]
+position = Vector2(36, -17)
