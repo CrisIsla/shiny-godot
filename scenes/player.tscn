@@ -1163,8 +1163,8 @@ script = ExtResource("1_3fe32")
 
 [node name="Sprite2D" type="Sprite2D" parent="Pivot/TurnPivot"]
 position = Vector2(0, -16)
-texture = ExtResource("3_1b8c2")
-hframes = 6
+texture = ExtResource("1_3jku0")
+hframes = 4
 
 [node name="Area2D" type="Area2D" parent="Pivot"]
 visible = false
