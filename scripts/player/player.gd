@@ -17,6 +17,8 @@ var last_direction = 1
 @onready var playback = animation_tree.get("parameters/playback")
 @onready var hitbox = $Pivot/Area2D/hitbox
 
+@export var hp = 3
+
 func _ready():
 	animation_tree.active = true
 	hitbox.disabled = true
