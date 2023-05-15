@@ -20,6 +20,7 @@ var last_direction = 1
 @export var hp = 3
 
 func _ready():
+	Game.player = self
 	animation_tree.active = true
 	hitbox.disabled = true
 
