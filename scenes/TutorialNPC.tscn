@@ -180,7 +180,6 @@ label_text = "hola"
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_mmbnc")
 hframes = 4
-frame = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 3)
