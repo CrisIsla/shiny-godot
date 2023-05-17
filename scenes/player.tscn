@@ -1155,6 +1155,7 @@ parameters/playback = SubResource("AnimationNodeStateMachinePlayback_03kxt")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -48)
+zoom = Vector2(0.8, 0.8)
 position_smoothing_speed = 10.0
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -1166,5 +1167,6 @@ shape = SubResource("CapsuleShape2D_igw2c")
 debug_color = Color(0.937255, 0.223529, 0.309804, 0.419608)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="PanelContainer" parent="CanvasLayer" instance=ExtResource("9_bxw18")]

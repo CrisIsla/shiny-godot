@@ -16,6 +16,11 @@ var last_direction = 1
 @onready var animation_tree = $AnimationTree
 @onready var playback = animation_tree.get("parameters/playback")
 @onready var hitbox = $Pivot/Area2D/hitbox
+@onready var canvas_layer = $CanvasLayer
+
+@onready var camera_2d = $Camera2D
+const DEFAULT_ZOOM: Vector2 = Vector2(0.8, 0.8)
+const MIN_ZOOM: Vector2 = Vector2(0.6, 0.6)
 
 @export var hp = 3
 
@@ -23,10 +28,17 @@ func _ready():
 	Game.player = self
 	animation_tree.active = true
 	hitbox.disabled = true
+	canvas_layer.visible = true
 
 func _input(event):
 	if event.is_action_pressed("reset"):
 		get_tree().reload_current_scene()
+	
+	if event.is_action_pressed("camera"):
+		if camera_2d.zoom.x < MIN_ZOOM.x:
+			camera_2d.zoom = DEFAULT_ZOOM
+		else:
+			camera_2d.zoom /= Vector2(2, 2)
 
 func _physics_process(delta):
 	direction = get_direction()
