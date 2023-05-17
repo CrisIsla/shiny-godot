@@ -1155,7 +1155,6 @@ parameters/playback = SubResource("AnimationNodeStateMachinePlayback_03kxt")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -48)
-zoom = Vector2(3, 3)
 position_smoothing_speed = 10.0
 
 [node name="Area2D" type="Area2D" parent="."]
