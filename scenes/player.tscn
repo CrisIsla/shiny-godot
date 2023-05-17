@@ -1119,6 +1119,7 @@ height = 26.0
 [node name="player" type="CharacterBody2D"]
 collision_layer = 16
 collision_mask = 17
+floor_constant_speed = true
 script = ExtResource("1_3fe32")
 
 [node name="Pivot" type="Node2D" parent="."]
