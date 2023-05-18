@@ -1,9 +1,9 @@
 extends CharacterBody2D
 class_name Player
 
-@export var speed = 250.0
 const JUMP_VELOCITY = -400.0
 const ACCELERATION = 15
+const SPEED = 250.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -74,7 +74,7 @@ func get_direction():
 	
 func get_movement():
 	if direction:
-		velocity.x = move_toward(velocity.x, direction * speed, ACCELERATION)
+		velocity.x = move_toward(velocity.x, direction * SPEED, ACCELERATION)
 	else:
 		velocity.x = move_toward(velocity.x, 0, ACCELERATION)
 	

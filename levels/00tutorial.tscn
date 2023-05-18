@@ -22,8 +22,6 @@ position = Vector2(37, -17)
 
 [node name="player" parent="." instance=ExtResource("2_qcyhj")]
 position = Vector2(-110, -2)
-speed = 250.0
-hp = 3
 
 [node name="EasterEggNPC" parent="." instance=ExtResource("4_quq7d")]
 position = Vector2(-469, -16)
