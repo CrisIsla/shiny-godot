@@ -9,6 +9,7 @@ extends CharacterBody2D
 
 var current_label_animation = null
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var current_animation_player: AnimationPlayer
 
 func _ready():
 	dialog_idle.visible = true
@@ -23,7 +24,7 @@ func _physics_process(delta):
 
 func _on_interaction_area_body_entered(body):
 	dialog_idle.visible = false
-	if body is Player:
+	if body.is_in_group("player"):
 		for j in range(len(animation_player_2.get_animation_list()) - 1):
 			if current_label_animation == "":
 				break
@@ -32,7 +33,7 @@ func _on_interaction_area_body_entered(body):
 			await animation_player_2.animation_finished
 
 func _on_interaction_area_body_exited(body):
-	if body is Player and current_label_animation != null:
+	if body.is_in_group("player") and current_label_animation != null:
 		animation_player_2.play_backwards(current_label_animation)
 		current_label_animation = ""
 		await animation_player_2.animation_finished

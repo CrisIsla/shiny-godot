@@ -1137,11 +1137,12 @@ graph_offset = Vector2(-368.479, -201.68)
 radius = 6.0
 height = 26.0
 
-[node name="player" type="CharacterBody2D"]
+[node name="player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 16
 collision_mask = 17
 floor_constant_speed = true
 script = ExtResource("1_3fe32")
+damage = 5
 
 [node name="Pivot" type="Node2D" parent="."]
 
@@ -1196,8 +1197,6 @@ visible = false
 
 [node name="JumpSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_kppqx")
-bus = &"SFX"
 
 [node name="AttackSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_kp3cm")
-bus = &"SFX"
