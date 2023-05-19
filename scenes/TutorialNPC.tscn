@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://hupfoaej1oa8"]
+[gd_scene load_steps=20 format=3 uid="uid://hupfoaej1oa8"]
 
 [ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_cjp0t"]
 [ext_resource type="Texture2D" uid="uid://e7tnfveyv63b" path="res://assets/NPC/Pink_Monster_Idle_4.png" id="2_mmbnc"]
@@ -151,6 +151,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_76wwy"]
 resource_name = "dialogue0"
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -158,7 +159,7 @@ tracks/0/path = NodePath("Label:visible_ratio")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, 1.0]
@@ -173,12 +174,12 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": ["Bienvenido! "]
+"values": ["Oh, you've finally arrived!"]
 }
 
 [sub_resource type="Animation" id="Animation_nuvsl"]
 resource_name = "dialogue1"
-length = 4.5
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -186,7 +187,7 @@ tracks/0/path = NodePath("Label:visible_ratio")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 3.5),
+"times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, 1.0]
@@ -201,35 +202,119 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": ["Si estás perdido soy el indicado para ayudarte..."]
+"values": [" Prismia desperately needs you"]
 }
 
 [sub_resource type="Animation" id="Animation_1p0t3"]
 resource_name = "dialogue2"
-length = 4.5
+length = 2.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Label:text")
+tracks/0/path = NodePath("Label:visible_ratio")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": ["Usa las teclas A y D para moverte hacia los lados"]
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Label:visible_ratio")
+tracks/1/path = NodePath("Label:text")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 3.5),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["I have been waiting for you, brave adventurer"]
+}
+
+[sub_resource type="Animation" id="Animation_puond"]
+resource_name = "dialogue3"
+length = 1.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["You know how to move"]
+}
+
+[sub_resource type="Animation" id="Animation_cp4u3"]
+resource_name = "dialogue4"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["but not how to soar..."]
+}
+
+[sub_resource type="Animation" id="Animation_ohpxr"]
+resource_name = "dialogue5"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["use K to jump and reach for more."]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_e2p08"]
@@ -237,7 +322,10 @@ _data = {
 "RESET": SubResource("Animation_s184t"),
 "dialogue0": SubResource("Animation_76wwy"),
 "dialogue1": SubResource("Animation_nuvsl"),
-"dialogue2": SubResource("Animation_1p0t3")
+"dialogue2": SubResource("Animation_1p0t3"),
+"dialogue3": SubResource("Animation_puond"),
+"dialogue4": SubResource("Animation_cp4u3"),
+"dialogue5": SubResource("Animation_ohpxr")
 }
 
 [sub_resource type="Animation" id="Animation_u0ccb"]
@@ -347,7 +435,9 @@ offset_right = 58.0
 offset_bottom = -18.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
 theme_override_constants/line_spacing = -4
 theme_override_font_sizes/font_size = 10
 text = "Bienvenido! "
