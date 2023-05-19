@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://c4g1uenm2mgrv" path="res://assets/Decors.png" id="1_2lm27"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ru7h"]
-size = Vector2(2.875, 161)
+size = Vector2(10, 161)
 
 [node name="StaticBody2D" type="StaticBody2D"]
 collision_layer = 16
@@ -16,5 +16,5 @@ texture = ExtResource("1_2lm27")
 hframes = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.4375, -80.5)
+position = Vector2(0, -80)
 shape = SubResource("RectangleShape2D_6ru7h")
