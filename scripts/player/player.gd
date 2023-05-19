@@ -17,6 +17,7 @@ var last_direction = 1
 @onready var playback = animation_tree.get("parameters/playback")
 @onready var hitbox = $Pivot/Area2D/hitbox
 @onready var canvas_layer = $CanvasLayer
+@onready var coyote = $Coyote
 
 @onready var camera_2d = $Camera2D
 const DEFAULT_ZOOM: Vector2 = Vector2(0.8, 0.8)
@@ -47,14 +48,13 @@ func _input(event):
 func _physics_process(delta):
 	direction = get_direction()
 	set_last_direction()
-
-	if not is_on_floor():
-		apply_gravity(delta)
-		
-	if is_on_floor():
+	
+	if is_on_floor() or coyote.time_left > 0.0:
 		if Input.is_action_just_pressed("jump"):
 			jump()
-	else:
+			
+	if not is_on_floor():
+		apply_gravity(delta)
 		if Input.is_action_just_released("jump") and velocity.y < JUMP_VELOCITY / 2:
 			velocity.y = JUMP_VELOCITY / 2
 		
@@ -65,7 +65,11 @@ func _physics_process(delta):
 	handle_movement_animations()
 	
 	get_movement()
+	var was_on_floor = is_on_floor()
 	move_and_slide()
+	var just_left_ledge = was_on_floor and not is_on_floor() and velocity.y >= 0
+	if just_left_ledge:
+		coyote.start()
 
 func apply_gravity(delta):
 	velocity.y += gravity * delta

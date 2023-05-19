@@ -1200,3 +1200,7 @@ stream = ExtResource("10_kppqx")
 
 [node name="AttackSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_kp3cm")
+
+[node name="Coyote" type="Timer" parent="."]
+wait_time = 0.15
+one_shot = true
