@@ -31,6 +31,4 @@ position = Vector2(270, 34)
 
 [node name="player" parent="." instance=ExtResource("2_ik7fc")]
 position = Vector2(-23, -6)
-collision_layer = 17
-collision_mask = 17
 speed = 200.0

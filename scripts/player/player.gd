@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+signal grounded_updated(is_grounded)
 
 @export var speed = 250.0
 const JUMP_VELOCITY = -280.0
@@ -11,6 +12,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity") * 0.8
 var is_falling = false
 var direction
 var last_direction = 1
+var is_grounded
 
 
 @onready var pivot = $Pivot
@@ -30,6 +32,12 @@ func _input(event):
 func _physics_process(delta):
 	direction = get_direction()
 	set_last_direction()
+	
+	var was_grounded = is_grounded
+	is_grounded = is_on_floor()
+	
+	if was_grounded == null || is_grounded != was_grounded:
+		emit_signal("grounded_updated", is_grounded)
 		
 	if not is_on_floor():
 		apply_gravity(delta)
@@ -104,3 +112,4 @@ func handle_sprite_direction():
 func set_last_direction():
 	if direction:
 		last_direction = direction
+

@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://3ahfed8bxgqy"]
+[gd_scene load_steps=67 format=3 uid="uid://3ahfed8bxgqy"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_3fe32"]
 [ext_resource type="Texture2D" uid="uid://d3wxmvb7675ac" path="res://assets/player/Owlet_Monster_Idle_4.png" id="1_3jku0"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://p0owwxqe06q7" path="res://assets/player/Owlet_Monster_Hurt_4.png" id="6_pc3jk"]
 [ext_resource type="Texture2D" uid="uid://dyoovh7t7e6n" path="res://assets/player/Owlet_Monster_Jump_8.png" id="8_btovt"]
 [ext_resource type="PackedScene" uid="uid://cvnmlou1030dy" path="res://scenes/pause.tscn" id="9_bxw18"]
+[ext_resource type="Script" path="res://scenes/Camera2D.gd" id="9_c5tvn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q46ix"]
 size = Vector2(10, 25)
@@ -1226,15 +1227,14 @@ anim_player = NodePath("../AnimationPlayer")
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_03kxt")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(0, -49)
+position = Vector2(0, -47)
 zoom = Vector2(3, 3)
 position_smoothing_enabled = true
 position_smoothing_speed = 6.0
-drag_left_margin = 0.1
-drag_top_margin = 0.0
-drag_right_margin = 0.1
-drag_bottom_margin = 0.5
+drag_top_margin = 0.48
+drag_bottom_margin = 0.56
 editor_draw_drag_margin = true
+script = ExtResource("9_c5tvn")
 
 [node name="Area2D" type="Area2D" parent="."]
 visible = false
@@ -1247,3 +1247,5 @@ debug_color = Color(0.937255, 0.223529, 0.309804, 0.419608)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PanelContainer" parent="CanvasLayer" instance=ExtResource("9_bxw18")]
+
+[connection signal="grounded_updated" from="." to="Camera2D" method="_on_player_grounded_updated"]
