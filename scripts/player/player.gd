@@ -25,6 +25,9 @@ const MIN_ZOOM: Vector2 = Vector2(0.6, 0.6)
 @export var hp = 3
 @export var damage: int
 
+@onready var jump_sfx = $JumpSFX
+@onready var attack_sfx = $AttackSFX
+
 func _ready():
 	Game.player = self
 	animation_tree.active = true
@@ -69,6 +72,7 @@ func apply_gravity(delta):
 
 func jump():
 	velocity.y = JUMP_VELOCITY
+	jump_sfx.play()
 	
 func get_direction():
 	return Input.get_axis("move_left", "move_right")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://3ahfed8bxgqy"]
+[gd_scene load_steps=68 format=3 uid="uid://3ahfed8bxgqy"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_3fe32"]
 [ext_resource type="Texture2D" uid="uid://d3wxmvb7675ac" path="res://assets/player/Owlet_Monster_Idle_4.png" id="1_3jku0"]
@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://p0owwxqe06q7" path="res://assets/player/Owlet_Monster_Hurt_4.png" id="6_pc3jk"]
 [ext_resource type="Texture2D" uid="uid://dyoovh7t7e6n" path="res://assets/player/Owlet_Monster_Jump_8.png" id="8_btovt"]
 [ext_resource type="PackedScene" uid="uid://cvnmlou1030dy" path="res://scenes/pause.tscn" id="9_bxw18"]
+[ext_resource type="AudioStream" uid="uid://bvok6tra5ogvk" path="res://assets/SFX/jump.wav" id="10_kppqx"]
+[ext_resource type="AudioStream" uid="uid://c8bpui8026pae" path="res://assets/SFX/hit.wav" id="11_kp3cm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q46ix"]
 size = Vector2(10, 25)
@@ -204,6 +206,25 @@ tracks/4/keys = {
 "update": 1,
 "values": [true, false, true]
 }
+tracks/5/type = "audio"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AttackSFX")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": null
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("11_kp3cm")
+}],
+"times": PackedFloat32Array(0.05, 0.0501)
+}
+tracks/5/use_blend = true
 
 [sub_resource type="Animation" id="Animation_t0ag8"]
 resource_name = "attack_2"
@@ -1121,7 +1142,6 @@ collision_layer = 16
 collision_mask = 17
 floor_constant_speed = true
 script = ExtResource("1_3fe32")
-damage = 5
 
 [node name="Pivot" type="Node2D" parent="."]
 
@@ -1129,8 +1149,8 @@ damage = 5
 
 [node name="Sprite2D" type="Sprite2D" parent="Pivot/TurnPivot"]
 position = Vector2(0, -16)
-texture = ExtResource("2_mjhra")
-hframes = 6
+texture = ExtResource("4_jvrpg")
+hframes = 4
 
 [node name="Area2D" type="Area2D" parent="Pivot" groups=["player_hit"]]
 collision_layer = 8
@@ -1173,3 +1193,11 @@ debug_color = Color(0.937255, 0.223529, 0.309804, 0.419608)
 visible = false
 
 [node name="PanelContainer" parent="CanvasLayer" instance=ExtResource("9_bxw18")]
+
+[node name="JumpSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_kppqx")
+bus = &"SFX"
+
+[node name="AttackSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_kp3cm")
+bus = &"SFX"
