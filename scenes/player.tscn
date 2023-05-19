@@ -659,7 +659,7 @@ tracks/9/path = NodePath(".:collision_layer")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"times": PackedFloat32Array(0, 0.08, 0.22),
+"times": PackedFloat32Array(0, 0.06, 0.24),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [17, 1, 17]
@@ -671,7 +671,7 @@ tracks/10/path = NodePath(".:collision_mask")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
-"times": PackedFloat32Array(0, 0.08, 0.22),
+"times": PackedFloat32Array(0, 0.06, 0.24),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [17, 1, 17]
@@ -683,7 +683,7 @@ tracks/11/path = NodePath("Area2D/hurtbox:disabled")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
-"times": PackedFloat32Array(0, 0.08, 0.22),
+"times": PackedFloat32Array(0, 0.06, 0.24),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
@@ -695,7 +695,7 @@ tracks/12/path = NodePath("Area2D:monitoring")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
-"times": PackedFloat32Array(0, 0.08, 0.22),
+"times": PackedFloat32Array(0, 0.06, 0.24),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
@@ -707,7 +707,7 @@ tracks/13/path = NodePath("Area2D:monitorable")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
-"times": PackedFloat32Array(0, 0.08, 0.22),
+"times": PackedFloat32Array(0, 0.06, 0.24),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
@@ -942,7 +942,7 @@ tracks/9/path = NodePath("Area2D/hurtbox:disabled")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"times": PackedFloat32Array(0, 0.08, 0.22),
+"times": PackedFloat32Array(0, 0.06, 0.24),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
@@ -954,7 +954,7 @@ tracks/10/path = NodePath("Area2D:monitoring")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
-"times": PackedFloat32Array(0, 0.08, 0.22),
+"times": PackedFloat32Array(0, 0.06, 0.24),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
@@ -966,7 +966,7 @@ tracks/11/path = NodePath("Area2D:monitorable")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
-"times": PackedFloat32Array(0, 0.08, 0.22),
+"times": PackedFloat32Array(0, 0.06, 0.24),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
@@ -978,7 +978,7 @@ tracks/12/path = NodePath(".:collision_layer")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
-"times": PackedFloat32Array(0, 0.08, 0.22),
+"times": PackedFloat32Array(0, 0.06, 0.24),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [17, 1, 17]
@@ -990,7 +990,7 @@ tracks/13/path = NodePath(".:collision_mask")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
-"times": PackedFloat32Array(0, 0.08, 0.22),
+"times": PackedFloat32Array(0, 0.06, 0.24),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [17, 1, 17]
