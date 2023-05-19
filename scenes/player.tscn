@@ -1121,6 +1121,7 @@ collision_layer = 16
 collision_mask = 17
 floor_constant_speed = true
 script = ExtResource("1_3fe32")
+damage = 5
 
 [node name="Pivot" type="Node2D" parent="."]
 
@@ -1131,8 +1132,7 @@ position = Vector2(0, -16)
 texture = ExtResource("2_mjhra")
 hframes = 6
 
-[node name="Area2D" type="Area2D" parent="Pivot"]
-visible = false
+[node name="Area2D" type="Area2D" parent="Pivot" groups=["player_hit"]]
 collision_layer = 8
 collision_mask = 0
 

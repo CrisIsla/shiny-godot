@@ -1,9 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://t7h2wocc8hij"]
+[gd_scene load_steps=12 format=3 uid="uid://t7h2wocc8hij"]
 
 [ext_resource type="Texture2D" uid="uid://c42aln0chhcrd" path="res://assets/enemy/Slime/Sprite Sheet - Green Idle.png" id="1_0y3e4"]
 [ext_resource type="Script" path="res://scripts/enemys/slime.gd" id="1_bfm4h"]
 [ext_resource type="Texture2D" uid="uid://b3djlq1skhwn5" path="res://assets/enemy/Slime/Sprite Sheet - Green Hurt.png" id="2_up0q0"]
 [ext_resource type="Texture2D" uid="uid://dlkgxvtgyq1bd" path="res://assets/enemy/Slime/Sprite Sheet - Green Death.png" id="3_lg203"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8348w"]
+radius = 12.0
+height = 40.0
 
 [sub_resource type="Animation" id="Animation_yuwkq"]
 length = 0.001
@@ -201,7 +205,19 @@ _data = {
 height = 34.0
 
 [node name="Slime" type="CharacterBody2D"]
+collision_layer = 0
 script = ExtResource("1_bfm4h")
+hp = 10
+
+[node name="Damage" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Damage"]
+position = Vector2(0, -11)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_8348w")
+debug_color = Color(0.901961, 0.211765, 0.568627, 0.419608)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -16)
@@ -217,3 +233,6 @@ libraries = {
 position = Vector2(0, -10)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_tdnki")
+disabled = true
+
+[connection signal="area_entered" from="Damage" to="." method="_on_damage_area_entered"]

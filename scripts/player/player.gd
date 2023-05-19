@@ -23,6 +23,7 @@ const DEFAULT_ZOOM: Vector2 = Vector2(0.8, 0.8)
 const MIN_ZOOM: Vector2 = Vector2(0.6, 0.6)
 
 @export var hp = 3
+@export var damage: int
 
 func _ready():
 	Game.player = self

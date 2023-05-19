@@ -5,11 +5,13 @@ extends CharacterBody2D
 @onready var animation_player = $AnimationPlayer
 @onready var sprite_2d = $Sprite2D
 @onready var animation_player_2 = $AnimationPlayer2
+@onready var dialog_idle = $DialogIdle
 
 var current_label_animation = null
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
+	dialog_idle.visible = true
 	label.visible_ratio = 0
 
 func _physics_process(delta):
@@ -20,6 +22,7 @@ func _physics_process(delta):
 	move_and_slide()
 
 func _on_interaction_area_body_entered(body):
+	dialog_idle.visible = false
 	if body is Player:
 		for j in range(len(animation_player_2.get_animation_list()) - 1):
 			if current_label_animation == "":
@@ -33,4 +36,5 @@ func _on_interaction_area_body_exited(body):
 		animation_player_2.play_backwards(current_label_animation)
 		current_label_animation = ""
 		await animation_player_2.animation_finished
+		dialog_idle.visible = true
 		current_label_animation = null
