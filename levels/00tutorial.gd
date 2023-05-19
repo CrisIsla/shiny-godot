@@ -11,8 +11,8 @@ func _input(event):
 		keys_pressed = true
 		print("disappearing...")
 		await animation_player.animation_finished
-		a_key.visible = false
-		d_key.visible = false
+		a_key.queue_free()
+		d_key.queue_free()
 
 func _on_timer_timeout():
 	if not keys_pressed:
