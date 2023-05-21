@@ -2,6 +2,9 @@ extends CharacterBody2D
 class_name Enemy
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var time = 0
+
+
 
 @export var speed: int
 @export var jump_velocity: int
@@ -12,6 +15,11 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 func _physics_process(delta):
 	if not is_on_floor():
 		apply_gravity(delta)
+	
+	time += delta
+	if time > 5:
+		_on_hit_turn()
+		time = 0
 	
 	move_and_slide()
 
