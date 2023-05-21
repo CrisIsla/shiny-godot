@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://bq1ahv6xb76sk"]
+[gd_scene load_steps=13 format=3 uid="uid://bq1ahv6xb76sk"]
 
 [ext_resource type="Script" path="res://levels/00tutorial.gd" id="1_0osuh"]
 [ext_resource type="PackedScene" uid="uid://cel8njhqnclsq" path="res://tileset/tileset.tscn" id="1_2hvix"]
 [ext_resource type="PackedScene" uid="uid://3ahfed8bxgqy" path="res://scenes/player.tscn" id="2_qcyhj"]
+[ext_resource type="PackedScene" uid="uid://x22b3t3jr5y7" path="res://scenes/parallax_background.tscn" id="2_v3rhf"]
 [ext_resource type="PackedScene" uid="uid://cpstgcmaq8i3" path="res://scenes/tree.tscn" id="4_lxmf2"]
 [ext_resource type="PackedScene" uid="uid://dae4mmxws73ta" path="res://scenes/TutorialNPC.tscn" id="4_quq7d"]
 [ext_resource type="Texture2D" uid="uid://bed0qscnkpibv" path="res://assets/tutorial/tile_0120.png" id="7_mkwkj"]
@@ -147,7 +148,10 @@ _data = {
 }
 
 [node name="Tutorial" type="Node2D"]
+scale = Vector2(1.00058, 1)
 script = ExtResource("1_0osuh")
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("2_v3rhf")]
 
 [node name="StaticBody2D" parent="." instance=ExtResource("4_lxmf2")]
 position = Vector2(-208, 1)
@@ -176,7 +180,7 @@ start = 10
 end = 12
 
 [node name="player" parent="." instance=ExtResource("2_qcyhj")]
-position = Vector2(1732, 124)
+position = Vector2(-143.917, -2)
 
 [node name="A-key" type="Sprite2D" parent="player"]
 visible = false
