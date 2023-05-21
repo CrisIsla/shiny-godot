@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dae4mmxws73ta"]
+[gd_scene load_steps=24 format=3 uid="uid://dae4mmxws73ta"]
 
 [ext_resource type="Script" path="res://scripts/NPC.gd" id="1_4he0d"]
 [ext_resource type="Texture2D" uid="uid://e7tnfveyv63b" path="res://assets/NPC/Pink_Monster_Idle_4.png" id="2_mmbnc"]
@@ -121,6 +121,68 @@ _data = {
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_140du"]
 radius = 43.2897
+
+[sub_resource type="Animation" id="Animation_u0ccb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DialogIdle:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DialogIdle:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_0e2dx"]
+resource_name = "idle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DialogIdle:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.2, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [2, 1, 0, 1, 2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DialogIdle:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.2, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2(1, 1), Vector2(-1, 1), Vector2(-1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ktuek"]
+_data = {
+"RESET": SubResource("Animation_u0ccb"),
+"idle": SubResource("Animation_0e2dx")
+}
 
 [sub_resource type="Animation" id="Animation_s184t"]
 length = 0.001
@@ -317,6 +379,118 @@ tracks/1/keys = {
 "values": ["use K to jump and reach for more."]
 }
 
+[sub_resource type="Animation" id="Animation_xfad6"]
+resource_name = "dialogue6"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Well done!, you've learned to jump with grace"]
+}
+
+[sub_resource type="Animation" id="Animation_8ghpc"]
+resource_name = "dialogue7"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["now face the obstacles and quicken your pace"]
+}
+
+[sub_resource type="Animation" id="Animation_oef6o"]
+resource_name = "dialogue8"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Use your 3D rotation, a skill to employ"]
+}
+
+[sub_resource type="Animation" id="Animation_gwnai"]
+resource_name = "dialogue9"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["jumping is the key for triumph and joy."]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_e2p08"]
 _data = {
 "RESET": SubResource("Animation_s184t"),
@@ -325,69 +499,11 @@ _data = {
 "dialogue2": SubResource("Animation_1p0t3"),
 "dialogue3": SubResource("Animation_puond"),
 "dialogue4": SubResource("Animation_cp4u3"),
-"dialogue5": SubResource("Animation_ohpxr")
-}
-
-[sub_resource type="Animation" id="Animation_u0ccb"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("DialogIdle:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("DialogIdle:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_0e2dx"]
-resource_name = "idle"
-length = 2.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("DialogIdle:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.8, 1.2, 1.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": [2, 1, 0, 1, 2]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("DialogIdle:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.2, 1.6),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [Vector2(1, 1), Vector2(-1, 1), Vector2(-1, 1)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ktuek"]
-_data = {
-"RESET": SubResource("Animation_u0ccb"),
-"idle": SubResource("Animation_0e2dx")
+"dialogue5": SubResource("Animation_ohpxr"),
+"dialogue6": SubResource("Animation_xfad6"),
+"dialogue7": SubResource("Animation_8ghpc"),
+"dialogue8": SubResource("Animation_oef6o"),
+"dialogue9": SubResource("Animation_gwnai")
 }
 
 [node name="NPC" type="CharacterBody2D"]
@@ -417,11 +533,6 @@ light_mask = 0
 visibility_layer = 31
 position = Vector2(-1, 3)
 shape = SubResource("CircleShape2D_140du")
-
-[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_e2p08")
-}
 
 [node name="Label" type="Label" parent="."]
 anchors_preset = 8
@@ -460,6 +571,14 @@ root_node = NodePath("../..")
 autoplay = "idle"
 libraries = {
 "": SubResource("AnimationLibrary_ktuek")
+}
+
+[node name="Dialogs" type="Node" parent="."]
+
+[node name="Dialog0" type="AnimationPlayer" parent="Dialogs"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_e2p08")
 }
 
 [connection signal="body_entered" from="InteractionArea" to="." method="_on_interaction_area_body_entered"]

@@ -65,6 +65,8 @@ func _physics_process(delta):
 	handle_movement_animations()
 	
 	get_movement()
+	
+	# Coyote jump logic
 	var was_on_floor = is_on_floor()
 	move_and_slide()
 	var just_left_ledge = was_on_floor and not is_on_floor() and velocity.y >= 0
@@ -76,6 +78,8 @@ func apply_gravity(delta):
 
 func jump():
 	velocity.y = JUMP_VELOCITY
+	randomize()
+	jump_sfx.set_pitch_scale(randf_range(0.8, 2.0))
 	jump_sfx.play()
 	
 func get_direction():
