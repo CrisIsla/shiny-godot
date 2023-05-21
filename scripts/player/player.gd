@@ -1,15 +1,20 @@
 extends CharacterBody2D
 class_name Player
+signal grounded_updated(is_grounded)
 
-const JUMP_VELOCITY = -400.0
+@export var speed = 250.0
+const JUMP_VELOCITY = -320.0
 const ACCELERATION = 15
 const SPEED = 250.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var gravity = ProjectSettings.get_setting("physics/2d/default_gravity") * 0.8
+
 var is_falling = false
 var direction
 var last_direction = 1
+var is_grounded
+
 
 @onready var pivot = $Pivot
 @onready var animationPlayer = $AnimationPlayer
@@ -48,11 +53,17 @@ func _input(event):
 func _physics_process(delta):
 	direction = get_direction()
 	set_last_direction()
-	
+		
 	if is_on_floor() or coyote.time_left > 0.0:
 		if Input.is_action_just_pressed("jump"):
 			jump()
 			
+	var was_grounded = is_grounded
+	is_grounded = is_on_floor()
+	
+	if was_grounded == null || is_grounded != was_grounded:
+		emit_signal("grounded_updated", is_grounded)
+		
 	if not is_on_floor():
 		apply_gravity(delta)
 		if Input.is_action_just_released("jump") and velocity.y < JUMP_VELOCITY / 2:
@@ -126,3 +137,4 @@ func handle_sprite_direction():
 func set_last_direction():
 	if direction:
 		last_direction = direction
+

@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://3ahfed8bxgqy"]
+[gd_scene load_steps=73 format=3 uid="uid://3ahfed8bxgqy"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_3fe32"]
 [ext_resource type="Texture2D" uid="uid://d3wxmvb7675ac" path="res://assets/player/Owlet_Monster_Idle_4.png" id="1_3jku0"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://p0owwxqe06q7" path="res://assets/player/Owlet_Monster_Hurt_4.png" id="6_pc3jk"]
 [ext_resource type="Texture2D" uid="uid://dyoovh7t7e6n" path="res://assets/player/Owlet_Monster_Jump_8.png" id="8_btovt"]
 [ext_resource type="PackedScene" uid="uid://cvnmlou1030dy" path="res://scenes/pause.tscn" id="9_bxw18"]
+[ext_resource type="Script" path="res://scenes/Camera2D.gd" id="9_c5tvn"]
 [ext_resource type="AudioStream" uid="uid://bvok6tra5ogvk" path="res://assets/SFX/jump.wav" id="10_kppqx"]
 [ext_resource type="AudioStream" uid="uid://c8bpui8026pae" path="res://assets/SFX/hit.wav" id="11_kp3cm"]
 
@@ -543,7 +544,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_gx4sh"]
 resource_name = "jump_turn"
-length = 0.3
+length = 0.35
 loop_mode = 1
 step = 0.01
 tracks/0/type = "value"
@@ -553,7 +554,7 @@ tracks/0/path = NodePath("Pivot/TurnPivot/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
+"times": PackedFloat32Array(0, 0.15, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [0, 2, 4]
@@ -637,7 +638,7 @@ tracks/7/path = NodePath("Pivot/TurnPivot:skew")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.15, 0.25),
+"times": PackedFloat32Array(0, 0.09, 0.21, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [0.0, 1.56905, 1.56905, 0.0]
@@ -649,7 +650,7 @@ tracks/8/path = NodePath(".")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(0.15),
+"times": PackedFloat32Array(0.21),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -663,10 +664,58 @@ tracks/9/path = NodePath(".:collision_mask")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.25),
+"times": PackedFloat32Array(0, 0.06, 0.24),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [17, 1, 17]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath(".:collision_mask")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 0.06, 0.24),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [17, 1, 17]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Area2D/hurtbox:disabled")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 0.06, 0.24),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Area2D:monitoring")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 0.06, 0.24),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Area2D:monitorable")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0, 0.06, 0.24),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
 }
 
 [sub_resource type="Animation" id="Animation_mvbak"]
@@ -795,7 +844,7 @@ tracks/4/keys = {
 
 [sub_resource type="Animation" id="Animation_h1e0c"]
 resource_name = "run_turn"
-length = 0.3
+length = 0.35
 loop_mode = 1
 step = 0.01
 tracks/0/type = "value"
@@ -805,7 +854,7 @@ tracks/0/path = NodePath("Pivot/TurnPivot/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
+"times": PackedFloat32Array(0, 0.15, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [0, 2, 4]
@@ -889,7 +938,7 @@ tracks/7/path = NodePath("Pivot/TurnPivot:skew")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.15, 0.25),
+"times": PackedFloat32Array(0, 0.09, 0.21, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [0.0, 1.56905, 1.56905, 0.0]
@@ -901,7 +950,7 @@ tracks/8/path = NodePath(".")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(0.15),
+"times": PackedFloat32Array(0.21),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -915,10 +964,10 @@ tracks/9/path = NodePath("Area2D/hurtbox:disabled")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"times": PackedFloat32Array(0, 0.03, 0.09, 0.17),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.06, 0.24),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [false, false, true, false]
+"values": [false, true, false]
 }
 tracks/10/type = "value"
 tracks/10/imported = false
@@ -927,7 +976,7 @@ tracks/10/path = NodePath("Area2D:monitoring")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
-"times": PackedFloat32Array(0.03, 0.05, 0.22),
+"times": PackedFloat32Array(0, 0.06, 0.24),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
@@ -939,7 +988,7 @@ tracks/11/path = NodePath("Area2D:monitorable")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
-"times": PackedFloat32Array(0.03, 0.05, 0.22),
+"times": PackedFloat32Array(0, 0.06, 0.24),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
@@ -951,7 +1000,19 @@ tracks/12/path = NodePath(".:collision_mask")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
-"times": PackedFloat32Array(0, 0.11, 0.2),
+"times": PackedFloat32Array(0, 0.06, 0.24),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [17, 1, 17]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath(".:collision_mask")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0, 0.06, 0.24),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [17, 1, 17]
@@ -1207,9 +1268,13 @@ anim_player = NodePath("../AnimationPlayer")
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_03kxt")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(0, -48)
-zoom = Vector2(0.8, 0.8)
-position_smoothing_speed = 10.0
+position = Vector2(0, -47)
+position_smoothing_enabled = true
+position_smoothing_speed = 6.0
+drag_top_margin = 0.48
+drag_bottom_margin = 0.56
+editor_draw_drag_margin = true
+script = ExtResource("9_c5tvn")
 
 [node name="Area2D" type="Area2D" parent="."]
 visible = false
@@ -1239,3 +1304,5 @@ pitch_scale = 1.5
 [node name="Coyote" type="Timer" parent="."]
 wait_time = 0.1
 one_shot = true
+
+[connection signal="grounded_updated" from="." to="Camera2D" method="_on_player_grounded_updated"]
