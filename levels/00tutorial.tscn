@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://levels/00tutorial.gd" id="1_0osuh"]
 [ext_resource type="PackedScene" uid="uid://cel8njhqnclsq" path="res://tileset/tileset.tscn" id="1_2hvix"]
 [ext_resource type="PackedScene" uid="uid://3ahfed8bxgqy" path="res://scenes/player.tscn" id="2_qcyhj"]
-[ext_resource type="PackedScene" path="res://scenes/parallax_background.tscn" id="2_v3rhf"]
+[ext_resource type="PackedScene" uid="uid://x22b3t3jr5y7" path="res://scenes/parallax_background.tscn" id="2_v3rhf"]
 [ext_resource type="PackedScene" uid="uid://cpstgcmaq8i3" path="res://scenes/tree.tscn" id="4_lxmf2"]
 [ext_resource type="PackedScene" uid="uid://dae4mmxws73ta" path="res://scenes/TutorialNPC.tscn" id="4_quq7d"]
 [ext_resource type="Texture2D" uid="uid://bed0qscnkpibv" path="res://assets/tutorial/tile_0120.png" id="7_mkwkj"]
@@ -215,6 +215,6 @@ scale = Vector2(0.7, 0.7)
 texture = ExtResource("8_wtd4j")
 
 [node name="player" parent="." instance=ExtResource("2_qcyhj")]
-position = Vector2(2033.82, 107)
+position = Vector2(-134.922, -9)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
