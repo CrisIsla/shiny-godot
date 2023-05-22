@@ -10,9 +10,11 @@ func _ready():
 	hurtbox.disabled = false
 	is_killable = 0
 
-
 func _physics_process(delta):
 	update_is_killable(turn_pivot)
+	if not is_on_floor():
+		apply_gravity(delta)
+	move_and_slide()
 
 func _on_damage_area_entered(area):
 	if area.is_in_group("player_hit"):
