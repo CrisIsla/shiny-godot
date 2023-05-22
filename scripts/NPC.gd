@@ -19,7 +19,7 @@ func _ready():
 	label.visible_ratio = 0
 
 func _physics_process(delta):
-	if Game.player:
+	if Game.player != null:
 		sprite_2d.flip_h = Game.player.global_position.x < global_position.x
 	if not is_on_floor():
 		velocity.y += delta * gravity

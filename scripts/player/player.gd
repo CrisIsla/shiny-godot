@@ -29,7 +29,6 @@ const DEFAULT_ZOOM: Vector2 = Vector2(0.8, 0.8)
 const MIN_ZOOM: Vector2 = Vector2(0.6, 0.6)
 
 @export var hp = 3
-@export var damage: int
 
 @onready var jump_sfx = $JumpSFX
 @onready var attack_sfx = $AttackSFX
@@ -138,3 +137,11 @@ func set_last_direction():
 	if direction:
 		last_direction = direction
 
+func take_damage(damage):
+	playback.call_deferred("travel", "hurt")
+	hp -= damage
+	if hp <= 0:
+		death()
+		
+func death():
+	playback.call_deferred("travel", "death")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://mukac6r6oxyk"]
+[gd_scene load_steps=13 format=3 uid="uid://mukac6r6oxyk"]
 
 [ext_resource type="Texture2D" uid="uid://c42aln0chhcrd" path="res://assets/enemy/Slime/Sprite Sheet - Green Idle.png" id="1_0y3e4"]
 [ext_resource type="Script" path="res://scripts/enemys/slime.gd" id="1_bfm4h"]
@@ -6,8 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://dlkgxvtgyq1bd" path="res://assets/enemy/Slime/Sprite Sheet - Green Death.png" id="3_lg203"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8348w"]
-radius = 12.0
-height = 40.0
+radius = 11.0
+height = 36.0
 
 [sub_resource type="Animation" id="Animation_yuwkq"]
 length = 0.001
@@ -204,8 +204,11 @@ _data = {
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tdnki"]
 height = 34.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1778n"]
+radius = 11.0
+height = 38.0
+
 [node name="Slime" type="CharacterBody2D"]
-collision_layer = 0
 script = ExtResource("1_bfm4h")
 hp = 10
 
@@ -241,4 +244,14 @@ position = Vector2(0, -16)
 texture = ExtResource("1_0y3e4")
 hframes = 7
 
+[node name="Hitbox" type="Area2D" parent="."]
+collision_mask = 11
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0, -11)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_1778n")
+debug_color = Color(0, 0.631373, 0.47451, 0.419608)
+
 [connection signal="area_entered" from="Damage" to="." method="_on_damage_area_entered"]
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

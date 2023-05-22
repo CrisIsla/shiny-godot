@@ -9,7 +9,6 @@ func _ready():
 
 func _on_damage_area_entered(area):
 	if area.is_in_group("player_hit"):
-		hp -= Game.player.damage
 		if hp <= 0:
 			animation_player.play("death")
 			await animation_player.animation_finished
@@ -17,3 +16,9 @@ func _on_damage_area_entered(area):
 		animation_player.play("hurt", -1, 1.5)
 		await animation_player.animation_finished
 		animation_player.play("idle")
+		
+func _on_hitbox_area_entered(area):
+	if area.is_in_group("player_hurtbox"):
+		var player = area.get_parent() as Player
+		player.take_damage(damage)
+		print(player.hp)
