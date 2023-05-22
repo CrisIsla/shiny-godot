@@ -82,6 +82,9 @@ func _physics_process(delta):
 	var just_left_ledge = was_on_floor and not is_on_floor() and velocity.y >= 0
 	if just_left_ledge:
 		coyote.start()
+	
+	if hp <= 0:
+		death()
 
 func apply_gravity(delta):
 	velocity.y += gravity * delta
@@ -140,8 +143,10 @@ func set_last_direction():
 func take_damage(damage):
 	playback.call_deferred("travel", "hurt")
 	hp -= damage
-	if hp <= 0:
-		death()
+#	if hp <= 0:
+#		death()
 		
 func death():
-	playback.call_deferred("travel", "death")
+	playback.travel("death")
+	await get_tree().create_timer(1).timeout
+	get_tree().reload_current_scene()
