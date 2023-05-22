@@ -23,12 +23,17 @@ var is_grounded
 @onready var hitbox = $Pivot/Area2D/hitbox
 @onready var canvas_layer = $CanvasLayer
 @onready var coyote = $Coyote
+@onready var ui = $CanvasLayer/UI
 
 @onready var camera_2d = $Camera2D
 const DEFAULT_ZOOM: Vector2 = Vector2(0.8, 0.8)
 const MIN_ZOOM: Vector2 = Vector2(0.6, 0.6)
 
-@export var hp = 3
+@export var hp = 3:
+	set(value):
+		hp=value
+		ui.set_health(value)
+		
 
 @onready var jump_sfx = $JumpSFX
 @onready var attack_sfx = $AttackSFX
@@ -141,8 +146,8 @@ func set_last_direction():
 		last_direction = direction
 
 func take_damage(damage):
-	playback.call_deferred("travel", "hurt")
 	hp -= damage
+	playback.call_deferred("travel", "hurt")
 #	if hp <= 0:
 #		death()
 		
