@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://dae4mmxws73ta"]
+[gd_scene load_steps=31 format=3 uid="uid://dae4mmxws73ta"]
 
 [ext_resource type="Script" path="res://scripts/NPC.gd" id="1_4he0d"]
 [ext_resource type="Texture2D" uid="uid://e7tnfveyv63b" path="res://assets/NPC/Pink_Monster_Idle_4.png" id="2_mmbnc"]
@@ -659,6 +659,34 @@ tracks/1/keys = {
 "values": ["jumping is the key for triumph and joy."]
 }
 
+[sub_resource type="Animation" id="Animation_8uthb"]
+resource_name = "dialogue16"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [".... - - .--. ... ---... -..-. -..-. -.-- --- ..- - ..- .-.-.- -... . -..-. -.. --.- .-- ....- .-- ----. .-- --. -..- -.-. --.-"]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_e2p08"]
 _data = {
 "RESET": SubResource("Animation_s184t"),
@@ -670,6 +698,7 @@ _data = {
 "dialogue13": SubResource("Animation_mjtxc"),
 "dialogue14": SubResource("Animation_5usor"),
 "dialogue15": SubResource("Animation_aff6s"),
+"dialogue16": SubResource("Animation_8uthb"),
 "dialogue2": SubResource("Animation_1p0t3"),
 "dialogue3": SubResource("Animation_puond"),
 "dialogue4": SubResource("Animation_cp4u3"),
