@@ -246,6 +246,13 @@ position = Vector2(0, -16)
 texture = ExtResource("1_0y3e4")
 hframes = 7
 
+[node name="Wall" type="RayCast2D" parent="TurnPivot/Pivot"]
+position = Vector2(0, -3)
+target_position = Vector2(19, 0)
+
+[node name="Floor" type="RayCast2D" parent="TurnPivot/Pivot"]
+position = Vector2(23, 0)
+
 [node name="Hitbox" type="Area2D" parent="."]
 collision_mask = 11
 

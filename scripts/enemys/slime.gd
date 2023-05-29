@@ -4,6 +4,11 @@ extends "res://scripts/enemy.gd"
 @onready var hurtbox = $CollisionShape2D
 @onready var pivot = $TurnPivot/Pivot
 @onready var turn_pivot = $TurnPivot
+@onready var wall_raycast = $TurnPivot/Pivot/Wall
+@onready var floor_raycast = $TurnPivot/Pivot/Floor
+
+@export var can_move: bool = false
+var direction = 1
 
 func _ready():
 	animation_player.play("idle")
@@ -14,6 +19,8 @@ func _physics_process(delta):
 	update_is_killable(turn_pivot)
 	if not is_on_floor():
 		apply_gravity(delta)
+	if can_move:
+		move()
 	move_and_slide()
 
 func _on_damage_area_entered(area):
@@ -27,4 +34,10 @@ func _on_hitbox_area_entered(area):
 	if area.is_in_group("player_hurtbox"):
 		var player = area.get_parent() as Player
 		player.take_damage(damage)
-		print(player.hp)
+
+func move():
+	velocity.x = speed * direction
+	if not floor_raycast.is_colliding() or wall_raycast.is_colliding():
+		pivot.scale.x *= -1
+		direction *= -1
+		
