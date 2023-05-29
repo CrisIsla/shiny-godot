@@ -2,10 +2,10 @@ extends "res://scripts/enemy.gd"
 
 @onready var animation_player = $AnimationPlayer
 @onready var hurtbox = $CollisionShape2D
-@onready var pivot = $TurnPivot/Pivot
-@onready var turn_pivot = $TurnPivot
-@onready var wall_raycast = $TurnPivot/Pivot/Wall
-@onready var floor_raycast = $TurnPivot/Pivot/Floor
+@onready var pivot = $Pivot
+@onready var turn_pivot = $Pivot/TurnPivot
+@onready var wall_raycast = $Pivot/Wall
+@onready var floor_raycast = $Pivot/Floor
 
 @export var can_move: bool = false
 var direction = 1
