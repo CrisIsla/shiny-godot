@@ -29,6 +29,7 @@ var is_grounded
 const DEFAULT_ZOOM: Vector2 = Vector2(0.8, 0.8)
 const MIN_ZOOM: Vector2 = Vector2(0.6, 0.6)
 
+@export var spawn_cords: Vector2 
 @export var hp = 3:
 	set(value):
 		hp=value
@@ -43,6 +44,7 @@ func _ready():
 	animation_tree.active = true
 	hitbox.disabled = true
 	canvas_layer.visible = true
+	global_position = spawn_cords
 
 func _input(event):
 	if event.is_action_pressed("reset"):
