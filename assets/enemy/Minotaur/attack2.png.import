@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cfeof1hp38s7t"
-path="res://.godot/imported/minotaur.png-5c70792daad9757758dcf2f41662a6fe.ctex"
+uid="uid://c2qwltdancwl6"
+path="res://.godot/imported/attack2.png-4e149e301850732daf568cbd8f4d61e9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/enemy/Minotaur/minotaur.png"
-dest_files=["res://.godot/imported/minotaur.png-5c70792daad9757758dcf2f41662a6fe.ctex"]
+source_file="res://assets/enemy/Minotaur/attack2.png"
+dest_files=["res://.godot/imported/attack2.png-4e149e301850732daf568cbd8f4d61e9.ctex"]
 
 [params]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://1pkd7o1t6sfo"]
+[gd_scene load_steps=13 format=3 uid="uid://mukac6r6oxyk"]
 
 [ext_resource type="Texture2D" uid="uid://c42aln0chhcrd" path="res://assets/enemy/Slime/Sprite Sheet - Green Idle.png" id="1_0y3e4"]
 [ext_resource type="Script" path="res://scripts/enemys/slime.gd" id="1_bfm4h"]
