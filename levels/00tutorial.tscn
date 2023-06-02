@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dae4mmxws73ta" path="res://scenes/TutorialNPC.tscn" id="4_quq7d"]
 [ext_resource type="Texture2D" uid="uid://bed0qscnkpibv" path="res://assets/tutorial/tile_0120.png" id="7_mkwkj"]
 [ext_resource type="Texture2D" uid="uid://cpg7s8yuh4vqf" path="res://assets/tutorial/tile_0122.png" id="8_wtd4j"]
-[ext_resource type="PackedScene" uid="uid://mukac6r6oxyk" path="res://scenes/slime.tscn" id="9_vnw1h"]
+[ext_resource type="PackedScene" uid="uid://mukac6r6oxyk" path="res://scenes/enemys/slime.tscn" id="9_vnw1h"]
 
 [sub_resource type="Animation" id="Animation_ed8xj"]
 length = 0.001
