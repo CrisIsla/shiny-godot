@@ -36,9 +36,10 @@ func _physics_process(delta):
 func attack():
 	var current_attack = choose(attacks)
 	playback.travel(current_attack)
-	state = IDLE
+	change_state()
 
 func change_state():
+	playback.travel("state_change")
 	state = choose(states)
 
 func choose(array: Array):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://b7bo6fpp2jnpq"]
+[gd_scene load_steps=46 format=3 uid="uid://b7bo6fpp2jnpq"]
 
 [ext_resource type="Texture2D" uid="uid://igqqgfilrhc7" path="res://assets/enemy/Minotaur/idle.png" id="1_3ooot"]
 [ext_resource type="Script" path="res://scripts/enemys/minotaur.gd" id="1_tpvy8"]
@@ -529,7 +529,6 @@ tracks/4/keys = {
 
 [sub_resource type="Animation" id="Animation_x41tk"]
 resource_name = "state_change"
-length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -619,6 +618,9 @@ animation = &"run"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5eimx"]
 animation = &"special_attack"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jvuug"]
+animation = &"state_change"
+
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_76tvt"]
 advance_mode = 2
 
@@ -656,6 +658,11 @@ switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1152a"]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ukois"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_i71dn"]
+switch_mode = 2
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_qthxa"]
 states/Start/position = Vector2(19, 131)
 states/attack1/node = SubResource("AnimationNodeAnimation_v68dt")
@@ -668,8 +675,10 @@ states/run/node = SubResource("AnimationNodeAnimation_23vkx")
 states/run/position = Vector2(322, 3)
 states/special_attack/node = SubResource("AnimationNodeAnimation_5eimx")
 states/special_attack/position = Vector2(667, 326)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_76tvt"), "idle", "attack1", SubResource("AnimationNodeStateMachineTransition_c0uqp"), "idle", "attack2", SubResource("AnimationNodeStateMachineTransition_dowbn"), "attack2", "idle", SubResource("AnimationNodeStateMachineTransition_xh10l"), "attack1", "idle", SubResource("AnimationNodeStateMachineTransition_y4ues"), "idle", "special_attack", SubResource("AnimationNodeStateMachineTransition_5rsyq"), "special_attack", "idle", SubResource("AnimationNodeStateMachineTransition_w070n"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_ph5xj"), "attack1", "run", SubResource("AnimationNodeStateMachineTransition_e7moq"), "attack2", "run", SubResource("AnimationNodeStateMachineTransition_s2di6"), "special_attack", "run", SubResource("AnimationNodeStateMachineTransition_agetp"), "run", "attack1", SubResource("AnimationNodeStateMachineTransition_wrr0g"), "run", "attack2", SubResource("AnimationNodeStateMachineTransition_b0rbo"), "run", "special_attack", SubResource("AnimationNodeStateMachineTransition_oigy2"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_1152a")]
-graph_offset = Vector2(-41, -22)
+states/state_change/node = SubResource("AnimationNodeAnimation_jvuug")
+states/state_change/position = Vector2(145, 15)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_76tvt"), "idle", "attack1", SubResource("AnimationNodeStateMachineTransition_c0uqp"), "idle", "attack2", SubResource("AnimationNodeStateMachineTransition_dowbn"), "attack2", "idle", SubResource("AnimationNodeStateMachineTransition_xh10l"), "attack1", "idle", SubResource("AnimationNodeStateMachineTransition_y4ues"), "idle", "special_attack", SubResource("AnimationNodeStateMachineTransition_5rsyq"), "special_attack", "idle", SubResource("AnimationNodeStateMachineTransition_w070n"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_ph5xj"), "attack1", "run", SubResource("AnimationNodeStateMachineTransition_e7moq"), "attack2", "run", SubResource("AnimationNodeStateMachineTransition_s2di6"), "special_attack", "run", SubResource("AnimationNodeStateMachineTransition_agetp"), "run", "attack1", SubResource("AnimationNodeStateMachineTransition_wrr0g"), "run", "attack2", SubResource("AnimationNodeStateMachineTransition_b0rbo"), "run", "special_attack", SubResource("AnimationNodeStateMachineTransition_oigy2"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_1152a"), "idle", "state_change", SubResource("AnimationNodeStateMachineTransition_ukois"), "state_change", "idle", SubResource("AnimationNodeStateMachineTransition_i71dn")]
+graph_offset = Vector2(-210, -32)
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_layke"]
 
@@ -701,9 +710,8 @@ process_callback = 0
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_qthxa")
 anim_player = NodePath("../AnimationPlayer")
-active = true
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_layke")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 1.5
+wait_time = 3.0
 autostart = true
