@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bq1ahv6xb76sk"]
+[gd_scene load_steps=15 format=3 uid="uid://bq1ahv6xb76sk"]
 
 [ext_resource type="Script" path="res://levels/00tutorial.gd" id="1_0osuh"]
 [ext_resource type="PackedScene" uid="uid://cel8njhqnclsq" path="res://tileset/tileset.tscn" id="1_2hvix"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bed0qscnkpibv" path="res://assets/tutorial/tile_0120.png" id="7_mkwkj"]
 [ext_resource type="Texture2D" uid="uid://cpg7s8yuh4vqf" path="res://assets/tutorial/tile_0122.png" id="8_wtd4j"]
 [ext_resource type="PackedScene" uid="uid://mukac6r6oxyk" path="res://scenes/enemys/slime.tscn" id="9_vnw1h"]
+[ext_resource type="PackedScene" uid="uid://b7bo6fpp2jnpq" path="res://scenes/enemys/minotaur.tscn" id="10_opu1a"]
 
 [sub_resource type="Animation" id="Animation_ed8xj"]
 length = 0.001
@@ -218,7 +219,9 @@ scale = Vector2(0.7, 0.7)
 texture = ExtResource("8_wtd4j")
 
 [node name="player" parent="." instance=ExtResource("2_qcyhj")]
-position = Vector2(-113.934, -16)
-spawn_cords = Vector2(-163, 1)
+position = Vector2(2159.75, 374)
+
+[node name="Minotaur" parent="." instance=ExtResource("10_opu1a")]
+position = Vector2(2287.67, 350)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

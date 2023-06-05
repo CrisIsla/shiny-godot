@@ -44,9 +44,11 @@ func _ready():
 	animation_tree.active = true
 	hitbox.disabled = true
 	canvas_layer.visible = true
-	global_position = spawn_cords
+#	global_position = spawn_cords
 
 func _input(event):
+
+	move_and_slide()
 	if event.is_action_pressed("reset"):
 		get_tree().reload_current_scene()
 	

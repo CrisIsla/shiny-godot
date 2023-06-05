@@ -23,6 +23,11 @@ func _ready():
 	timer.timeout.connect(change_state)
 
 func _physics_process(delta):
+	#	update_is_killable(turn_pivot)
+	if not is_on_floor():
+		apply_gravity(delta)
+#	if can_move:
+#		move()
 	match state:
 		IDLE:
 			playback.travel("idle")
@@ -32,11 +37,12 @@ func _physics_process(delta):
 			
 		ATTACKING:
 			attack()
+	
+	move_and_slide()
 
 func attack():
 	var current_attack = choose(attacks)
 	playback.travel(current_attack)
-	change_state()
 
 func change_state():
 	playback.travel("state_change")
