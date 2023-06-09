@@ -700,6 +700,21 @@ damage = 2
 
 [node name="Pivot" type="Node2D" parent="."]
 
+[node name="Attack1" type="Area2D" parent="Pivot"]
+position = Vector2(100, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/Attack1"]
+position = Vector2(-81.5, -11.375)
+shape = SubResource("RectangleShape2D_tuhy5")
+debug_color = Color(0.968627, 0, 0.466667, 0.419608)
+
+[node name="Wall" type="RayCast2D" parent="Pivot"]
+target_position = Vector2(43, 0)
+
+[node name="Floor" type="RayCast2D" parent="Pivot"]
+position = Vector2(13, 0)
+target_position = Vector2(0, 20)
+
 [node name="TurnPivot" type="Node2D" parent="Pivot"]
 
 [node name="Sprite2D" type="Sprite2D" parent="Pivot/TurnPivot"]
@@ -722,14 +737,6 @@ visible = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(-2, -2)
 shape = SubResource("CapsuleShape2D_k3tvv")
-debug_color = Color(0.968627, 0, 0.466667, 0.419608)
-
-[node name="Attack1" type="Area2D" parent="."]
-position = Vector2(100, 0)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Attack1"]
-position = Vector2(-81.5, -11.375)
-shape = SubResource("RectangleShape2D_tuhy5")
 debug_color = Color(0.968627, 0, 0.466667, 0.419608)
 
 [node name="SpecialAttack" type="Area2D" parent="."]
