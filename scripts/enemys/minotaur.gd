@@ -10,7 +10,7 @@ extends Enemy
 
 var direction = 1
 
-const ACCELERATION = 75
+const ACCELERATION = 100
 
 enum {
 	IDLE, MOVING, CHASING, ATTACKING
@@ -43,7 +43,7 @@ func _physics_process(delta):
 				direction *= -1
 				pivot.scale.x = direction
 			playback.travel("run")
-			velocity.x = move_toward(velocity.x, speed * direction, delta * speed)
+			velocity.x = move_toward(velocity.x, speed * direction, ACCELERATION)
 			
 		ATTACKING:
 			attack()
