@@ -47,6 +47,9 @@ func _physics_process(delta):
 			
 		ATTACKING:
 			attack()
+			
+		CHASING:
+			follow_player()
 	
 	move_and_slide()
 
@@ -62,3 +65,17 @@ func change_state():
 func choose(array: Array):
 	array.shuffle()
 	return array[0]
+	
+func follow_player():
+	var player_xpos = Game.player.global_position.x
+	velocity.x = move_toward(velocity.x, player_xpos, ACCELERATION)
+
+
+func _on_chasing_body_entered(body):
+	if body.is_in_group("player"):
+		state = CHASING
+
+
+func _on_chasing_body_exited(body):
+	if body.is_in_group("player"):
+		state = IDLE

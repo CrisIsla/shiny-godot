@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://b7bo6fpp2jnpq"]
+[gd_scene load_steps=49 format=3 uid="uid://b7bo6fpp2jnpq"]
 
 [ext_resource type="Texture2D" uid="uid://igqqgfilrhc7" path="res://assets/enemy/Minotaur/idle.png" id="1_3ooot"]
 [ext_resource type="Script" path="res://scripts/enemys/minotaur.gd" id="1_tpvy8"]
@@ -689,6 +689,9 @@ graph_offset = Vector2(-210, -32)
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_layke"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5awqp"]
+size = Vector2(183, 74)
+
 [node name="Minotaur" type="CharacterBody2D"]
 position = Vector2(2, -18)
 collision_layer = 20
@@ -768,3 +771,12 @@ parameters/playback = SubResource("AnimationNodeStateMachinePlayback_layke")
 [node name="Timer" type="Timer" parent="."]
 wait_time = 3.0
 autostart = true
+
+[node name="Chasing" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chasing"]
+position = Vector2(-2, -19)
+shape = SubResource("RectangleShape2D_5awqp")
+
+[connection signal="body_entered" from="Chasing" to="." method="_on_chasing_body_entered"]
+[connection signal="body_exited" from="Chasing" to="." method="_on_chasing_body_exited"]
