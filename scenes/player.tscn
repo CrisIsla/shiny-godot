@@ -13,7 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://e6kqhnypxc7v" path="res://assets/SFX/footstep.wav" id="9_dpiwm"]
 [ext_resource type="AudioStream" uid="uid://bvok6tra5ogvk" path="res://assets/SFX/jump.wav" id="10_kppqx"]
 [ext_resource type="AudioStream" uid="uid://c8bpui8026pae" path="res://assets/SFX/hit.wav" id="11_kp3cm"]
-[ext_resource type="PackedScene" uid="uid://dfo2jvqo6mmx5" path="res://scenes/ui.tscn" id="13_s2xn6"]
+[ext_resource type="PackedScene" uid="uid://dxv4yp356d30b" path="res://scenes/ui.tscn" id="13_s2xn6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q46ix"]
 size = Vector2(19, 25)

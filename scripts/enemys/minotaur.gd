@@ -68,10 +68,13 @@ func choose(array: Array):
 	
 func follow_player():
 	var player_xpos = Game.player.global_position.x
-	velocity.x = move_toward(velocity.x, player_xpos, ACCELERATION)
+	direction = sign(player_xpos - self.global_position.x)
+	pivot.scale.x = direction
+	velocity.x = move_toward(velocity.x, player_xpos - self.global_position.x, ACCELERATION)
 
 
 func _on_chasing_body_entered(body):
+	print("aaaaaaa")
 	if body.is_in_group("player"):
 		state = CHASING
 

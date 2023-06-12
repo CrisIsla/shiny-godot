@@ -773,6 +773,7 @@ wait_time = 3.0
 autostart = true
 
 [node name="Chasing" type="Area2D" parent="."]
+collision_mask = 17
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chasing"]
 position = Vector2(-2, -19)
