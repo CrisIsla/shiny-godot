@@ -690,7 +690,7 @@ graph_offset = Vector2(-210, -32)
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_layke"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5awqp"]
-size = Vector2(183, 74)
+size = Vector2(204, 74)
 
 [node name="Minotaur" type="CharacterBody2D"]
 position = Vector2(2, -18)

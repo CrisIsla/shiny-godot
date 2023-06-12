@@ -50,6 +50,7 @@ func _physics_process(delta):
 			
 		CHASING:
 			follow_player()
+			playback.travel("run")
 	
 	move_and_slide()
 
@@ -74,7 +75,6 @@ func follow_player():
 
 
 func _on_chasing_body_entered(body):
-	print("aaaaaaa")
 	if body.is_in_group("player"):
 		state = CHASING
 
