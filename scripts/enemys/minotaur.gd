@@ -16,7 +16,7 @@ enum {
 	IDLE, MOVING, CHASING, ATTACKING
 }
 
-var state = ATTACKING
+var state = IDLE
 var states = [IDLE, MOVING, ATTACKING]
 var attacks = ["attack1", "attack2", "special_attack"]
 
@@ -60,7 +60,6 @@ func attack():
 	playback.travel(current_attack)
 
 func change_state():
-	playback.travel("state_change")
 	state = choose(states)
 
 func choose(array: Array):
@@ -81,4 +80,4 @@ func _on_chasing_body_entered(body):
 
 func _on_chasing_body_exited(body):
 	if body.is_in_group("player"):
-		state = IDLE
+		state = choose(states)
