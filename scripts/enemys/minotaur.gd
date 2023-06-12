@@ -5,8 +5,8 @@ extends Enemy
 @onready var playback = animation_tree.get("parameters/playback")
 @onready var timer = $Timer
 @onready var pivot = $Pivot
-@onready var wall = $Pivot/Wall
-@onready var floor = $Pivot/Floor
+@onready var wall_raycast = $Pivot/Wall
+@onready var floor_raycast = $Pivot/Floor
 
 var direction = 1
 
@@ -39,7 +39,7 @@ func _physics_process(delta):
 			velocity.x = move_toward(velocity.x, 0, ACCELERATION)
 			
 		MOVING:
-			if wall.is_colliding() or not floor.is_colliding():
+			if wall_raycast.is_colliding() or not floor_raycast.is_colliding():
 				direction *= -1
 				pivot.scale.x = direction
 			playback.travel("run")
@@ -76,7 +76,6 @@ func follow_player():
 func _on_chasing_body_entered(body):
 	if body.is_in_group("player"):
 		state = CHASING
-
 
 func _on_chasing_body_exited(body):
 	if body.is_in_group("player"):
