@@ -72,7 +72,6 @@ func follow_player():
 	pivot.scale.x = direction
 	velocity.x = move_toward(velocity.x, player_xpos - self.global_position.x, ACCELERATION)
 
-
 func _on_chasing_body_entered(body):
 	if body.is_in_group("player"):
 		state = CHASING

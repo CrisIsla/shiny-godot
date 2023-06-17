@@ -1,8 +1,10 @@
 extends PanelContainer
+@onready var resume = $MarginContainer/VBoxContainer/Resume
 
 func _ready():
 	hide()
-	
+	resume.grab_focus()
+
 func _input(event):
 	if event.is_action_pressed("exit"):
 		self.visible = !self.visible
