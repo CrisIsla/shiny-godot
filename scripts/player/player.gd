@@ -24,6 +24,7 @@ var is_grounded
 @onready var canvas_layer = $CanvasLayer
 @onready var coyote = $Coyote
 @onready var ui = $CanvasLayer/UI
+@onready var gpu_particles_2d = $Pivot/GPUParticles2D
 
 @onready var camera_2d = $Camera2D
 const DEFAULT_ZOOM: Vector2 = Vector2(0.8, 0.8)
@@ -80,6 +81,8 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("attack"):
 		attack()
 	
+	if velocity.x != 0 and is_on_floor():
+		gpu_particles_2d.emitting = true
 
 	handle_movement_animations()
 	
