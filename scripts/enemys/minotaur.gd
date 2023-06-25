@@ -7,6 +7,7 @@ extends Enemy
 @onready var pivot = $Pivot
 @onready var wall_raycast = $Pivot/Wall
 @onready var floor_raycast = $Pivot/Floor
+@onready var turn_pivot = $Pivot/TurnPivot
 
 var direction = 1
 
@@ -20,6 +21,7 @@ var state = IDLE
 var states = [IDLE, MOVING, ATTACKING]
 var attacks = ["attack1", "attack2", "special_attack"]
 
+
 func _input(event):
 	if event.is_action_pressed("reset"):
 		get_tree().reload_current_scene()
@@ -30,7 +32,7 @@ func _ready():
 	timer.timeout.connect(change_state)
 
 func _physics_process(delta):
-	#	update_is_killable(turn_pivot)
+	update_is_killable(turn_pivot)
 	if not is_on_floor():
 		apply_gravity(delta)
 	match state:
@@ -79,3 +81,25 @@ func _on_chasing_body_entered(body):
 func _on_chasing_body_exited(body):
 	if body.is_in_group("player"):
 		state = choose(states)
+
+func _on_hurtbox_area_entered(area):
+	if area.is_in_group("player_hit"):
+		if is_killable:
+			_die(turn_pivot)
+		else:
+			_on_hit_turn(turn_pivot, 4, 3)
+
+func _on_special_attack_area_entered(area):
+	if area.is_in_group("player_hurtbox"):
+		var player = area.get_parent() as Player
+		player.take_damage(damage)
+
+func _on_attack_2_area_entered(area):
+	if area.is_in_group("player_hurtbox"):
+		var player = area.get_parent() as Player
+		player.take_damage(damage)
+
+func _on_attack_1_area_entered(area):
+	if area.is_in_group("player_hurtbox"):
+		var player = area.get_parent() as Player
+		player.take_damage(damage)

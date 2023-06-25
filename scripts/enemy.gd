@@ -8,7 +8,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @export var jump_velocity: int
 @export var hp: int
 @export var damage: int
-@export var is_killable: bool = true
+@export var is_killable: bool = false
 
 
 func _physics_process(delta):
