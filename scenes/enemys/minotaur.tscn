@@ -878,12 +878,9 @@ shape = SubResource("RectangleShape2D_tuhy5")
 debug_color = Color(0.968627, 0, 0.466667, 0.419608)
 
 [node name="Hitbox" type="Area2D" parent="."]
-visible = false
-collision_layer = 0
-collision_mask = 8
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-visible = false
 position = Vector2(-2, -2)
 shape = SubResource("CapsuleShape2D_k3tvv")
 debug_color = Color(0.968627, 0, 0.466667, 0.419608)
@@ -943,6 +940,7 @@ debug_color = Color(0, 0.635294, 0.403922, 0.419608)
 
 [connection signal="area_entered" from="Pivot/Attack1" to="." method="_on_attack_1_area_entered"]
 [connection signal="area_entered" from="Pivot/Attack2" to="." method="_on_attack_2_area_entered"]
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="area_entered" from="SpecialAttack" to="." method="_on_special_attack_area_entered"]
 [connection signal="body_entered" from="Chasing" to="." method="_on_chasing_body_entered"]
 [connection signal="body_exited" from="Chasing" to="." method="_on_chasing_body_exited"]

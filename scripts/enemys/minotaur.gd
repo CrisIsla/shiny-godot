@@ -103,3 +103,9 @@ func _on_attack_1_area_entered(area):
 	if area.is_in_group("player_hurtbox"):
 		var player = area.get_parent() as Player
 		player.take_damage(damage)
+
+
+func _on_hitbox_area_entered(area):
+	if area.is_in_group("player_hurtbox"):
+		var player = area.get_parent() as Player
+		player.take_damage(damage)
