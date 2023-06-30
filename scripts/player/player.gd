@@ -162,3 +162,7 @@ func death():
 	playback.travel("death")
 	await get_tree().create_timer(1).timeout
 	get_tree().reload_current_scene()
+
+func knockback(knockback_scale: int, enemy_position: Vector2):
+	var direction = (global_position - enemy_position).normalized()
+	velocity = direction * knockback_scale

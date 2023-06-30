@@ -10,6 +10,8 @@ extends "res://scripts/enemy.gd"
 @export var can_move: bool = false
 var direction = 1
 
+const ON_HIT_KNOCKBACK = 300
+
 func _ready():
 	animation_player.play("idle")
 	hurtbox.disabled = false
@@ -28,6 +30,7 @@ func _on_hitbox_area_entered(area):
 	if area.is_in_group("player_hurtbox"):
 		var player = area.get_parent() as Player
 		player.take_damage(damage)
+		player.knockback(ON_HIT_KNOCKBACK, global_position)
 
 func move():
 	velocity.x = speed * direction

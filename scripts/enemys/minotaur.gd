@@ -12,6 +12,7 @@ extends Enemy
 var direction = 1
 
 const ACCELERATION = 100
+const ON_HIT_KNOCKBACK = 500
 
 enum {
 	IDLE, MOVING, CHASING, ATTACKING
@@ -105,3 +106,4 @@ func _on_attack_1_area_entered(area):
 func _on_hitbox_area_entered(area):
 	var player = area.get_parent() as Player
 	player.take_damage(damage)
+	player.knockback(ON_HIT_KNOCKBACK, global_position)

@@ -203,8 +203,12 @@ libraries = {
 
 [node name="Slime" parent="." instance=ExtResource("9_vnw1h")]
 position = Vector2(2167.74, -357)
+can_move = false
+is_turning = 0
 speed = 50
+jump_velocity = 0
 damage = 1
+is_killable = false
 
 [node name="A-key" type="Sprite2D" parent="."]
 visible = false
