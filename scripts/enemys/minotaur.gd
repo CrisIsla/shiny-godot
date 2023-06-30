@@ -90,22 +90,18 @@ func _on_hurtbox_area_entered(area):
 			_on_hit_turn(turn_pivot, 4, 3)
 
 func _on_special_attack_area_entered(area):
-	if area.is_in_group("player_hurtbox"):
-		var player = area.get_parent() as Player
-		player.take_damage(damage)
+	var player = area.get_parent() as Player
+	player.take_damage(damage)
 
 func _on_attack_2_area_entered(area):
-	if area.is_in_group("player_hurtbox"):
-		var player = area.get_parent() as Player
-		player.take_damage(damage)
+	var player = area.get_parent() as Player
+	player.take_damage(damage)
 
 func _on_attack_1_area_entered(area):
-	if area.is_in_group("player_hurtbox"):
-		var player = area.get_parent() as Player
-		player.take_damage(damage)
+	var player = area.get_parent() as Player
+	player.take_damage(damage)
 
 
 func _on_hitbox_area_entered(area):
-	if area.is_in_group("player_hurtbox"):
-		var player = area.get_parent() as Player
-		player.take_damage(damage)
+	var player = area.get_parent() as Player
+	player.take_damage(damage)
