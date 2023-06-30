@@ -1425,4 +1425,7 @@ volume_db = -5.622
 wait_time = 0.1
 one_shot = true
 
+[node name="InvulTimer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="grounded_updated" from="." to="Camera2D" method="_on_player_grounded_updated"]

@@ -25,6 +25,7 @@ var is_grounded
 @onready var coyote = $Coyote
 @onready var ui = $CanvasLayer/UI
 @onready var gpu_particles_2d = $Pivot/GPUParticles2D
+@onready var invul_timer = $InvulTimer
 
 @onready var camera_2d = $Camera2D
 const DEFAULT_ZOOM: Vector2 = Vector2(0.8, 0.8)
@@ -153,11 +154,16 @@ func set_last_direction():
 		last_direction = direction
 
 func take_damage(damage):
+	if invul_timer.time_left > 0:
+		return
+	
+	invul_timer.start()
 	hp -= damage
 	playback.call_deferred("travel", "hurt")
 #	if hp <= 0:
 #		death()
 		
+
 func death():
 	playback.travel("death")
 	await get_tree().create_timer(1).timeout
