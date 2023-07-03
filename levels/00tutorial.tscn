@@ -203,12 +203,8 @@ libraries = {
 
 [node name="Slime" parent="." instance=ExtResource("9_vnw1h")]
 position = Vector2(2167.74, -357)
-can_move = false
-is_turning = 0
 speed = 50
-jump_velocity = 0
 damage = 1
-is_killable = false
 
 [node name="A-key" type="Sprite2D" parent="."]
 visible = false
@@ -227,5 +223,6 @@ position = Vector2(2145.76, 371)
 
 [node name="Minotaur" parent="." instance=ExtResource("10_opu1a")]
 position = Vector2(2287.67, 350)
+damage = 0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

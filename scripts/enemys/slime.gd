@@ -41,8 +41,7 @@ func move():
 
 
 func _on_hurtbox_area_entered(area):
-	if area.is_in_group("player_hit"):
-		if is_killable:
-			_die(turn_pivot)
-		else:
-			_on_hit_turn(turn_pivot, 6, 8)
+	if is_killable:
+		_die(turn_pivot)
+	else:
+		_on_hit_turn(turn_pivot, 6, 8)

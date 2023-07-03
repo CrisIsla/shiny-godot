@@ -1348,7 +1348,7 @@ texture = ExtResource("2_wrkhq")
 hframes = 8
 
 [node name="Area2D" type="Area2D" parent="Pivot" groups=["player_hit"]]
-collision_layer = 0
+collision_layer = 8
 collision_mask = 16
 
 [node name="hitbox" type="CollisionShape2D" parent="Pivot/Area2D"]

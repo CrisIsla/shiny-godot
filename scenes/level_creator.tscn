@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bb0bb3cj7t5to"]
+
+[ext_resource type="PackedScene" uid="uid://cel8njhqnclsq" path="res://tileset/tileset.tscn" id="1_47o2j"]
+
+[node name="LevelCreator" type="Node2D"]
+
+[node name="Tileset" parent="." instance=ExtResource("1_47o2j")]
