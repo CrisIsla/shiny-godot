@@ -932,10 +932,6 @@ libraries = {
 "": SubResource("AnimationLibrary_jji1f")
 }
 
-[node name="Camera2D" type="Camera2D" parent="."]
-visible = false
-process_callback = 0
-
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_qthxa")
 anim_player = NodePath("../AnimationPlayer")

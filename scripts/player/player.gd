@@ -50,7 +50,6 @@ func _ready():
 
 func _input(event):
 
-	move_and_slide()
 	if event.is_action_pressed("reset"):
 		get_tree().reload_current_scene()
 	
@@ -88,7 +87,6 @@ func _physics_process(delta):
 	handle_movement_animations()
 	
 	get_movement()
-	
 	# Coyote jump logic
 	var was_on_floor = is_on_floor()
 	move_and_slide()
@@ -103,19 +101,25 @@ func apply_gravity(delta):
 	velocity.y += gravity * delta
 
 func jump():
+	if hp <= 0:
+		return
 	velocity.y = JUMP_VELOCITY
 	randomize()
 	jump_sfx.set_pitch_scale(randf_range(0.8, 2.0))
 	jump_sfx.play()
 	
 func get_direction():
-	return Input.get_axis("move_left", "move_right")
+	if hp <= 0:
+		return 0
+	return sign(Input.get_axis("move_left", "move_right"))
 	
 func get_movement():
 	if direction:
-		velocity.x = move_toward(velocity.x, direction * SPEED, ACCELERATION)
+		velocity.x = move_toward(velocity.x, direction * SPEED, ACCELERATION)	
 	else:
 		velocity.x = move_toward(velocity.x, 0, ACCELERATION)
+	
+	velocity.x = clampf(velocity.x, -SPEED, SPEED)
 	
 func attack():
 	playback.call_deferred("travel", "attack_1")

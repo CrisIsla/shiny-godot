@@ -18,10 +18,10 @@ speed = 25
 damage = 1
 is_killable = true
 
-[node name="player" parent="." index="2" instance=ExtResource("3_nxpcj")]
-position = Vector2(-45, 30)
+[node name="ParallaxBackground" parent="." index="2" instance=ExtResource("4_obxqa")]
 
-[node name="ParallaxBackground" parent="." index="3" instance=ExtResource("4_obxqa")]
-
-[node name="StaticBody2D" parent="." index="4" instance=ExtResource("5_ug0l7")]
+[node name="StaticBody2D" parent="." index="3" instance=ExtResource("5_ug0l7")]
 position = Vector2(624, 32)
+
+[node name="player" parent="." index="4" instance=ExtResource("3_nxpcj")]
+position = Vector2(-45, 30)
