@@ -26,8 +26,8 @@ var is_grounded
 @onready var ui = $CanvasLayer/UI
 @onready var gpu_particles_2d = $Pivot/GPUParticles2D
 @onready var invul_timer = $InvulTimer
-
 @onready var camera_2d = $Camera2D
+
 const DEFAULT_ZOOM: Vector2 = Vector2(0.8, 0.8)
 const MIN_ZOOM: Vector2 = Vector2(0.6, 0.6)
 
@@ -36,7 +36,6 @@ const MIN_ZOOM: Vector2 = Vector2(0.6, 0.6)
 	set(value):
 		hp=value
 		ui.set_health(value)
-		
 
 @onready var jump_sfx = $JumpSFX
 @onready var attack_sfx = $AttackSFX
@@ -46,7 +45,6 @@ func _ready():
 	animation_tree.active = true
 	hitbox.disabled = true
 	canvas_layer.visible = true
-#	global_position = spawn_cords
 
 func _input(event):
 

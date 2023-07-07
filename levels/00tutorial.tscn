@@ -1,14 +1,13 @@
-[gd_scene load_steps=16 format=3 uid="uid://bq1ahv6xb76sk"]
+[gd_scene load_steps=15 format=3 uid="uid://bq1ahv6xb76sk"]
 
 [ext_resource type="PackedScene" uid="uid://cel8njhqnclsq" path="res://tileset/tileset.tscn" id="1_2hvix"]
 [ext_resource type="Script" path="res://scripts/level_creator.gd" id="1_hfl8r"]
 [ext_resource type="PackedScene" uid="uid://buj3qatnvhmbu" path="res://scenes/door.tscn" id="1_i1goy"]
+[ext_resource type="PackedScene" uid="uid://w120ihiv175w" path="res://levels/level_1.tscn" id="2_2kpn6"]
 [ext_resource type="PackedScene" uid="uid://3ahfed8bxgqy" path="res://scenes/player.tscn" id="2_qcyhj"]
 [ext_resource type="PackedScene" uid="uid://x22b3t3jr5y7" path="res://scenes/parallax_background.tscn" id="2_v3rhf"]
 [ext_resource type="PackedScene" uid="uid://cpstgcmaq8i3" path="res://scenes/tree.tscn" id="4_lxmf2"]
 [ext_resource type="PackedScene" uid="uid://dae4mmxws73ta" path="res://scenes/TutorialNPC.tscn" id="4_quq7d"]
-[ext_resource type="Texture2D" uid="uid://bed0qscnkpibv" path="res://assets/tutorial/tile_0120.png" id="7_mkwkj"]
-[ext_resource type="Texture2D" uid="uid://cpg7s8yuh4vqf" path="res://assets/tutorial/tile_0122.png" id="8_wtd4j"]
 [ext_resource type="Script" path="res://scripts/Enemies.gd" id="9_8noyo"]
 [ext_resource type="PackedScene" uid="uid://mukac6r6oxyk" path="res://scenes/enemys/slime.tscn" id="9_vnw1h"]
 
@@ -153,12 +152,12 @@ _data = {
 [node name="Tutorial" type="Node2D"]
 scale = Vector2(1.00058, 1)
 script = ExtResource("1_hfl8r")
+next_level = ExtResource("2_2kpn6")
 
 [node name="Door" parent="." instance=ExtResource("1_i1goy")]
 position = Vector2(2734.41, -352)
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("2_v3rhf")]
-visible = false
 
 [node name="StaticBody2D" parent="." instance=ExtResource("4_lxmf2")]
 position = Vector2(-208, 1)
@@ -197,25 +196,13 @@ start = 16
 end = 17
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-root_node = NodePath("../A-key")
+root_node = NodePath("")
 libraries = {
 "": SubResource("AnimationLibrary_d7v6x")
 }
 
-[node name="A-key" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(3988.68, 234)
-scale = Vector2(0.7, 0.7)
-texture = ExtResource("7_mkwkj")
-
-[node name="D-key" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(4023.67, 234)
-scale = Vector2(0.7, 0.7)
-texture = ExtResource("8_wtd4j")
-
 [node name="player" parent="." instance=ExtResource("2_qcyhj")]
-position = Vector2(1942.87, -356)
+position = Vector2(-146.915, 0)
 
 [node name="Enemies" type="Node" parent="."]
 script = ExtResource("9_8noyo")
