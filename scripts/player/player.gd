@@ -160,14 +160,11 @@ func set_last_direction():
 func take_damage(damage):
 	if invul_timer.time_left > 0:
 		return
-	
+		
 	invul_timer.start()
 	hp -= damage
 	playback.call_deferred("travel", "hurt")
-#	if hp <= 0:
-#		death()
-		
-
+	
 func death():
 	playback.travel("death")
 	await get_tree().create_timer(1).timeout
@@ -176,3 +173,8 @@ func death():
 func knockback(knockback_scale: int, enemy_position: Vector2):
 	var direction = (global_position - enemy_position).normalized()
 	velocity = direction * knockback_scale
+
+func _on_area_2d_area_entered(area):
+	if area.get_parent() and area.get_parent() is Enemy:
+		var enemy = area.get_parent() as Enemy
+		enemy.take_hit()

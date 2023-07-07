@@ -36,6 +36,9 @@ func _die(turn_pivot: Node2D):
 	
 	tween.tween_property(turn_pivot, "skew", target_radians, 0.2)
 	tween.tween_callback(self.queue_free)
+
+func _exit_tree():
+	get_parent().on_enemy_died()
 	
 func _on_hit_turn(turn_pivot: Node2D, half_turns: int, turn_time: float):
 	if is_turning:
@@ -52,7 +55,6 @@ func _on_hit_turn(turn_pivot: Node2D, half_turns: int, turn_time: float):
 	tween.tween_property(turn_pivot, "skew", half_turns * PI, turn_time)
 	tween.tween_property(self, "is_turning", 0, 0)
 
-
 func update_is_killable(turn_pivot: Node2D):
 	var radians = turn_pivot.skew
 	while radians > 2*PI:
@@ -64,9 +66,12 @@ func update_is_killable(turn_pivot: Node2D):
 	else:
 		is_killable = 0
 
-
 func _set_is_killable(value):
 	is_killable = value
+
+# Function gets override when player hits a specific enemy
+func take_hit():
+	pass
 
 
 	

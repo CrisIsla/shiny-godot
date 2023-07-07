@@ -1,0 +1,65 @@
+[gd_scene load_steps=8 format=3 uid="uid://buj3qatnvhmbu"]
+
+[ext_resource type="Texture2D" uid="uid://bqnwv78f8a8e3" path="res://assets/door_closed.png" id="1_lgrkp"]
+[ext_resource type="Script" path="res://scripts/door.gd" id="1_wr3gc"]
+[ext_resource type="Texture2D" uid="uid://cksgrh0nyhcgo" path="res://assets/door_opened.png" id="2_noddk"]
+
+[sub_resource type="Animation" id="Animation_bqhxc"]
+resource_name = "door_opening"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("1_lgrkp"), ExtResource("2_noddk")]
+}
+
+[sub_resource type="Animation" id="Animation_rna8y"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_lgrkp")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nf3o7"]
+_data = {
+"RESET": SubResource("Animation_rna8y"),
+"door_opening": SubResource("Animation_bqhxc")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_672y2"]
+radius = 12.0
+height = 34.0
+
+[node name="Door" type="Node2D"]
+script = ExtResource("1_wr3gc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -15)
+texture = ExtResource("1_lgrkp")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_nf3o7")
+}
+
+[node name="finish_line" type="Area2D" parent="."]
+
+[node name="finish_line_collision_shape" type="CollisionShape2D" parent="finish_line"]
+position = Vector2(-3, -16)
+shape = SubResource("CapsuleShape2D_672y2")
+
+[connection signal="body_entered" from="finish_line" to="." method="_on_finish_line_body_entered"]

@@ -263,5 +263,4 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_1778n")
 debug_color = Color(0, 0.631373, 0.47451, 0.419608)
 
-[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
