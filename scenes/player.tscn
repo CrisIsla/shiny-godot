@@ -1,4 +1,4 @@
-[gd_scene load_steps=89 format=3 uid="uid://3ahfed8bxgqy"]
+[gd_scene load_steps=91 format=3 uid="uid://3ahfed8bxgqy"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_3fe32"]
 [ext_resource type="Texture2D" uid="uid://d3wxmvb7675ac" path="res://assets/player/Owlet_Monster_Idle_4.png" id="1_3jku0"]
@@ -11,10 +11,12 @@
 [ext_resource type="Texture2D" uid="uid://dyoovh7t7e6n" path="res://assets/player/Owlet_Monster_Jump_8.png" id="8_btovt"]
 [ext_resource type="PackedScene" uid="uid://cvnmlou1030dy" path="res://scenes/pause.tscn" id="9_bxw18"]
 [ext_resource type="Script" path="res://scenes/Camera2D.gd" id="9_c5tvn"]
-[ext_resource type="AudioStream" uid="uid://e6kqhnypxc7v" path="res://assets/SFX/footstep.wav" id="9_dpiwm"]
-[ext_resource type="AudioStream" uid="uid://bvok6tra5ogvk" path="res://assets/SFX/jump.wav" id="10_kppqx"]
+[ext_resource type="AudioStream" uid="uid://dlduj4bq3cm4y" path="res://assets/SFX/walk.wav" id="10_jyh6o"]
 [ext_resource type="AudioStream" uid="uid://c8bpui8026pae" path="res://assets/SFX/hit.wav" id="11_kp3cm"]
+[ext_resource type="AudioStream" uid="uid://ng2gha05co20" path="res://assets/SFX/walk2.wav" id="11_tr8bb"]
 [ext_resource type="PackedScene" uid="uid://dxv4yp356d30b" path="res://scenes/ui.tscn" id="13_s2xn6"]
+[ext_resource type="AudioStream" uid="uid://crtw3qpfitjwu" path="res://assets/SFX/jump2.wav" id="15_7jnwx"]
+[ext_resource type="AudioStream" uid="uid://7uk74l61s465" path="res://assets/SFX/hurt.wav" id="16_k06ow"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q46ix"]
 size = Vector2(19, 25)
@@ -269,7 +271,7 @@ tracks/5/keys = {
 "start_offset": 0.0,
 "stream": ExtResource("11_kp3cm")
 }],
-"times": PackedFloat32Array(0.05)
+"times": PackedFloat32Array(0.1)
 }
 tracks/5/use_blend = true
 
@@ -893,19 +895,15 @@ tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "clips": [{
-"end_offset": 0.15722,
+"end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource("9_dpiwm")
+"stream": ExtResource("10_jyh6o")
 }, {
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": null
-}, {
-"end_offset": 0.15722,
-"start_offset": 0.0,
-"stream": ExtResource("9_dpiwm")
+"stream": ExtResource("11_tr8bb")
 }],
-"times": PackedFloat32Array(0.2, 0.5, 0.5001)
+"times": PackedFloat32Array(0.2, 0.5)
 }
 tracks/4/use_blend = true
 
@@ -1407,10 +1405,10 @@ visible = false
 [node name="UI" parent="CanvasLayer" instance=ExtResource("13_s2xn6")]
 
 [node name="JumpSFX" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("10_kppqx")
+stream = ExtResource("15_7jnwx")
+bus = &"SFX"
 
 [node name="Step" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("9_dpiwm")
 volume_db = 8.758
 bus = &"SFX"
 
@@ -1420,6 +1418,11 @@ pitch_scale = 1.5
 
 [node name="AttackSFX" type="AudioStreamPlayer" parent="."]
 volume_db = -5.622
+bus = &"Hit"
+
+[node name="HurtSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_k06ow")
+bus = &"SFX"
 
 [node name="Coyote" type="Timer" parent="."]
 wait_time = 0.1

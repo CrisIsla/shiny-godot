@@ -37,6 +37,7 @@ const MIN_ZOOM: Vector2 = Vector2(0.6, 0.6)
 		ui.set_health(value)
 
 @onready var jump_sfx = $JumpSFX
+@onready var hurt_sfx = $HurtSFX
 @onready var attack_sfx = $AttackSFX
 
 func _ready():
@@ -95,7 +96,7 @@ func jump():
 		return
 	velocity.y = JUMP_VELOCITY
 	randomize()
-	jump_sfx.set_pitch_scale(randf_range(0.8, 2.0))
+	jump_sfx.set_pitch_scale(randf_range(0.6, 0.7))
 	jump_sfx.play()
 	
 func get_direction():
@@ -153,6 +154,7 @@ func take_damage(damage):
 		
 	invul_timer.start()
 	hp -= damage
+	hurt_sfx.play()
 	playback.call_deferred("travel", "hurt")
 	
 func death():
@@ -168,3 +170,4 @@ func _on_area_2d_area_entered(area):
 	if area.get_parent() and area.get_parent() is Enemy:
 		var enemy = area.get_parent() as Enemy
 		enemy.take_hit()
+
