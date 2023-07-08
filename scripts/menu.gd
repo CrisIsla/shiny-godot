@@ -1,4 +1,4 @@
-extends MarginContainer
+extends CanvasLayer
 @onready var play = $PanelContainer/MarginContainer/VBoxContainer/Play
 
 func _ready():

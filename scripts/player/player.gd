@@ -31,7 +31,6 @@ var is_grounded
 const DEFAULT_ZOOM: Vector2 = Vector2(0.8, 0.8)
 const MIN_ZOOM: Vector2 = Vector2(0.6, 0.6)
 
-@export var spawn_cords: Vector2 
 @export var hp = 3:
 	set(value):
 		hp=value
@@ -47,15 +46,8 @@ func _ready():
 	canvas_layer.visible = true
 
 func _input(event):
-
 	if event.is_action_pressed("reset"):
 		get_tree().reload_current_scene()
-	
-	if event.is_action_pressed("camera"):
-		if camera_2d.zoom.x < MIN_ZOOM.x:
-			camera_2d.zoom = DEFAULT_ZOOM
-		else:
-			camera_2d.zoom /= Vector2(2, 2)
 
 func _physics_process(delta):
 	direction = get_direction()

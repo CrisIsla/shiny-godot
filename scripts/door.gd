@@ -16,5 +16,7 @@ func open_door():
 	finish_line.monitoring = true
 
 func _on_finish_line_body_entered(body):
-	if body is Player and level.next_level != null:
+	if body is Player and level.next_level is PackedScene:
+		await LevelTransition.fade_out()
 		get_tree().change_scene_to_packed(level.next_level)
+		LevelTransition.fade_in()
