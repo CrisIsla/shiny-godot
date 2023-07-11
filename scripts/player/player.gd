@@ -9,12 +9,10 @@ const SPEED = 250.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity") * 0.8
-
 var is_falling = false
 var direction
 var last_direction = 1
 var is_grounded
-
 
 @onready var pivot = $Pivot
 @onready var animationPlayer = $AnimationPlayer
@@ -27,6 +25,8 @@ var is_grounded
 @onready var gpu_particles_2d = $Pivot/GPUParticles2D
 @onready var invul_timer = $InvulTimer
 @onready var camera_2d = $Camera2D
+@onready var panel_container = $CanvasLayer/PanelContainer
+
 
 const DEFAULT_ZOOM: Vector2 = Vector2(0.8, 0.8)
 const MIN_ZOOM: Vector2 = Vector2(0.6, 0.6)
@@ -45,6 +45,8 @@ func _ready():
 	animation_tree.active = true
 	hitbox.disabled = true
 	canvas_layer.visible = true
+	ui.visible = true
+	panel_container.visible = true
 
 func _input(event):
 	if event.is_action_pressed("reset"):
@@ -163,7 +165,7 @@ func death():
 	get_tree().reload_current_scene()
 
 func knockback(knockback_scale: int, enemy_position: Vector2):
-	var direction = (global_position - enemy_position).normalized()
+	direction = (global_position - enemy_position).normalized()
 	velocity = direction * knockback_scale
 
 func _on_area_2d_area_entered(area):

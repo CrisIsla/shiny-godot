@@ -1401,8 +1401,10 @@ debug_color = Color(0.937255, 0.223529, 0.309804, 0.419608)
 visible = false
 
 [node name="PanelContainer" parent="CanvasLayer" instance=ExtResource("9_bxw18")]
+visible = false
 
 [node name="UI" parent="CanvasLayer" instance=ExtResource("13_s2xn6")]
+visible = false
 
 [node name="JumpSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_7jnwx")
