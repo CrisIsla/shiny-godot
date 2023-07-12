@@ -1610,7 +1610,7 @@ libraries = {
 }
 
 [node name="Cutscene_camera" type="Camera2D" parent="."]
-position = Vector2(-161, -137)
+position = Vector2(0, -47)
 enabled = false
 
 [connection signal="grounded_updated" from="." to="Camera2D" method="_on_player_grounded_updated"]
