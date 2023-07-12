@@ -190,9 +190,10 @@ func door_cutscene():
 	if !cutscene_played:
 		can_move = false
 		var door_position = Vector2(2910, -352)
+		var middle_point = Vector2(800, -150)
 		var tween = create_tween()
 		cutscene.play("door")
-		tween.tween_property(cutscene_camera, "position", door_position, 6).as_relative().set_trans(Tween.TRANS_SINE).set_delay(1)
+		tween.tween_property(cutscene_camera, "position", door_position, 6).as_relative().from_current().set_trans(Tween.TRANS_SINE).set_delay(1)
 		tween.tween_property(cutscene_camera, "position", cutscene_camera.position, 4).set_trans(Tween.TRANS_SINE).set_delay(1.5)
 		await tween.finished
 		cutscene.play_backwards("door")

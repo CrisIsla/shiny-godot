@@ -1546,7 +1546,7 @@ bus = &"SFX"
 
 [node name="Step" type="AudioStreamPlayer" parent="."]
 volume_db = 8.758
-bus = &"SFX"
+bus = &"Step"
 
 [node name="Step2" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamOggVorbis_h2pu6")
@@ -1584,8 +1584,7 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -160.0
-offset_right = 160.0
+offset_right = 320.0
 offset_bottom = 21.0
 grow_horizontal = 2
 color = Color(0, 0, 0, 1)
@@ -1597,9 +1596,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -160.0
-offset_top = -21.0
-offset_right = 160.0
+offset_top = 159.0
+offset_right = 320.0
+offset_bottom = 180.0
 grow_horizontal = 2
 grow_vertical = 0
 color = Color(0, 0, 0, 1)
