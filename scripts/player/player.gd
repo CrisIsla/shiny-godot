@@ -27,6 +27,7 @@ var can_move = true
 @onready var invul_timer = $InvulTimer
 @onready var camera_2d = $Camera2D
 @onready var panel_container = $CanvasLayer/PanelContainer
+@onready var black_bars = $BlackBars
 
 const DEFAULT_ZOOM: Vector2 = Vector2(0.8, 0.8)
 const MIN_ZOOM: Vector2 = Vector2(0.6, 0.6)
@@ -52,6 +53,7 @@ func _ready():
 	canvas_layer.visible = true
 	ui.visible = true
 	panel_container.visible = true
+	black_bars.visible = true
 
 func _input(event):
 	if event.is_action_pressed("reset"):
@@ -188,12 +190,14 @@ func door_cutscene():
 	if !cutscene_played:
 		can_move = false
 		cutscene_camera.global_position = camera_2d.global_position
-		var door_position = Vector2(2860 + 50, -352)
+		var door_position = Vector2(2910, -352)
 		var tween = create_tween()
 		cutscene.play("door")
-		tween.tween_property(cutscene_camera, "position", door_position, 4).as_relative().set_trans(Tween.TRANS_SINE).set_delay(1.5)
-		tween.tween_property(cutscene_camera, "position", camera_2d.global_position, 2).set_delay(1.5)
+		tween.tween_property(cutscene_camera, "position", door_position, 6).as_relative().set_trans(Tween.TRANS_SINE).set_delay(1)
+		tween.tween_property(cutscene_camera, "position", self.global_position, 4).set_trans(Tween.TRANS_SINE).set_delay(1.5)
 		await tween.finished
+		cutscene.play_backwards("door")
+		await cutscene.animation_finished
 		cutscene.play("RESET")
 		cutscene_played = true
 		can_move = true
