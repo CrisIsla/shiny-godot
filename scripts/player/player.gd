@@ -28,7 +28,6 @@ var can_move = true
 @onready var camera_2d = $Camera2D
 @onready var panel_container = $CanvasLayer/PanelContainer
 
-
 const DEFAULT_ZOOM: Vector2 = Vector2(0.8, 0.8)
 const MIN_ZOOM: Vector2 = Vector2(0.6, 0.6)
 
@@ -54,6 +53,7 @@ func _input(event):
 		get_tree().reload_current_scene()
 
 func _physics_process(delta):
+	# Player can't move during level transitions
 	if not can_move:
 		velocity.x = move_toward(velocity.x, 0, ACCELERATION)
 		handle_movement_animations()
