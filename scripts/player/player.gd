@@ -13,6 +13,7 @@ var is_falling = false
 var direction
 var last_direction = 1
 var is_grounded
+var can_move = true
 
 @onready var pivot = $Pivot
 @onready var animationPlayer = $AnimationPlayer
@@ -53,6 +54,11 @@ func _input(event):
 		get_tree().reload_current_scene()
 
 func _physics_process(delta):
+	if not can_move:
+		velocity.x = move_toward(velocity.x, 0, ACCELERATION)
+		handle_movement_animations()
+		return
+	
 	direction = get_direction()
 	set_last_direction()
 		
