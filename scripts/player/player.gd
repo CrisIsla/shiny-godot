@@ -40,6 +40,11 @@ const MIN_ZOOM: Vector2 = Vector2(0.6, 0.6)
 @onready var hurt_sfx = $HurtSFX
 @onready var attack_sfx = $AttackSFX
 
+# Cutscene variables
+var cutscene_played: bool = false
+@onready var cutscene = $Cutscene
+@onready var cutscene_camera = $Cutscene_camera
+
 func _ready():
 	Game.player = self
 	animation_tree.active = true
@@ -179,3 +184,16 @@ func _on_area_2d_area_entered(area):
 		var enemy = area.get_parent() as Enemy
 		enemy.take_hit()
 
+func door_cutscene():
+	if !cutscene_played:
+		can_move = false
+		cutscene_camera.global_position = camera_2d.global_position
+		var door_position = Vector2(2860 + 50, -352)
+		var tween = create_tween()
+		cutscene.play("door")
+		tween.tween_property(cutscene_camera, "position", door_position, 4).as_relative().set_trans(Tween.TRANS_SINE).set_delay(1.5)
+		tween.tween_property(cutscene_camera, "position", camera_2d.global_position, 2).set_delay(1.5)
+		await tween.finished
+		cutscene.play("RESET")
+		cutscene_played = true
+		can_move = true

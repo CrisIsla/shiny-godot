@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bq1ahv6xb76sk"]
+[gd_scene load_steps=16 format=3 uid="uid://bq1ahv6xb76sk"]
 
 [ext_resource type="PackedScene" uid="uid://cel8njhqnclsq" path="res://tileset/tileset.tscn" id="1_2hvix"]
 [ext_resource type="Script" path="res://scripts/level_creator.gd" id="1_hfl8r"]
@@ -149,13 +149,16 @@ _data = {
 "ease": SubResource("Animation_ppdg5")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qguhy"]
+size = Vector2(104.945, 171)
+
 [node name="Tutorial" type="Node2D"]
 scale = Vector2(1.00058, 1)
 script = ExtResource("1_hfl8r")
 next_level = ExtResource("2_2kpn6")
 
 [node name="Door" parent="." instance=ExtResource("1_i1goy")]
-position = Vector2(2734.41, -352)
+position = Vector2(2860, -352)
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("2_v3rhf")]
 
@@ -202,7 +205,7 @@ libraries = {
 }
 
 [node name="player" parent="." instance=ExtResource("2_qcyhj")]
-position = Vector2(-146.915, 0)
+position = Vector2(-150, 0)
 
 [node name="Enemies" type="Node" parent="."]
 script = ExtResource("9_8noyo")
@@ -212,3 +215,13 @@ position = Vector2(2169, -357)
 scale = Vector2(1.00058, 1)
 speed = 50
 damage = 1
+
+[node name="Cutscene_area" type="Area2D" parent="."]
+position = Vector2(-101.941, 0)
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cutscene_area"]
+position = Vector2(-38.9774, -86)
+shape = SubResource("RectangleShape2D_qguhy")
+
+[connection signal="body_entered" from="Cutscene_area" to="." method="_on_cutscene_area_body_entered"]

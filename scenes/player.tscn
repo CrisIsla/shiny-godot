@@ -1,4 +1,4 @@
-[gd_scene load_steps=91 format=3 uid="uid://3ahfed8bxgqy"]
+[gd_scene load_steps=94 format=3 uid="uid://3ahfed8bxgqy"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_3fe32"]
 [ext_resource type="Texture2D" uid="uid://d3wxmvb7675ac" path="res://assets/player/Owlet_Monster_Idle_4.png" id="1_3jku0"]
@@ -1330,6 +1330,68 @@ sampling_rate = 48000.0
 [sub_resource type="AudioStreamOggVorbis" id="AudioStreamOggVorbis_h2pu6"]
 packet_sequence = SubResource("OggPacketSequence_w2o70")
 
+[sub_resource type="Animation" id="Animation_32gky"]
+resource_name = "RESET"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cutscene_camera:enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:enabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_s6u7h"]
+resource_name = "door"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cutscene_camera:enabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rlgnu"]
+_data = {
+"RESET": SubResource("Animation_32gky"),
+"door": SubResource("Animation_s6u7h")
+}
+
 [node name="player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 16
 collision_mask = 17
@@ -1432,6 +1494,14 @@ one_shot = true
 
 [node name="InvulTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="Cutscene" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_rlgnu")
+}
+
+[node name="Cutscene_camera" type="Camera2D" parent="."]
+enabled = false
 
 [connection signal="grounded_updated" from="." to="Camera2D" method="_on_player_grounded_updated"]
 [connection signal="area_entered" from="Pivot/Area2D" to="." method="_on_area_2d_area_entered"]
