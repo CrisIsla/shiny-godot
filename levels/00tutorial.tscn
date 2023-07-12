@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bq1ahv6xb76sk"]
+[gd_scene load_steps=17 format=3 uid="uid://bq1ahv6xb76sk"]
 
 [ext_resource type="PackedScene" uid="uid://cel8njhqnclsq" path="res://tileset/tileset.tscn" id="1_2hvix"]
 [ext_resource type="Script" path="res://scripts/level_creator.gd" id="1_hfl8r"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dae4mmxws73ta" path="res://scenes/TutorialNPC.tscn" id="4_quq7d"]
 [ext_resource type="Script" path="res://scripts/Enemies.gd" id="9_8noyo"]
 [ext_resource type="PackedScene" uid="uid://mukac6r6oxyk" path="res://scenes/enemys/slime.tscn" id="9_vnw1h"]
+[ext_resource type="AudioStream" uid="uid://qunohsv4b5x4" path="res://assets/SFX/ambient.ogg" id="11_mss8j"]
 
 [sub_resource type="Animation" id="Animation_ed8xj"]
 length = 0.001
@@ -223,5 +224,9 @@ collision_mask = 16
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cutscene_area"]
 position = Vector2(-38.9774, -86)
 shape = SubResource("RectangleShape2D_qguhy")
+
+[node name="ambient" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_mss8j")
+autoplay = true
 
 [connection signal="body_entered" from="Cutscene_area" to="." method="_on_cutscene_area_body_entered"]

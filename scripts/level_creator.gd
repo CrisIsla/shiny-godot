@@ -11,7 +11,6 @@ const CAMERA_VELOCITY = 20
 func _ready():
 	enemies.area_cleared.connect(door.open_door)
 
-
 func _on_cutscene_area_body_entered(body):
 	if body is Player:
 		Game.player.door_cutscene()

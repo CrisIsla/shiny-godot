@@ -111,7 +111,7 @@ func jump():
 		return
 	velocity.y = JUMP_VELOCITY
 	randomize()
-	jump_sfx.set_pitch_scale(randf_range(0.6, 0.7))
+	jump_sfx.set_pitch_scale(randf_range(0.6, 1))
 	jump_sfx.play()
 	
 func get_direction():

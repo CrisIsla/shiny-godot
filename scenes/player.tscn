@@ -15,7 +15,7 @@
 [ext_resource type="AudioStream" uid="uid://c8bpui8026pae" path="res://assets/SFX/hit.wav" id="11_kp3cm"]
 [ext_resource type="AudioStream" uid="uid://ng2gha05co20" path="res://assets/SFX/walk2.wav" id="11_tr8bb"]
 [ext_resource type="PackedScene" uid="uid://dxv4yp356d30b" path="res://scenes/ui.tscn" id="13_s2xn6"]
-[ext_resource type="AudioStream" uid="uid://crtw3qpfitjwu" path="res://assets/SFX/jump2.wav" id="15_7jnwx"]
+[ext_resource type="AudioStream" uid="uid://c0m6wn6kj2o1b" path="res://assets/SFX/jump3.wav" id="16_1l3sw"]
 [ext_resource type="AudioStream" uid="uid://7uk74l61s465" path="res://assets/SFX/hurt.wav" id="16_k06ow"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q46ix"]
@@ -1541,7 +1541,7 @@ visible = false
 visible = false
 
 [node name="JumpSFX" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("15_7jnwx")
+stream = ExtResource("16_1l3sw")
 bus = &"SFX"
 
 [node name="Step" type="AudioStreamPlayer" parent="."]
