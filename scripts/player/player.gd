@@ -62,7 +62,8 @@ func _input(event):
 func _physics_process(delta):
 	# Player can't move during level transitions
 	if not can_move:
-		velocity.x = move_toward(velocity.x, 0, ACCELERATION)
+		velocity.x = 0
+		move_and_slide()
 		handle_movement_animations()
 		return
 	
@@ -189,12 +190,11 @@ func _on_area_2d_area_entered(area):
 func door_cutscene():
 	if !cutscene_played:
 		can_move = false
-		var door_position = Vector2(2910, -352)
-		var middle_point = Vector2(800, -150)
+		var door_position = Vector2(2750, -410)
 		var tween = create_tween()
 		cutscene.play("door")
-		tween.tween_property(cutscene_camera, "position", door_position, 6).as_relative().from_current().set_trans(Tween.TRANS_SINE).set_delay(1)
-		tween.tween_property(cutscene_camera, "position", cutscene_camera.position, 4).set_trans(Tween.TRANS_SINE).set_delay(1.5)
+		tween.tween_property(cutscene_camera, "global_position", door_position, 6).set_trans(Tween.TRANS_SINE).set_delay(1)
+		tween.tween_property(cutscene_camera, "global_position", cutscene_camera.global_position, 3.5).set_delay(1).set_trans(Tween.TRANS_SINE)
 		await tween.finished
 		cutscene.play_backwards("door")
 		await cutscene.animation_finished
