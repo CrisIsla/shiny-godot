@@ -197,7 +197,7 @@ end = 16
 [node name="EasterEggNPC" parent="." instance=ExtResource("4_quq7d")]
 position = Vector2(-469, -16)
 start = 16
-end = 17
+end = 20
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("")
