@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Game="*res://scripts/game.gd"
 LevelTransition="*res://scenes/level_transition.tscn"
+MusicPlayer="*res://scenes/music_player.tscn"
 
 [display]
 

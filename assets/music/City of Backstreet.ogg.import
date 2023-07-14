@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cn02pcs3lhun"
+path="res://.godot/imported/City of Backstreet.ogg-130d95f69b378484862a4fb7f575fa51.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/music/City of Backstreet.ogg"
+dest_files=["res://.godot/imported/City of Backstreet.ogg-130d95f69b378484862a4fb7f575fa51.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
