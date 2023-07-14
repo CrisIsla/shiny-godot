@@ -41,10 +41,11 @@ const MIN_ZOOM: Vector2 = Vector2(0.6, 0.6)
 @onready var hurt_sfx = $HurtSFX
 @onready var attack_sfx = $AttackSFX
 
-# Cutscene variables
+# Cutscene logic
 var cutscene_played: bool = false
 @onready var cutscene = $Cutscene
 @onready var cutscene_camera = $Cutscene_camera
+signal cutscene_finished
 
 func _ready():
 	Game.player = self
@@ -201,3 +202,4 @@ func door_cutscene():
 		cutscene.play("RESET")
 		cutscene_played = true
 		can_move = true
+		emit_signal("cutscene_finished")

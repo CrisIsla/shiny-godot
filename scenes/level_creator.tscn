@@ -20,3 +20,8 @@ script = ExtResource("1_qqngu")
 script = ExtResource("4_v6yne")
 
 [node name="player" parent="." instance=ExtResource("3_md6j2")]
+
+[node name="level_music" type="AudioStreamPlayer" parent="."]
+bus = &"Music"
+
+[connection signal="finished" from="level_music" to="." method="_on_level_music_finished"]

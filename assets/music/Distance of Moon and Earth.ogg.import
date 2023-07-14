@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://0r5py4xd3d"
+path="res://.godot/imported/Distance of Moon and Earth.ogg-3e56c09bd9b1662a9f9dbc431d0a6f94.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/music/Distance of Moon and Earth.ogg"
+dest_files=["res://.godot/imported/Distance of Moon and Earth.ogg-3e56c09bd9b1662a9f9dbc431d0a6f94.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

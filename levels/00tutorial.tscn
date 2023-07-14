@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bq1ahv6xb76sk"]
+[gd_scene load_steps=18 format=3 uid="uid://bq1ahv6xb76sk"]
 
 [ext_resource type="PackedScene" uid="uid://cel8njhqnclsq" path="res://tileset/tileset.tscn" id="1_2hvix"]
 [ext_resource type="Script" path="res://scripts/level_creator.gd" id="1_hfl8r"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://scripts/Enemies.gd" id="9_8noyo"]
 [ext_resource type="PackedScene" uid="uid://mukac6r6oxyk" path="res://scenes/enemys/slime.tscn" id="9_vnw1h"]
 [ext_resource type="AudioStream" uid="uid://qunohsv4b5x4" path="res://assets/SFX/ambient.ogg" id="11_mss8j"]
+[ext_resource type="AudioStream" uid="uid://cn02pcs3lhun" path="res://assets/music/City of Backstreet.ogg" id="12_p5t3q"]
 
 [sub_resource type="Animation" id="Animation_ed8xj"]
 length = 0.001
@@ -228,5 +229,9 @@ shape = SubResource("RectangleShape2D_qguhy")
 [node name="ambient" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_mss8j")
 autoplay = true
+
+[node name="level_music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_p5t3q")
+bus = &"Music"
 
 [connection signal="body_entered" from="Cutscene_area" to="." method="_on_cutscene_area_body_entered"]
