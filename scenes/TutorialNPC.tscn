@@ -437,7 +437,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_8uthb"]
 resource_name = "dialogue16"
-length = 2.0
+length = 2.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -465,7 +465,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_xgusb"]
 resource_name = "dialogue17"
-length = 2.0
+length = 2.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true

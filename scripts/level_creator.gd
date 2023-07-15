@@ -23,7 +23,7 @@ func _on_cutscene_area_body_entered(body):
 
 func play_level_music():
 	if not level_music.stream:
-		print("No file attached to level_music.")
+		printerr("No file attached to level_music.")
 		return
 	level_music.play()
 

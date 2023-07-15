@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bq1ahv6xb76sk"]
+[gd_scene load_steps=21 format=3 uid="uid://bq1ahv6xb76sk"]
 
 [ext_resource type="PackedScene" uid="uid://cel8njhqnclsq" path="res://tileset/tileset.tscn" id="1_2hvix"]
 [ext_resource type="Script" path="res://scripts/level_creator.gd" id="1_hfl8r"]
@@ -12,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://mukac6r6oxyk" path="res://scenes/enemys/slime.tscn" id="9_vnw1h"]
 [ext_resource type="AudioStream" uid="uid://qunohsv4b5x4" path="res://assets/SFX/ambient.ogg" id="11_mss8j"]
 [ext_resource type="AudioStream" uid="uid://cn02pcs3lhun" path="res://assets/music/City of Backstreet.ogg" id="12_p5t3q"]
+[ext_resource type="Script" path="res://scripts/SpookyArea.gd" id="13_b28fg"]
+[ext_resource type="AudioStream" uid="uid://cftoytkp44tho" path="res://assets/music/Track 1 - Cubiculacetophobie.ogg" id="13_pd1ax"]
 
 [sub_resource type="Animation" id="Animation_ed8xj"]
 length = 0.001
@@ -154,6 +156,9 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qguhy"]
 size = Vector2(104.945, 171)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nh7df"]
+size = Vector2(40.9762, 111)
+
 [node name="Tutorial" type="Node2D"]
 scale = Vector2(1.00058, 1)
 script = ExtResource("1_hfl8r")
@@ -234,4 +239,17 @@ autoplay = true
 stream = ExtResource("12_p5t3q")
 bus = &"Music"
 
+[node name="SpookyArea" type="Area2D" parent="."]
+position = Vector2(-445.741, -56)
+collision_mask = 16
+script = ExtResource("13_b28fg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpookyArea"]
+shape = SubResource("RectangleShape2D_nh7df")
+
+[node name="spooky_music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_pd1ax")
+bus = &"Music"
+
 [connection signal="body_entered" from="Cutscene_area" to="." method="_on_cutscene_area_body_entered"]
+[connection signal="body_entered" from="SpookyArea" to="SpookyArea" method="_on_body_entered"]

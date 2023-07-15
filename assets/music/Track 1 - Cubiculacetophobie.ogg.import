@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cftoytkp44tho"
+path="res://.godot/imported/Track 1 - Cubiculacetophobie.ogg-3152b2deb147dd22d9916c4ac910520f.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/music/Track 1 - Cubiculacetophobie.ogg"
+dest_files=["res://.godot/imported/Track 1 - Cubiculacetophobie.ogg-3152b2deb147dd22d9916c4ac910520f.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
