@@ -19,6 +19,7 @@ var state = IDLE
 
 func _ready():
 	timer.timeout.connect(_shoot)
+	animation_tree.active = true
 	
 func _physics_process(delta):
 	# Add the gravity.
