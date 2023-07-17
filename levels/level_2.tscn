@@ -1,5 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://mrjsoltouv73"]
+[gd_scene load_steps=3 format=3 uid="uid://mrjsoltouv73"]
 
 [ext_resource type="PackedScene" uid="uid://bb0bb3cj7t5to" path="res://scenes/level_creator.tscn" id="1_ufh1n"]
+[ext_resource type="PackedScene" uid="uid://cw56qlu8qyvpf" path="res://scenes/enemys/wizard.tscn" id="2_mph05"]
 
 [node name="level_creator" instance=ExtResource("1_ufh1n")]
+
+[node name="Tileset" parent="." index="1"]
+layer_0/tile_data = PackedInt32Array(2, 65536, 12, 1, 65536, 12, 0, 65536, 12, 65535, 65536, 12, 65534, 65536, 12, 65533, 65536, 12, 9, 131072, 12, 8, 65536, 12, 7, 65536, 12, 6, 65536, 12, 5, 65536, 12, 4, 65536, 12, 3, 65536, 12, 65532, 65536, 12, 65531, 65536, 12, 65530, 65536, 12, 65529, 0, 12)
+
+[node name="wizard" parent="Enemies" index="0" instance=ExtResource("2_mph05")]

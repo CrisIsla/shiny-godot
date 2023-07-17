@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://c04p5iymmhdgs"]
 
-[ext_resource type="Script" path="res://scripts/bullet_test.gd" id="1_nnca2"]
+[ext_resource type="Script" path="res://scripts/projectile.gd" id="1_ngirg"]
 [ext_resource type="Texture2D" uid="uid://5clq3ohat1r5" path="res://assets/Projectiles/bolt/bolt1.png" id="1_odds1"]
 [ext_resource type="Texture2D" uid="uid://ctpxbwueh7el6" path="res://assets/Projectiles/bolt/bolt2.png" id="2_3bikd"]
 [ext_resource type="Texture2D" uid="uid://d0bxnd4gpe3h1" path="res://assets/Projectiles/bolt/bolt3.png" id="3_1vmfh"]
@@ -30,8 +30,7 @@ animations = [{
 height = 20.0
 
 [node name="bullet_test" type="Node2D"]
-script = ExtResource("1_nnca2")
-SPEED = 200
+script = ExtResource("1_ngirg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_lcmyi")
