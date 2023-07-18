@@ -16,7 +16,7 @@ script = ExtResource("1_qqngu")
 
 [node name="Door" parent="." instance=ExtResource("3_d53o7")]
 
-[node name="Enemies" type="Node" parent="."]
+[node name="Enemies" type="Node2D" parent="."]
 script = ExtResource("4_v6yne")
 
 [node name="player" parent="." instance=ExtResource("3_md6j2")]
