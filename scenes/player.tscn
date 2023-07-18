@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dvcwshr1stemv" path="res://assets/player/Owlet_Monster_Death_8.png" id="2_wrkhq"]
 [ext_resource type="Texture2D" uid="uid://mc0o6n6o6ypu" path="res://assets/player/Owlet_Monster_Run_6.png" id="3_1b8c2"]
 [ext_resource type="Texture2D" uid="uid://dag7psb5kmrj7" path="res://assets/walk_particle.png" id="3_6i0ts"]
-[ext_resource type="Texture2D" uid="uid://f5038l1sxct4" path="res://assets/player/Owlet_Monster_Attack1_4.png" id="4_jvrpg"]
+[ext_resource type="Texture2D" uid="uid://dybyat7va43ls" path="res://assets/player/MainAttack.png" id="4_0tden"]
 [ext_resource type="Texture2D" uid="uid://p0owwxqe06q7" path="res://assets/player/Owlet_Monster_Hurt_4.png" id="6_pc3jk"]
 [ext_resource type="Texture2D" uid="uid://dyoovh7t7e6n" path="res://assets/player/Owlet_Monster_Jump_8.png" id="8_btovt"]
 [ext_resource type="PackedScene" uid="uid://cvnmlou1030dy" path="res://scenes/pause.tscn" id="9_bxw18"]
@@ -198,7 +198,6 @@ tracks/12/keys = {
 [sub_resource type="Animation" id="Animation_85ado"]
 resource_name = "attack_1"
 length = 0.31
-step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -221,7 +220,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("4_jvrpg")]
+"values": [ExtResource("4_0tden")]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -274,6 +273,18 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0.1)
 }
 tracks/5/use_blend = true
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Pivot/TurnPivot/Sprite2D:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, -14)]
+}
 
 [sub_resource type="Animation" id="Animation_3slg8"]
 resource_name = "death"
