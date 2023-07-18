@@ -8,6 +8,8 @@ const JUMP_VELOCITY = -400.0
 
 enum HOR_DIRECTIONS { LEFT = -1, RIGHT = 1 }
 @export var direction: HOR_DIRECTIONS
+@export var shoot_cooldown: float = 5.0
+@export var projectile_speed: float = 50.0
 
 @onready var animation_player = $AnimationPlayer
 @onready var animation_tree = $AnimationTree
@@ -22,6 +24,7 @@ enum {
 var state = IDLE
 
 func _ready():
+	timer.wait_time = shoot_cooldown
 	timer.timeout.connect(_shoot)
 	animation_tree.active = true
 
@@ -49,6 +52,7 @@ func _shoot():
 func _spawn_projectile():
 	# Add projectile as a child.
 	var projectile = projectile_scene.instantiate()
+	projectile.set_speed(projectile_speed)
 	projectile_spawn.add_child(projectile)
 	state = IDLE
 

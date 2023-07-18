@@ -54,22 +54,22 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rwjqk"]
-radius = 6.0
-height = 12.0
+radius = 7.0
+height = 14.0
 
 [node name="Projectile" type="Node2D"]
+z_index = 5
 script = ExtResource("1_ngirg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(-1, 1)
+scale = Vector2(-1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_lcmyi")
-frame_progress = 0.19384
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(26, 0)
+position = Vector2(42, 0)
 shape = SubResource("CapsuleShape2D_rwjqk")
 debug_color = Color(0.992157, 0, 0.278431, 0.419608)
 
