@@ -21,14 +21,14 @@ func apply_gravity(delta):
 	
 func _die(turn_pivot: Node2D):
 	var radians = turn_pivot.skew
-	while radians > 2*PI:
-		radians -= 2*PI
-	
+	while radians < -2*PI:
+		radians += 2*PI
+
 	var target_radians
-	if radians < PI:
-		target_radians = (PI/2 - radians) + turn_pivot.skew
+	if radians > -PI:
+		target_radians = (-PI/2 - radians) + turn_pivot.skew
 	else:
-		target_radians = 6*PI/4 - radians + turn_pivot.skew
+		target_radians = -6*PI/4 - radians + turn_pivot.skew
 		
 	var tween = get_tree().create_tween()
 	tween.set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
@@ -51,14 +51,14 @@ func _on_hit_turn(turn_pivot: Node2D, half_turns: int, turn_time: float):
 	var tween = get_tree().create_tween()
 	tween.set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
 	
-	tween.tween_property(turn_pivot, "skew", half_turns * PI, turn_time)
+	tween.tween_property(turn_pivot, "skew", - half_turns * PI, turn_time)
 	tween.tween_property(self, "is_turning", 0, 0)
 
 func update_is_killable(turn_pivot: Node2D):
 	var radians = turn_pivot.skew
-	while radians > 2*PI:
-		radians -= 2*PI
-	
+	while radians < -2*PI:
+		radians += 2*PI
+	radians *= -1
 	var dead_zone = 0.3
 	if (radians < PI/2 + dead_zone and radians > PI/2 - dead_zone) or (radians < 6*PI/4 + dead_zone and radians > 6*PI/4 - dead_zone):
 		is_killable = 1
