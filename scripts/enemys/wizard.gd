@@ -32,9 +32,7 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
 	
-
 	_handle_states()
-
 	move_and_slide()
 	
 func _handle_states():
@@ -49,10 +47,8 @@ func _shoot():
 	state = SHOOTING
 	
 func _spawn_projectile():
-	
 	# Add projectile as a child.
 	var projectile = projectile_scene.instantiate()
-	projectile.initialize(direction)
 	projectile_spawn.add_child(projectile)
 	state = IDLE
 
