@@ -1,9 +1,10 @@
 [gd_scene load_steps=5 format=3 uid="uid://mrjsoltouv73"]
+[gd_scene load_steps=5 format=3 uid="uid://mrjsoltouv73"]
 
 [ext_resource type="PackedScene" uid="uid://bb0bb3cj7t5to" path="res://scenes/level_creator.tscn" id="1_ufh1n"]
 [ext_resource type="PackedScene" uid="uid://cw56qlu8qyvpf" path="res://scenes/enemys/wizard.tscn" id="2_mph05"]
-[ext_resource type="PackedScene" uid="uid://dae4mmxws73ta" path="res://scenes/TutorialNPC.tscn" id="3_g6sve"]
-[ext_resource type="PackedScene" uid="uid://dbfyg6ybupy14" path="res://scenes/Platforms/3_block_stair.tscn" id="4_2lcmk"]
+[ext_resource type="PackedScene" uid="uid://xa3tuqr52xvr" path="res://scenes/Platforms/giant.tscn" id="4_5fdoj"]
+[ext_resource type="PackedScene" uid="uid://dbfyg6ybupy14" path="res://scenes/Platforms/3_block_stair.tscn" id="4_pjfwc"]
 
 [node name="Level2" instance=ExtResource("1_ufh1n")]
 
@@ -14,17 +15,14 @@ layer_0/tile_data = PackedInt32Array(2, 393216, 9, 1, 65536, 6, 0, 65536, 6, 655
 position = Vector2(932, 0)
 
 [node name="wizard" parent="Enemies" index="0" instance=ExtResource("2_mph05")]
-position = Vector2(551, 0)
-shoot_cooldown = 3.5
-projectile_speed = 100.0
-
-[node name="NPC" parent="." index="4" instance=ExtResource("3_g6sve")]
-position = Vector2(-62, -17)
-start = 20
-end = 22
 
 [node name="player" parent="." index="5"]
-position = Vector2(-197, -6)
+position = Vector2(83, -6)
 
-[node name="3blockStair" parent="." index="6" instance=ExtResource("4_2lcmk")]
-position = Vector2(95, -64)
+[node name="3blockStair" parent="." index="7" instance=ExtResource("4_pjfwc")]
+position = Vector2(154, -94)
+half_turns = 5
+turn_time = 10.0
+
+[node name="GIANT" parent="." index="8" instance=ExtResource("4_5fdoj")]
+position = Vector2(268, -21)

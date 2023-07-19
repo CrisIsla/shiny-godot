@@ -14,6 +14,8 @@ script = ExtResource("1_qqngu")
 
 [node name="Tileset" parent="." instance=ExtResource("1_47o2j")]
 
+[node name="Platforms" type="Node2D" parent="."]
+
 [node name="Door" parent="." instance=ExtResource("3_d53o7")]
 
 [node name="Enemies" type="Node2D" parent="."]

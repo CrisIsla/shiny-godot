@@ -20,6 +20,7 @@ var can_move = true
 @onready var animation_tree = $AnimationTree
 @onready var playback = animation_tree.get("parameters/playback")
 @onready var hitbox = $Pivot/Area2D/hitbox
+@onready var hitbox_area_2d = $Pivot/Area2D
 @onready var canvas_layer = $CanvasLayer
 @onready var coyote = $Coyote
 @onready var ui = $CanvasLayer/UI
@@ -46,6 +47,9 @@ var cutscene_played: bool = false
 @onready var cutscene = $Cutscene
 @onready var cutscene_camera = $Cutscene_camera
 signal cutscene_finished
+
+# Tileset logic
+signal platform_hit(platform)
 
 func _ready():
 	Game.player = self
@@ -131,7 +135,13 @@ func get_movement():
 	
 func attack():
 	playback.call_deferred("travel", "attack_1")
-
+	
+func _detect_platform_on_hit():
+	var bodies = hitbox_area_2d.get_overlapping_bodies()
+	for b in bodies:
+		if b.name == 'TilesetPlatform':
+			platform_hit.emit(b)
+	
 func handle_movement_animations():
 	var sprite_direction = pivot.scale.x
 	if direction:
@@ -187,6 +197,8 @@ func _on_area_2d_area_entered(area):
 	if area.get_parent() and area.get_parent() is Enemy:
 		var enemy = area.get_parent() as Enemy
 		enemy.take_hit()
+
+
 
 func door_cutscene():
 	if !cutscene_played:

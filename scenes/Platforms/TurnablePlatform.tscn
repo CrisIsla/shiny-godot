@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bqj44pvatwts2"]
 
 [ext_resource type="Script" path="res://scenes/Platforms/TurnablePlatform.gd" id="1_71pxr"]
-[ext_resource type="PackedScene" uid="uid://cel8njhqnclsq" path="res://tileset/tileset.tscn" id="1_d5se1"]
+[ext_resource type="PackedScene" uid="uid://bn8iyy1knn80e" path="res://tileset/tileset_platform.tscn" id="2_mpctu"]
 
 [node name="TurnablePlatform" type="Node2D"]
 script = ExtResource("1_71pxr")
@@ -11,5 +11,5 @@ script = ExtResource("1_71pxr")
 [node name="TurnPivot" type="Node2D" parent="Pivot"]
 rotation = 1.5708
 
-[node name="Tileset" parent="Pivot/TurnPivot" instance=ExtResource("1_d5se1")]
+[node name="TilesetPlatform" parent="Pivot/TurnPivot" instance=ExtResource("2_mpctu")]
 rotation = -1.5708
