@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbfyg6ybupy14"]
+
+[ext_resource type="PackedScene" uid="uid://bqj44pvatwts2" path="res://scenes/Platforms/TurnablePlatform.tscn" id="1_3gq51"]
+
+[node name="3blockStair" instance=ExtResource("1_3gq51")]
+
+[node name="Tileset" parent="Pivot/TurnPivot" index="0"]
+layer_0/tile_data = PackedInt32Array(65535, 655360, 11, 0, 720896, 11, -65536, 262144, 5)

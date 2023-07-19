@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name Enemy
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-@export var is_turning = 0
+@export var is_turning = false
 
 @export var speed: int
 @export var jump_velocity: int
@@ -42,7 +42,7 @@ func _exit_tree():
 func _on_hit_turn(turn_pivot: Node2D, half_turns: int, turn_time: float):
 	if is_turning:
 		return
-	is_turning = 1
+	is_turning = true
 	
 	turn_pivot.skew = 0
 	is_killable = 1
@@ -52,7 +52,7 @@ func _on_hit_turn(turn_pivot: Node2D, half_turns: int, turn_time: float):
 	tween.set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
 	
 	tween.tween_property(turn_pivot, "skew", - half_turns * PI, turn_time)
-	tween.tween_property(self, "is_turning", 0, 0)
+	tween.tween_property(self, "is_turning", false, 0)
 
 func update_is_killable(turn_pivot: Node2D):
 	var radians = turn_pivot.skew
