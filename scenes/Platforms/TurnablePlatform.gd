@@ -22,13 +22,8 @@ func _on_hit_turn():
 	if is_turning:
 		return
 	is_turning = true 
-	
-	if tween:
-		print("cum")
-		tween.play()
-	else:
-		tween = create_tween()
-
+		
+	tween = create_tween()
 
 	tween.set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
 	var target_radians = turn_pivot.skew - (half_turns * PI)
@@ -41,7 +36,6 @@ func _stop_turning():
 
 func take_hit(b):
 	if b != tileset:
-		print("cum")
 		return
 	if is_turning:
 		_stop_turning()

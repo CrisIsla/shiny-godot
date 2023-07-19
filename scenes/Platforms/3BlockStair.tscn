@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bqj44pvatwts2" path="res://scenes/Platforms/TurnablePlatform.tscn" id="1_3gq51"]
 
-[node name="3blockStair" instance=ExtResource("1_3gq51")]
+[node name="3BlockStair" instance=ExtResource("1_3gq51")]
 half_turns = 10
 turn_time = 5.0
 
