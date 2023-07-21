@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://kwti7eegwubf" path="res://assets/backgrounds/parallax/pine2.png" id="5_s7b5y"]
 
 [node name="ParallaxBackground" type="ParallaxBackground"]
+scale = Vector2(1.3, 1.3)
+transform = Transform2D(1.3, 0, 0, 1.3, 0, 0)
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]
 motion_scale = Vector2(0, 0)

@@ -1540,6 +1540,7 @@ parameters/playback = SubResource("AnimationNodeStateMachinePlayback_03kxt")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -47)
+zoom = Vector2(0.8, 0.8)
 process_callback = 0
 position_smoothing_enabled = true
 position_smoothing_speed = 6.0
@@ -1610,7 +1611,8 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_right = 320.0
+offset_left = -160.0
+offset_right = 160.0
 offset_bottom = 21.0
 grow_horizontal = 2
 color = Color(0, 0, 0, 1)
@@ -1622,9 +1624,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_top = 159.0
-offset_right = 320.0
-offset_bottom = 180.0
+offset_left = -160.0
+offset_top = -21.0
+offset_right = 160.0
 grow_horizontal = 2
 grow_vertical = 0
 color = Color(0, 0, 0, 1)
@@ -1637,6 +1639,7 @@ libraries = {
 [node name="Cutscene_camera" type="Camera2D" parent="."]
 position = Vector2(0, -47)
 enabled = false
+zoom = Vector2(0.8, 0.8)
 
 [connection signal="grounded_updated" from="." to="Camera2D" method="_on_player_grounded_updated"]
 [connection signal="area_entered" from="Pivot/Area2D" to="." method="_on_area_2d_area_entered"]
