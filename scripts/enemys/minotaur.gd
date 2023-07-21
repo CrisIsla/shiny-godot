@@ -6,9 +6,11 @@ extends Enemy
 @onready var pivot = $Pivot
 @onready var wall_raycast = $Pivot/Wall
 @onready var floor_raycast = $Pivot/Floor
+@onready var timer = $Timer
 
 var lives = 2
 var direction = 1
+var can_attack = true
 
 const ACCELERATION = 100
 const ON_HIT_KNOCKBACK = 500
@@ -55,14 +57,18 @@ func _physics_process(delta):
 			playback.travel("run")
 			if _distance_to_player() < 30:
 				attack()
+				
 		
 	move_and_slide()
 
 func attack():
+	if not can_attack:
+		return
 	velocity.x = move_toward(velocity.x, 0, ACCELERATION)
 	var current_attack = choose(attacks)
 	playback.travel(current_attack)
-
+	can_attack = false
+	timer.start()
 
 func choose(array: Array):
 	array.shuffle()
@@ -113,3 +119,8 @@ func _on_hitbox_area_entered(area):
 func _distance_to_player():
 	var player_pos = Game.player.global_position.x
 	return abs(player_pos - global_position.x)
+
+
+
+func _on_timer_timeout():
+	can_attack = true

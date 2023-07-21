@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbxaqarmoh50x"]
+
+[ext_resource type="PackedScene" uid="uid://bb0bb3cj7t5to" path="res://scenes/level_creator.tscn" id="1_wio1u"]
+[ext_resource type="PackedScene" uid="uid://b7bo6fpp2jnpq" path="res://scenes/enemys/minotaur.tscn" id="2_qopw5"]
+
+[node name="LevelCreator" instance=ExtResource("1_wio1u")]
+
+[node name="Tileset" parent="." index="1"]
+layer_0/tile_data = PackedInt32Array(65533, 65536, 12, 65534, 65536, 12, 65535, 65536, 12, 0, 65536, 12, 1, 65536, 12, 2, 65536, 12, 3, 65536, 12, 65530, 0, 2, 65531, 65536, 12, 65532, 65536, 12, 4, 65536, 12, 5, 65536, 12, 6, 131072, 2, -65530, 0, 9, -65542, 0, 8, -6, 0, 9, -131066, 0, 9, -196602, 0, 8)
+
+[node name="Minotaur" parent="Enemies" index="0" instance=ExtResource("2_qopw5")]
+position = Vector2(100, -26)
+damage = 1
