@@ -4,6 +4,7 @@ extends Node2D
 @onready var tileset = $Pivot/TurnPivot/TilesetPlatform
 
 var is_turning = false
+var is_wiggling = false
 var tween
 
 @export var half_turns: int = 5
@@ -16,6 +17,19 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	_check_is_thin()
+	if not is_turning:
+		wiggle_animation()
+
+func wiggle_animation():
+	if is_wiggling:
+		return
+	is_wiggling = true
+	var wiggle = create_tween()
+	wiggle.set_trans(Tween.TRANS_BOUNCE)
+	wiggle.tween_property(turn_pivot, "skew", -0.035 + turn_pivot.skew, 0.2)
+	wiggle.tween_property(turn_pivot, "skew", 0.035 + turn_pivot.skew, 0.2)
+	wiggle.tween_property(turn_pivot, "skew", 0.0 + turn_pivot.skew, 0.2)
+	wiggle.tween_property(self, "is_wiggling", false, 0).set_delay(3)
 
 func _on_hit_turn():
 	if is_turning:
