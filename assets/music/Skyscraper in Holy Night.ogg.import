@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bta7bhg3ov4lk"
+path="res://.godot/imported/Skyscraper in Holy Night.ogg-2f59fde2d3f4617ad530e30b97f7b039.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/music/Skyscraper in Holy Night.ogg"
+dest_files=["res://.godot/imported/Skyscraper in Holy Night.ogg-2f59fde2d3f4617ad530e30b97f7b039.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
