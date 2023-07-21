@@ -1,10 +1,49 @@
-[gd_scene load_steps=9 format=3 uid="uid://dvf5ked1m8ex8"]
+[gd_scene load_steps=12 format=3 uid="uid://dvf5ked1m8ex8"]
 
 [ext_resource type="Script" path="res://scripts/credits.gd" id="1_0i2f8"]
 [ext_resource type="FontFile" uid="uid://cd026elnkrdtb" path="res://assets/UI/ThaleahFat.ttf" id="1_e0kju"]
 [ext_resource type="AudioStream" uid="uid://d2qgwgytl1k8g" path="res://assets/music/Town at night.wav" id="2_1u6fs"]
 [ext_resource type="Texture2D" uid="uid://2s82pmjnfnd3" path="res://assets/player/Owlet_Monster.png" id="3_a82h3"]
 [ext_resource type="Texture2D" uid="uid://0we1x0jyk2q4" path="res://assets/UI/ssj-devs.png" id="4_yhqsl"]
+
+[sub_resource type="Animation" id="Animation_vtwk2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 200)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(320, 1136)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("fade:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_mbr0j"]
 resource_name = "credits"
@@ -37,37 +76,58 @@ tracks/1/keys = {
 }
 tracks/1/use_blend = true
 
-[sub_resource type="Animation" id="Animation_vtwk2"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kgwwn"]
+_data = {
+"RESET": SubResource("Animation_vtwk2"),
+"credits": SubResource("Animation_mbr0j")
+}
+
+[sub_resource type="Animation" id="Animation_4ie3a"]
+resource_name = "fade"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../fade:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_6ol1m"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
+tracks/0/path = NodePath("../fade:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 200)]
+"values": [Color(0, 0, 0, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath(".:size")
+tracks/1/path = NodePath("../fade:size")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(320, 1136)]
+"values": [Vector2(328, 1816)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_kgwwn"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_87lkg"]
 _data = {
-"RESET": SubResource("Animation_vtwk2"),
-"credits": SubResource("Animation_mbr0j")
+"RESET": SubResource("Animation_6ol1m"),
+"fade": SubResource("Animation_4ie3a")
 }
 
 [node name="Credits" type="Control"]
@@ -196,5 +256,20 @@ texture = ExtResource("3_a82h3")
 position = Vector2(104.5, 955.787)
 scale = Vector2(0.0984376, 0.0984376)
 texture = ExtResource("4_yhqsl")
+
+[node name="fade" type="ColorRect" parent="."]
+z_index = 100
+layout_mode = 0
+offset_left = -3.0
+offset_top = -204.0
+offset_right = 325.0
+offset_bottom = 1612.0
+color = Color(0, 0, 0, 0)
+
+[node name="fade" type="AnimationPlayer" parent="fade"]
+root_node = NodePath("../../AnimationPlayer")
+libraries = {
+"": SubResource("AnimationLibrary_87lkg")
+}
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
