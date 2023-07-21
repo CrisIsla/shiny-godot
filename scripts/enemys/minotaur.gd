@@ -3,12 +3,11 @@ extends Enemy
 @onready var animation_player = $AnimationPlayer
 @onready var animation_tree = $AnimationTree
 @onready var playback = animation_tree.get("parameters/playback")
-@onready var timer = $Timer
 @onready var pivot = $Pivot
 @onready var wall_raycast = $Pivot/Wall
 @onready var floor_raycast = $Pivot/Floor
 
-
+var lives = 2
 var direction = 1
 
 const ACCELERATION = 100
@@ -18,7 +17,7 @@ enum {
 	IDLE, MOVING, CHASING, ATTACKING
 }
 
-var state = IDLE
+var state = MOVING
 var states = [IDLE, MOVING, ATTACKING]
 var attacks = ["attack1", "attack2", "special_attack"]
 
@@ -31,7 +30,6 @@ func _ready():
 	turn_pivot = $Pivot/TurnPivot
 	randomize()
 	animation_tree.active = true
-	timer.timeout.connect(change_state)
 
 func _physics_process(delta):
 	update_is_killable(turn_pivot)
@@ -55,7 +53,9 @@ func _physics_process(delta):
 		CHASING:
 			follow_player()
 			playback.travel("run")
-	
+			if _distance_to_player() < 30:
+				attack()
+		
 	move_and_slide()
 
 func attack():
@@ -63,8 +63,6 @@ func attack():
 	var current_attack = choose(attacks)
 	playback.travel(current_attack)
 
-func change_state():
-	state = choose(states)
 
 func choose(array: Array):
 	array.shuffle()
@@ -84,11 +82,16 @@ func _on_chasing_body_exited(body):
 	if body.is_in_group("player"):
 		state = choose(states)
 
-func _on_hurtbox_area_entered(area):
+func take_hit():
+	if lives > 0:
+		lives -= 1
+		_on_hit_turn(turn_pivot, 2, 1)
+		return
 	if is_killable:
 		_die(turn_pivot)
 	else:
-		_on_hit_turn(turn_pivot, 4, 3)
+		_on_hit_turn(turn_pivot, 6, 8)
+	
 
 func _on_special_attack_area_entered(area):
 	var player = area.get_parent() as Player
@@ -106,3 +109,7 @@ func _on_hitbox_area_entered(area):
 	var player = area.get_parent() as Player
 	player.take_damage(damage)
 	player.knockback(ON_HIT_KNOCKBACK, global_position)
+
+func _distance_to_player():
+	var player_pos = Game.player.global_position.x
+	return abs(player_pos - global_position.x)
