@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cnnwgexl4tuuy"]
+
+[ext_resource type="PackedScene" uid="uid://bqj44pvatwts2" path="res://scenes/Platforms/TurnablePlatform.tscn" id="1_3hj1o"]
+
+[node name="TurnablePlatform" instance=ExtResource("1_3hj1o")]
+
+[node name="TilesetPlatform" parent="Pivot/TurnPivot" index="0"]
+layer_0/tile_data = PackedInt32Array(-1, 655360, 11, 65535, 262144, 6, -131072, 0, 8, -65536, 720896, 11)

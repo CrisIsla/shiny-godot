@@ -3,7 +3,6 @@ extends Node2D
 @onready var turn_pivot = $Pivot/TurnPivot
 @onready var tileset = $Pivot/TurnPivot/TilesetPlatform
 
-
 var is_turning = false
 var tween
 
