@@ -846,7 +846,7 @@ graph_offset = Vector2(-210, -32)
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_layke"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5awqp"]
-size = Vector2(204, 74)
+size = Vector2(537, 96)
 
 [node name="Minotaur" type="CharacterBody2D"]
 position = Vector2(2, -18)
@@ -939,11 +939,10 @@ anim_player = NodePath("../AnimationPlayer")
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_layke")
 
 [node name="Chasing" type="Area2D" parent="."]
-visible = false
 collision_mask = 17
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chasing"]
-position = Vector2(-2, -19)
+position = Vector2(-1, -29)
 shape = SubResource("RectangleShape2D_5awqp")
 
 [node name="Hurtbox" type="Area2D" parent="."]
