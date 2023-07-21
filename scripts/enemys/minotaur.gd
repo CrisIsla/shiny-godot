@@ -7,7 +7,7 @@ extends Enemy
 @onready var pivot = $Pivot
 @onready var wall_raycast = $Pivot/Wall
 @onready var floor_raycast = $Pivot/Floor
-@onready var turn_pivot = $Pivot/TurnPivot
+
 
 var direction = 1
 
@@ -28,6 +28,7 @@ func _input(event):
 		get_tree().reload_current_scene()
 
 func _ready():
+	turn_pivot = $Pivot/TurnPivot
 	randomize()
 	animation_tree.active = true
 	timer.timeout.connect(change_state)

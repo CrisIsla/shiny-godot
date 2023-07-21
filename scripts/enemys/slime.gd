@@ -3,7 +3,7 @@ extends Enemy
 @onready var animation_player = $AnimationPlayer
 @onready var hurtbox = $CollisionShape2D
 @onready var pivot = $Pivot
-@onready var turn_pivot = $Pivot/TurnPivot
+
 @onready var wall_raycast = $Pivot/Wall
 @onready var floor_raycast = $Pivot/Floor
 
@@ -13,6 +13,7 @@ var direction = 1
 const ON_HIT_KNOCKBACK = 300
 
 func _ready():
+	turn_pivot = $Pivot/TurnPivot
 	animation_player.play("idle")
 	hurtbox.disabled = false
 	is_killable = 0
