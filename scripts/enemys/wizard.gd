@@ -22,7 +22,7 @@ var ON_HIT_KNOCKBACK = 200
 enum {
 	IDLE, SHOOTING
 }
-var state = IDLE
+var state = SHOOTING
 
 func _ready():
 	turn_pivot = $Pivot/TurnPivot
