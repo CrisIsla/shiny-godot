@@ -6,6 +6,7 @@ extends CharacterBody2D
 @onready var sprite_2d = $Sprite2D
 @onready var dialog_0 = $Dialogs/Dialog0
 @onready var dialog_idle = $DialogIdle
+@onready var audio_stream_player = $AudioStreamPlayer
 
 var current_label_animation = null
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -32,6 +33,7 @@ func _on_interaction_area_body_entered(body):
 			if current_label_animation == "":
 				break
 			dialog_0.play("dialogue"+str(j))
+			audio_stream_player.play()
 			current_label_animation = dialog_0.current_animation
 			await dialog_0.animation_finished
 

@@ -1,8 +1,9 @@
-[gd_scene load_steps=38 format=3 uid="uid://dae4mmxws73ta"]
+[gd_scene load_steps=39 format=3 uid="uid://dae4mmxws73ta"]
 
 [ext_resource type="Script" path="res://scripts/NPC.gd" id="1_4he0d"]
 [ext_resource type="Texture2D" uid="uid://e7tnfveyv63b" path="res://assets/NPC/Pink_Monster_Idle_4.png" id="2_mmbnc"]
 [ext_resource type="Texture2D" uid="uid://c2dvrjoidwtjh" path="res://assets/NPC/dialog/pixel_style1.png" id="3_md4fd"]
+[ext_resource type="AudioStream" uid="uid://dq3btgwunh8is" path="res://assets/SFX/npc.ogg" id="4_1db4g"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x8cfx"]
 radius = 7.0
@@ -631,6 +632,62 @@ tracks/1/keys = {
 "values": ["Give 'em a good whack, and watch 'em spin with glee!"]
 }
 
+[sub_resource type="Animation" id="Animation_qtu3b"]
+resource_name = "dialogue22"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Hold on, there's more to proclaim,"]
+}
+
+[sub_resource type="Animation" id="Animation_l2ppp"]
+resource_name = "dialogue23"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["another hit will freeze its frame!"]
+}
+
 [sub_resource type="Animation" id="Animation_puond"]
 resource_name = "dialogue3"
 length = 1.6
@@ -827,62 +884,6 @@ tracks/1/keys = {
 "values": ["jumping is the key for triumph and joy."]
 }
 
-[sub_resource type="Animation" id="Animation_qtu3b"]
-resource_name = "dialogue22"
-length = 2.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Label:visible_ratio")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 1.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Label:text")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": ["Hold on, there's more to proclaim,"]
-}
-
-[sub_resource type="Animation" id="Animation_l2ppp"]
-resource_name = "dialogue23"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Label:visible_ratio")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 1.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Label:text")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": ["another hit will freeze its frame!"]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_e2p08"]
 _data = {
 "RESET": SubResource("Animation_s184t"),
@@ -986,6 +987,11 @@ root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_e2p08")
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_1db4g")
+volume_db = -10.0
+bus = &"SFX"
 
 [connection signal="body_entered" from="InteractionArea" to="." method="_on_interaction_area_body_entered"]
 [connection signal="body_exited" from="InteractionArea" to="." method="_on_interaction_area_body_exited"]
