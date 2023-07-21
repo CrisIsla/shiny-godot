@@ -59,6 +59,16 @@ func _ready():
 	ui.visible = true
 	panel_container.visible = true
 	black_bars.visible = true
+	LevelTransition.started.connect(player_cant_move)
+	LevelTransition.finished.connect(player_can_move)
+
+func player_cant_move():
+	print("cant move")
+	can_move = false
+
+func player_can_move():
+	print("can move")	
+	can_move = true
 
 func _input(event):
 	if event.is_action_pressed("reset"):
