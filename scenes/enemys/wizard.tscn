@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cw56qlu8qyvpf"]
+[gd_scene load_steps=19 format=3 uid="uid://cw56qlu8qyvpf"]
 
 [ext_resource type="Texture2D" uid="uid://lt10vnhrxbb1" path="res://assets/enemy/Evil_Wizard/Sprites/Idle.png" id="1_27lr0"]
 [ext_resource type="Script" path="res://scripts/enemys/wizard.gd" id="1_nxq5n"]
@@ -142,6 +142,10 @@ transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_x1row"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3i75u"]
+radius = 21.0
+height = 60.0
+
 [node name="wizard" type="CharacterBody2D"]
 script = ExtResource("1_nxq5n")
 projectile_scene = ExtResource("2_d5oky")
@@ -150,13 +154,16 @@ direction = -1
 [node name="Pivot" type="Node2D" parent="."]
 
 [node name="TurnPivot" type="Node2D" parent="Pivot"]
+rotation = 1.5708
 
 [node name="Sprite2D" type="Sprite2D" parent="Pivot/TurnPivot"]
-position = Vector2(0, -42)
+position = Vector2(-42, -0.999998)
+rotation = -1.5708
 texture = ExtResource("1_27lr0")
 hframes = 8
 
 [node name="Hitbox" type="Area2D" parent="Pivot/TurnPivot"]
+rotation = -1.5708
 collision_layer = 0
 collision_mask = 2
 
@@ -185,5 +192,14 @@ parameters/playback = SubResource("AnimationNodeStateMachinePlayback_x1row")
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
 autostart = true
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(0, -30)
+shape = SubResource("CapsuleShape2D_3i75u")
+debug_color = Color(0.341176, 0.619608, 0, 0.419608)
 
 [connection signal="area_entered" from="Pivot/TurnPivot/Hitbox" to="." method="_on_hitbox_area_entered"]
