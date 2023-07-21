@@ -1,6 +1,5 @@
 extends Enemy
 
-
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
@@ -18,12 +17,15 @@ enum HOR_DIRECTIONS { LEFT = -1, RIGHT = 1 }
 @onready var projectile_spawn = $Pivot/ProjectileSpawn
 @onready var pivot = $Pivot
 
+var ON_HIT_KNOCKBACK = 200
+
 enum {
 	IDLE, SHOOTING
 }
 var state = IDLE
 
 func _ready():
+	turn_pivot = $Pivot/TurnPivot
 	timer.wait_time = shoot_cooldown
 	timer.timeout.connect(_shoot)
 	animation_tree.active = true
@@ -32,6 +34,7 @@ func _ready():
 	
 func _physics_process(delta):
 	# Add the gravity.
+	update_is_killable(turn_pivot)
 	if not is_on_floor():
 		velocity.y += gravity * delta
 	
@@ -56,6 +59,9 @@ func _spawn_projectile():
 	projectile_spawn.add_child(projectile)
 	state = IDLE
 
-	
-
+func _on_hitbox_area_entered(area):
+	if area.is_in_group("player_hurtbox"):
+		var player = area.get_parent() as Player
+		player.take_damage(damage)
+		player.knockback(ON_HIT_KNOCKBACK, global_position)
 

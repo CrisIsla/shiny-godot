@@ -10,6 +10,8 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @export var damage: int
 @export var is_killable: bool = false
 
+var turn_pivot: Node2D
+
 func _physics_process(delta):
 	if not is_on_floor():
 		apply_gravity(delta)
@@ -68,9 +70,12 @@ func update_is_killable(turn_pivot: Node2D):
 func _set_is_killable(value):
 	is_killable = value
 
-# Function gets override when player hits a specific enemy
 func take_hit():
-	pass
+	print("take_hit")
+	if is_killable:
+		_die(turn_pivot)
+	else:
+		_on_hit_turn(turn_pivot, 6, 8)
 
 
 	
