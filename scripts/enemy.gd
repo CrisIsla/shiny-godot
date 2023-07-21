@@ -71,7 +71,6 @@ func _set_is_killable(value):
 	is_killable = value
 
 func take_hit():
-	print("take_hit")
 	if is_killable:
 		_die(turn_pivot)
 	else:
