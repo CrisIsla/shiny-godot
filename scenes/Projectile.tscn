@@ -58,7 +58,6 @@ radius = 6.0
 height = 12.0
 
 [node name="Projectile" type="Node2D"]
-z_index = 101
 script = ExtResource("1_ngirg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -66,15 +65,16 @@ scale = Vector2(-1, 1)
 sprite_frames = SubResource("SpriteFrames_lcmyi")
 frame_progress = 0.19384
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Hitbox" type="Area2D" parent="."]
 collision_layer = 16
+collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(26, 0)
 shape = SubResource("CapsuleShape2D_rwjqk")
 debug_color = Color(0.992157, 0, 0.278431, 0.419608)
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

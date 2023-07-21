@@ -9,7 +9,7 @@ const JUMP_VELOCITY = -400.0
 enum HOR_DIRECTIONS { LEFT = -1, RIGHT = 1 }
 @export var direction: HOR_DIRECTIONS
 @export var shoot_cooldown: float = 5.0
-@export var projectile_speed: float = 50.0
+@export var projectile_speed: float = 100
 
 @onready var animation_player = $AnimationPlayer
 @onready var animation_tree = $AnimationTree
