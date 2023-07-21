@@ -254,15 +254,16 @@ rotation = -1.5708
 texture = ExtResource("1_0y3e4")
 hframes = 7
 
-[node name="Hitbox" type="Area2D" parent="."]
+[node name="Hitbox" type="Area2D" parent="Pivot/TurnPivot"]
+rotation = -1.5708
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/TurnPivot/Hitbox"]
 position = Vector2(0, -11)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_1778n")
 debug_color = Color(0, 0.631373, 0.47451, 0.419608)
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
-[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="area_entered" from="Pivot/TurnPivot/Hitbox" to="." method="_on_hitbox_area_entered"]
