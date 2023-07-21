@@ -1569,6 +1569,7 @@ visible = false
 
 [node name="JumpSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("16_1l3sw")
+volume_db = -5.0
 bus = &"SFX"
 
 [node name="Step" type="AudioStreamPlayer" parent="."]
