@@ -2,7 +2,8 @@ extends Node2D
 
 @onready var turn_pivot = $Pivot/TurnPivot
 @onready var tileset = $Pivot/TurnPivot/TilesetPlatform
-
+var normal_tres = preload("res://tileset/normal.tres")
+var thin_tres = preload("res://tileset/thin.tres")
 var is_turning = false
 var is_wiggling = false
 var tween
@@ -51,7 +52,9 @@ func _check_is_thin():
 	var radians = fmod(abs(turn_pivot.skew), 2*PI)
 	var dead_zone = 0.3 # in radians
 	if (radians < PI/2 + dead_zone and radians > PI/2 - dead_zone) or (radians < 6*PI/4 + dead_zone and radians > 6*PI/4 - dead_zone):
-		print("thin")
+		tileset.tile_set = thin_tres
+	else:
+		tileset.tile_set = normal_tres
 
 func take_hit(b):
 	if b != tileset:
