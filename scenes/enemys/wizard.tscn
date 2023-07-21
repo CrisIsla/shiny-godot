@@ -1,13 +1,17 @@
-[gd_scene load_steps=17 format=3 uid="uid://cw56qlu8qyvpf"]
+[gd_scene load_steps=18 format=3 uid="uid://cw56qlu8qyvpf"]
 
 [ext_resource type="Texture2D" uid="uid://lt10vnhrxbb1" path="res://assets/enemy/Evil_Wizard/Sprites/Idle.png" id="1_27lr0"]
 [ext_resource type="Script" path="res://scripts/enemys/wizard.gd" id="1_nxq5n"]
 [ext_resource type="PackedScene" uid="uid://c04p5iymmhdgs" path="res://scenes/Projectile.tscn" id="2_d5oky"]
 [ext_resource type="Texture2D" uid="uid://dyq1ot3vadcmw" path="res://assets/enemy/Evil_Wizard/Sprites/Attack1.png" id="2_uqwiw"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0exaf"]
+radius = 12.0
+height = 54.0
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s4430"]
-radius = 17.0
-height = 52.0
+radius = 8.0
+height = 48.0
 
 [sub_resource type="Animation" id="Animation_d1nsf"]
 length = 0.001
@@ -152,12 +156,20 @@ position = Vector2(0, -42)
 texture = ExtResource("1_27lr0")
 hframes = 8
 
+[node name="Hitbox" type="Area2D" parent="Pivot/TurnPivot"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/TurnPivot/Hitbox"]
+position = Vector2(0, -27)
+shape = SubResource("CapsuleShape2D_0exaf")
+debug_color = Color(0.972549, 0, 0.439216, 0.419608)
+
 [node name="ProjectileSpawn" type="Marker2D" parent="Pivot"]
 position = Vector2(41, -17)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(2, -26)
+position = Vector2(0, -24)
 shape = SubResource("CapsuleShape2D_s4430")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -173,3 +185,5 @@ parameters/playback = SubResource("AnimationNodeStateMachinePlayback_x1row")
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
 autostart = true
+
+[connection signal="area_entered" from="Pivot/TurnPivot/Hitbox" to="." method="_on_hitbox_area_entered"]
