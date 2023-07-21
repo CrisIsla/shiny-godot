@@ -22,8 +22,7 @@ start = 20
 end = 22
 
 [node name="Slime" parent="Enemies" index="0" instance=ExtResource("3_064os")]
-position = Vector2(1018, -385)
-can_move = true
+position = Vector2(1055, -385)
 speed = 30
 damage = 1
 
