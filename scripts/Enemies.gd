@@ -1,4 +1,4 @@
-extends Node
+extends Node2D
 signal area_cleared
 
 var enemy_count: int

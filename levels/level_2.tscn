@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://mrjsoltouv73"]
 
 [ext_resource type="PackedScene" uid="uid://bb0bb3cj7t5to" path="res://scenes/level_creator.tscn" id="1_ufh1n"]
+[ext_resource type="PackedScene" uid="uid://mukac6r6oxyk" path="res://scenes/enemys/slime.tscn" id="3_064os"]
 [ext_resource type="PackedScene" uid="uid://dae4mmxws73ta" path="res://scenes/TutorialNPC.tscn" id="3_g6sve"]
-[ext_resource type="PackedScene" uid="uid://1pkd7o1t6sfo" path="res://scenes/slime.tscn" id="3_u0uow"]
 [ext_resource type="AudioStream" uid="uid://do8duv6680m3y" path="res://assets/music/Jet Black Soul and Eternal War.ogg" id="4_5gmt0"]
 [ext_resource type="PackedScene" uid="uid://cnnwgexl4tuuy" path="res://scenes/Platforms/4BlockPlatform.tscn" id="5_3aaxl"]
 [ext_resource type="PackedScene" uid="uid://bqj44pvatwts2" path="res://scenes/Platforms/TurnablePlatform.tscn" id="5_7p41d"]
@@ -21,12 +21,14 @@ position = Vector2(320, -19)
 start = 20
 end = 22
 
-[node name="Slime" parent="Enemies" index="0" instance=ExtResource("3_u0uow")]
-position = Vector2(-231, -366)
+[node name="Slime" parent="Enemies" index="0" instance=ExtResource("3_064os")]
+position = Vector2(1018, -385)
+can_move = true
+speed = 30
 damage = 1
 
-[node name="Slime2" parent="Enemies" index="1" instance=ExtResource("3_u0uow")]
-position = Vector2(1100, -384)
+[node name="Slime2" parent="Enemies" index="1" instance=ExtResource("3_064os")]
+position = Vector2(-231, -364)
 damage = 1
 
 [node name="player" parent="." index="6"]

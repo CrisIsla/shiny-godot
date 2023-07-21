@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://bb0bb3cj7t5to" path="res://scenes/level_creator.tscn" id="1_1ad7y"]
 [ext_resource type="PackedScene" uid="uid://mrjsoltouv73" path="res://levels/level_2.tscn" id="2_8fnf0"]
-[ext_resource type="PackedScene" uid="uid://1pkd7o1t6sfo" path="res://scenes/slime.tscn" id="2_u0oy6"]
 [ext_resource type="PackedScene" uid="uid://cpstgcmaq8i3" path="res://scenes/tree.tscn" id="3_pal7d"]
+[ext_resource type="PackedScene" uid="uid://mukac6r6oxyk" path="res://scenes/enemys/slime.tscn" id="4_25ykw"]
 [ext_resource type="AudioStream" uid="uid://0r5py4xd3d" path="res://assets/music/Distance of Moon and Earth.ogg" id="5_mldyn"]
 
 [node name="Level1" instance=ExtResource("1_1ad7y")]
@@ -24,19 +24,17 @@ layer_0/tile_data = PackedInt32Array(262148, 393216, 11, 196612, 65536, 6, 26214
 [node name="Door" parent="." index="6"]
 position = Vector2(1617, -223)
 
-[node name="Slime" parent="Enemies" index="0" instance=ExtResource("2_u0oy6")]
-position = Vector2(47, 96)
-speed = 30
+[node name="Slime" parent="Enemies" index="0" instance=ExtResource("4_25ykw")]
+position = Vector2(68, 95)
 damage = 1
 
-[node name="Slime2" parent="Enemies" index="1" instance=ExtResource("2_u0oy6")]
-position = Vector2(562, 96)
+[node name="Slime3" parent="Enemies" index="1" instance=ExtResource("4_25ykw")]
+position = Vector2(1349, 29)
+damage = 1
+
+[node name="Slime2" parent="Enemies" index="2" instance=ExtResource("4_25ykw")]
+position = Vector2(616, 93)
 can_move = true
-speed = 30
-damage = 1
-
-[node name="Slime3" parent="Enemies" index="2" instance=ExtResource("2_u0oy6")]
-position = Vector2(1317, 32)
 speed = 30
 damage = 1
 
