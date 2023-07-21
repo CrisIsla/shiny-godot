@@ -1,0 +1,200 @@
+[gd_scene load_steps=9 format=3 uid="uid://dvf5ked1m8ex8"]
+
+[ext_resource type="Script" path="res://scripts/credits.gd" id="1_0i2f8"]
+[ext_resource type="FontFile" uid="uid://cd026elnkrdtb" path="res://assets/UI/ThaleahFat.ttf" id="1_e0kju"]
+[ext_resource type="AudioStream" uid="uid://d2qgwgytl1k8g" path="res://assets/music/Town at night.wav" id="2_1u6fs"]
+[ext_resource type="Texture2D" uid="uid://2s82pmjnfnd3" path="res://assets/player/Owlet_Monster.png" id="3_a82h3"]
+[ext_resource type="Texture2D" uid="uid://0we1x0jyk2q4" path="res://assets/UI/ssj-devs.png" id="4_yhqsl"]
+
+[sub_resource type="Animation" id="Animation_mbr0j"]
+resource_name = "credits"
+length = 52.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1, 30),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 200), Vector2(0, -860)]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("music")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("2_1u6fs")
+}],
+"times": PackedFloat32Array(1.1)
+}
+tracks/1/use_blend = true
+
+[sub_resource type="Animation" id="Animation_vtwk2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 200)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(320, 1136)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kgwwn"]
+_data = {
+"RESET": SubResource("Animation_vtwk2"),
+"credits": SubResource("Animation_mbr0j")
+}
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 200.0
+offset_bottom = 1156.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0i2f8")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -291.0
+offset_bottom = 510.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 114.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_e0kju")
+bbcode_enabled = true
+text = "[center]Credits
+Game by: SSJ Devs
+Cristobal Isla
+Felipe Jara
+Nicolas Pena
+
+Assets:
+------------------------------------------------------
+
+Free Tiny Hero Sprites Pixel Art by craftpix.net
+
+------------------------------------------------------
+
+Minotaur mash by Allergix
+
+------------------------------------------------------
+
+Forest Lite pixel art by sanctumpixel
+
+------------------------------------------------------
+
+Pixel art platformer village props by Cainos
+
+------------------------------------------------------
+
+Swngyill's Retro Music Pack - Vol. 001 and Vol. 002 by Swngyill YOON
+
+------------------------------------------------------
+
+Spooky Music Mini Pack by Swiss Arcade Game Entertainment
+
+------------------------------------------------------
+
+Pixel Art Effect - FX084 (+15 Effects) by NYKNCK
+
+------------------------------------------------------
+
+EVil Wizard 2 by LuizMelo
+
+------------------------------------------------------
+
+High fantasy slime enemy by War
+
+------------------------------------------------------
+
+[center]THANKS FOR PLAYING![/center][/center]"
+scroll_active = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "credits"
+libraries = {
+"": SubResource("AnimationLibrary_kgwwn")
+}
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 189.0
+offset_top = 72.0
+offset_right = 194.0
+offset_bottom = 73.0
+
+[node name="music" type="AudioStreamPlayer" parent="."]
+bus = &"Music"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+offset_left = 157.0
+offset_top = 923.0
+offset_right = 275.0
+offset_bottom = 985.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_e0kju")
+theme_override_font_sizes/font_size = 30
+text = "Made with
+GODOT"
+horizontal_alignment = 1
+
+[node name="player" type="Sprite2D" parent="."]
+position = Vector2(107.5, 916.788)
+scale = Vector2(1.04922, 1.04922)
+texture = ExtResource("3_a82h3")
+
+[node name="ssj devs" type="Sprite2D" parent="."]
+position = Vector2(104.5, 955.787)
+scale = Vector2(0.0984376, 0.0984376)
+texture = ExtResource("4_yhqsl")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

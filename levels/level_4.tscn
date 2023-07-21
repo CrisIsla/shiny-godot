@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bb0bb3cj7t5to" path="res://scenes/level_creator.tscn" id="1_m35s1"]
 [ext_resource type="PackedScene" uid="uid://cw56qlu8qyvpf" path="res://scenes/enemys/wizard.tscn" id="3_dftqm"]
 [ext_resource type="PackedScene" uid="uid://bqj44pvatwts2" path="res://scenes/Platforms/TurnablePlatform.tscn" id="3_orcr0"]
-[ext_resource type="AudioStream" uid="uid://bta7bhg3ov4lk" path="res://assets/music/Skyscraper in Holy Night.ogg" id="3_rpevb"]
+[ext_resource type="AudioStream" uid="uid://46xi8nxut3bx" path="res://assets/music/Space Racing.ogg" id="3_vagyr"]
 [ext_resource type="PackedScene" uid="uid://cpstgcmaq8i3" path="res://scenes/tree.tscn" id="4_qujba"]
 
 [node name="Level4" instance=ExtResource("1_m35s1")]
@@ -42,7 +42,7 @@ damage = 1
 position = Vector2(-134, 88)
 
 [node name="level_music" parent="." index="6"]
-stream = ExtResource("3_rpevb")
+stream = ExtResource("3_vagyr")
 
 [node name="TurnablePlatform" parent="." index="7" instance=ExtResource("3_orcr0")]
 position = Vector2(506, -32)

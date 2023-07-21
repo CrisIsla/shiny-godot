@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://5ipi5q7np6d7"]
+[gd_scene load_steps=3 format=3 uid="uid://5ipi5q7np6d7"]
 
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_4t4cy"]
+[ext_resource type="FontFile" uid="uid://cd026elnkrdtb" path="res://assets/UI/ThaleahFat.ttf" id="2_t2rsa"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 layer = 10
@@ -26,20 +27,28 @@ layout_mode = 2
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_t2rsa")
 theme_override_font_sizes/font_size = 32
 text = "Dimensional Drift"
 
 [node name="Play" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_t2rsa")
+theme_override_font_sizes/font_size = 24
 text = "PLAY"
 
 [node name="Credits" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_t2rsa")
+theme_override_font_sizes/font_size = 24
 text = "CREDITS"
 
 [node name="Exit" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_t2rsa")
+theme_override_font_sizes/font_size = 24
 text = "EXIT"
 
 [connection signal="button_up" from="PanelContainer/MarginContainer/VBoxContainer/Play" to="." method="_on_play_button_up"]
+[connection signal="button_up" from="PanelContainer/MarginContainer/VBoxContainer/Credits" to="." method="_on_credits_button_up"]
 [connection signal="button_up" from="PanelContainer/MarginContainer/VBoxContainer/Exit" to="." method="_on_exit_button_up"]
