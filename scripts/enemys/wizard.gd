@@ -50,8 +50,11 @@ func _handle_states():
 		
 		
 func _shoot():
+	if is_turning:
+		return
 	state = SHOOTING
-	
+
+# Called by animation player
 func _spawn_projectile():
 	# Add projectile as a child.
 	var projectile = projectile_scene.instantiate()
