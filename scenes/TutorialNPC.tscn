@@ -1,9 +1,8 @@
-[gd_scene load_steps=37 format=3 uid="uid://dae4mmxws73ta"]
+[gd_scene load_steps=36 format=3 uid="uid://dae4mmxws73ta"]
 
 [ext_resource type="Script" path="res://scripts/NPC.gd" id="1_4he0d"]
 [ext_resource type="Texture2D" uid="uid://e7tnfveyv63b" path="res://assets/NPC/Pink_Monster_Idle_4.png" id="2_mmbnc"]
 [ext_resource type="Texture2D" uid="uid://c2dvrjoidwtjh" path="res://assets/NPC/dialog/pixel_style1.png" id="3_md4fd"]
-[ext_resource type="AudioStream" uid="uid://dp55oy2s0ajij" path="res://assets/SFX/npc2.ogg" id="4_ku2s1"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x8cfx"]
 radius = 7.0
@@ -929,10 +928,6 @@ root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_e2p08")
 }
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_ku2s1")
-volume_db = -20.0
 
 [connection signal="body_entered" from="InteractionArea" to="." method="_on_interaction_area_body_entered"]
 [connection signal="body_exited" from="InteractionArea" to="." method="_on_interaction_area_body_exited"]

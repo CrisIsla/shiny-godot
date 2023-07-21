@@ -16,7 +16,7 @@ func _ready():
 	Game.player.platform_hit.connect(take_hit)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
+func _process(delta):
 	_check_is_thin()
 	if not is_turning:
 		wiggle_animation()

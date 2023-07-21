@@ -1,4 +1,4 @@
-extends Enemy
+extends "res://scripts/enemy.gd"
 
 @onready var animation_player = $AnimationPlayer
 @onready var hurtbox = $CollisionShape2D
